@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicioSISFALLA" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServicioSISFALLA_GetTabla_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTabla" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSISFALLA_GetTabla_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTablaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSISFALLA_GetMaxSincVer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaxSincVer" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSISFALLA_GetMaxSincVer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaxSincVerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSISFALLA_GetRegistrosSincronizacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegistrosSincronizacion" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSISFALLA_GetRegistrosSincronizacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegistrosSincronizacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSISFALLA_Subir_InputMessage">
+    <wsdl:part name="parameters" element="tns:Subir" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSISFALLA_Subir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubirResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSISFALLA_ConfirmarSinc_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmarSinc" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSISFALLA_ConfirmarSinc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConfirmarSincResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSISFALLA_GetStrFechaHora_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStrFechaHora" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSISFALLA_GetStrFechaHora_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStrFechaHoraResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSISFALLA_GetTablaTest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTablaTest" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSISFALLA_GetTablaTest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTablaTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSISFALLA_IniciarSesion_InputMessage">
+    <wsdl:part name="parameters" element="tns:IniciarSesion" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSISFALLA_IniciarSesion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IniciarSesionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSISFALLA_ValidarOperacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarOperacion" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSISFALLA_ValidarOperacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarOperacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSISFALLA_CerrarSesion_InputMessage">
+    <wsdl:part name="parameters" element="tns:CerrarSesion" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSISFALLA_CerrarSesion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CerrarSesionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServicioSISFALLA">
+    <wsdl:operation name="GetTabla">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSISFALLA/GetTabla" message="tns:IServicioSISFALLA_GetTabla_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSISFALLA/GetTablaResponse" message="tns:IServicioSISFALLA_GetTabla_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxSincVer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSISFALLA/GetMaxSincVer" message="tns:IServicioSISFALLA_GetMaxSincVer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSISFALLA/GetMaxSincVerResponse" message="tns:IServicioSISFALLA_GetMaxSincVer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegistrosSincronizacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSISFALLA/GetRegistrosSincronizacion" message="tns:IServicioSISFALLA_GetRegistrosSincronizacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSISFALLA/GetRegistrosSincronizacionResponse" message="tns:IServicioSISFALLA_GetRegistrosSincronizacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Subir">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSISFALLA/Subir" message="tns:IServicioSISFALLA_Subir_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSISFALLA/SubirResponse" message="tns:IServicioSISFALLA_Subir_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarSinc">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSISFALLA/ConfirmarSinc" message="tns:IServicioSISFALLA_ConfirmarSinc_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSISFALLA/ConfirmarSincResponse" message="tns:IServicioSISFALLA_ConfirmarSinc_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStrFechaHora">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSISFALLA/GetStrFechaHora" message="tns:IServicioSISFALLA_GetStrFechaHora_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSISFALLA/GetStrFechaHoraResponse" message="tns:IServicioSISFALLA_GetStrFechaHora_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTablaTest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSISFALLA/GetTablaTest" message="tns:IServicioSISFALLA_GetTablaTest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSISFALLA/GetTablaTestResponse" message="tns:IServicioSISFALLA_GetTablaTest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IniciarSesion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSISFALLA/IniciarSesion" message="tns:IServicioSISFALLA_IniciarSesion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSISFALLA/IniciarSesionResponse" message="tns:IServicioSISFALLA_IniciarSesion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarOperacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSISFALLA/ValidarOperacion" message="tns:IServicioSISFALLA_ValidarOperacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSISFALLA/ValidarOperacionResponse" message="tns:IServicioSISFALLA_ValidarOperacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CerrarSesion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSISFALLA/CerrarSesion" message="tns:IServicioSISFALLA_CerrarSesion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSISFALLA/CerrarSesionResponse" message="tns:IServicioSISFALLA_CerrarSesion_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServicioSISFALLA" type="tns:IServicioSISFALLA">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTabla">
+      <soap:operation soapAction="http://tempuri.org/IServicioSISFALLA/GetTabla" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxSincVer">
+      <soap:operation soapAction="http://tempuri.org/IServicioSISFALLA/GetMaxSincVer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegistrosSincronizacion">
+      <soap:operation soapAction="http://tempuri.org/IServicioSISFALLA/GetRegistrosSincronizacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Subir">
+      <soap:operation soapAction="http://tempuri.org/IServicioSISFALLA/Subir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarSinc">
+      <soap:operation soapAction="http://tempuri.org/IServicioSISFALLA/ConfirmarSinc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStrFechaHora">
+      <soap:operation soapAction="http://tempuri.org/IServicioSISFALLA/GetStrFechaHora" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTablaTest">
+      <soap:operation soapAction="http://tempuri.org/IServicioSISFALLA/GetTablaTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IniciarSesion">
+      <soap:operation soapAction="http://tempuri.org/IServicioSISFALLA/IniciarSesion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarOperacion">
+      <soap:operation soapAction="http://tempuri.org/IServicioSISFALLA/ValidarOperacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CerrarSesion">
+      <soap:operation soapAction="http://tempuri.org/IServicioSISFALLA/CerrarSesion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioSISFALLA">
+    <wsdl:port name="BasicHttpBinding_IServicioSISFALLA" binding="tns:BasicHttpBinding_IServicioSISFALLA">
+      <soap:address location="http://app-server.cndc.bo/WCFSisFallaTmp/Service1.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

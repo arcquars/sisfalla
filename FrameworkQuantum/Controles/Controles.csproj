@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3019B6F9-7A6A-4302-82EE-6D85BDF90C9C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Controles</RootNamespace>
+    <AssemblyName>Controles</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CNDCContextMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCLabelFloat.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCLabelText.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CNDCLabelText.Designer.cs">
+      <DependentUpon>CNDCLabelText.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CNDCPasswordEye.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CNDCPasswordEye.Designer.cs">
+      <DependentUpon>CNDCPasswordEye.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CNDCTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCPanelControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCDateTimePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCMaskedTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCMonthCalendar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCTextBoxNumerico.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCToolTip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCWebBrowser.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCGroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCTextBoxFloat.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCTextBoxDouble.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCTextBoxLong.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCLabelCombo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CNDCLabelCombo.Designer.cs">
+      <DependentUpon>CNDCLabelCombo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CNDCCheckedListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCProgresBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCStatusStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCToolStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CNDCMenuStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ColapsoItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ColapsoItem.Designer.cs">
+      <DependentUpon>ColapsoItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CNDCTextBoxDateTime.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IControlCNDC.cs" />
+    <Compile Include="IElementoBD.cs" />
+    <Compile Include="CNDCTextBoxInt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IEtiquetable.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Validador\IValidadorControl.cs" />
+    <Compile Include="Validador\ValidadorControlFecha.cs" />
+    <Compile Include="Validador\ValidadorControlFechaParte.cs" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CNDCButton.bmp" />
+    <EmbeddedResource Include="CNDCLabelText.resx">
+      <DependentUpon>CNDCLabelText.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CNDCListbox.bmp" />
+    <EmbeddedResource Include="CNDCLabelCombo.resx">
+      <DependentUpon>CNDCLabelCombo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CNDCPasswordEye.resx">
+      <DependentUpon>CNDCPasswordEye.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColapsoItem.resx">
+      <DependentUpon>ColapsoItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CNDCCheckbox.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CNDCTextbox.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CNDCLabelcombo.bmp" />
+    <EmbeddedResource Include="CNDCPanelcontrol.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CNDCLabelcontrol.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CNDCLabeltext.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CNDCDatetimepicker.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CNDCListview.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CNDCMaskedtextbox.bmp" />
+    <EmbeddedResource Include="CNDCMonthcalendar.bmp" />
+    <EmbeddedResource Include="CNDCPicturebox.bmp" />
+    <EmbeddedResource Include="CNDCRichtextbox.bmp" />
+    <EmbeddedResource Include="CNDCTooltip.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CNDCWebbrowser.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CNDCGroupbox.bmp" />
+    <EmbeddedResource Include="CNDCRadiobutton.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CNDCGridview.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CommonControls\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CNDCTreeview.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CNDCFloatTextbox.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CNDCIntTextbox.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CNDCCombobox.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CNDCChecklistbox.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CNDCProgressbar.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CNDCTabcontrol.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CNDCMenuStrip.bmp" />
+    <EmbeddedResource Include="CNDCStatusStrip.bmp" />
+    <EmbeddedResource Include="CNDCToolStrip.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{4E0C033D-3816-44C7-A205-FE5D1E4D5E2E}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PasswordEyeImage.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

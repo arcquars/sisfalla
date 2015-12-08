@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="90f7b504-11f5-4d95-ab36-92855d3d8ea5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.17.10.10/WCFSISFALLATmp/Service1.svc/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="99caaf04-2bab-4ede-b9d9-ed9c695982fc" SourceId="1" SourceUrl="http://172.17.10.10/WCFSISFALLATmp/Service1.svc/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="530ddb8b-1eb3-46a0-ba94-cdc36e170095" SourceId="1" SourceUrl="http://172.17.10.10/WCFSISFALLATmp/Service1.svc/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="b838b841-3745-47bc-8203-bd289b5371c2" SourceId="1" SourceUrl="http://172.17.10.10/WCFSISFALLATmp/Service1.svc/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

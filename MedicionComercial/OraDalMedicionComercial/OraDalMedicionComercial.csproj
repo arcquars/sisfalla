@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FC6AB865-934D-4BCF-9568-FED3A0530C0F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OraDalMedicionComercial</RootNamespace>
+    <AssemblyName>OraDalMedicionComercial</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ionic.Zip">
+      <HintPath>.\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.DataAccess, Version=2.112.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Descompresor.cs" />
+    <Compile Include="EjecutorLectura.cs" />
+    <Compile Include="OraDalMagnitudElectricaMgr.cs" />
+    <Compile Include="OraDalMC_FormatoLecturaMgr.cs" />
+    <Compile Include="OraDalMC_FormulaPuntoMedicionMgr.cs" />
+    <Compile Include="OraDalMC_IntervaloDetalleMgr.cs" />
+    <Compile Include="OraDalMC_IntervaloMaestroMgr.cs" />
+    <Compile Include="OraDalMC_LecturaDetalleMgr.cs" />
+    <Compile Include="OraDalMC_LecturaMgr.cs" />
+    <Compile Include="OraDalMC_PuntoMedicionMgr.cs" />
+    <Compile Include="OraDalMC_RPtoMedFtoMgr.cs" />
+    <Compile Include="OraDalMedidorFlujoMaxMinDetalleMgr.cs" />
+    <Compile Include="OraDalMedidorFlujoMaxMinMgr.cs" />
+    <Compile Include="OraDalMedidorMgr.cs" />
+    <Compile Include="OraDalMC_RPtoMedFtoDetalleMgr.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProveedorDatosLectura.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\FrameworkQuantum\BLL\BLL.csproj">
+      <Project>{4E0C033D-3816-44C7-A205-FE5D1E4D5E2E}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\DAL\DAL.csproj">
+      <Project>{FE2B3AB7-7A49-4825-9D0F-17031560D930}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\ExceptionHandlerLib\ExceptionHandlerLib.csproj">
+      <Project>{0363C846-AB70-4FAB-8488-111890B6AEF5}</Project>
+      <Name>ExceptionHandlerLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\PistasLib\PistasLib.csproj">
+      <Project>{62559EE4-3E5E-4F97-8E3E-B4AE0A2086A9}</Project>
+      <Name>PistasLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\UtilesComunes\UtilesComunes.csproj">
+      <Project>{6D9F0A0B-EBF4-47EE-97C0-ECD24530FD0A}</Project>
+      <Name>UtilesComunes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExpresionesLib\ExpresionesLib.csproj">
+      <Project>{DF5B3EB5-1CC3-454D-8961-8382CDCBC965}</Project>
+      <Name>ExpresionesLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModeloMedicionComercial\ModeloMedicionComercial.csproj">
+      <Project>{7499EFC3-DC70-4656-BF2E-01B43F6B2AF6}</Project>
+      <Name>ModeloMedicionComercial</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

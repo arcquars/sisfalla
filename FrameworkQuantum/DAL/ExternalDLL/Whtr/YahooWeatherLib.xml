@@ -1,0 +1,229 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+YahooWeatherLib
+</name>
+</assembly>
+<members>
+<member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.imageClass.title">
+	<summary>
+  The title of the image, for example "Yahoo! Weather"
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.imageClass.link">
+	<summary>
+  The URL of Yahoo! Weather 
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.imageClass.url">
+	<summary>
+  The URL of the image
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.imageClass.width">
+	<summary>
+  The width of the image, in pixels
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.imageClass.height">
+	<summary>
+  The height of the image, in pixels
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.itemClass.conditionClass.text">
+	<summary>
+   textual description of conditions, for example, "Partly Cloudy"  
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.itemClass.conditionClass.code">
+	<summary>
+  the condition code for this forecast. You could use this code to choose a text description or image for the forecast.
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.itemClass.conditionClass.temp">
+	<summary>
+  the current temperature, in the units specified by the units element 
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.itemClass.conditionClass.date">
+	<summary>
+  the current date and time for which this forecast applies. The date is in RFC822 Section 5 format, for example "Wed, 30 Nov 2005 1:56 pm PST" 
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.locationClass.city">
+	<summary>
+  city name
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.locationClass.region">
+	<summary>
+  state, territory, or region, if given
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.locationClass.country">
+	<summary>
+  two-character country code.
+ </summary>
+</member><member name="M:YahooWeatherLib.YahooWeatherForecast.#ctor(System.String,System.String)">
+	<summary>
+	</summary>
+	<param name="p">US zip code or Location ID. </param>
+	<param name="U">Units for temperature.  f: Fahrenheit   c: Celsius</param>
+	<remarks></remarks>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.unitsClass.temperature">
+	<summary>
+  degree units, f for Fahrenheit or c for Celsius
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.unitsClass.distance">
+	<summary>
+  units for distance, mi for miles or km for kilometers
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.unitsClass.pressure">
+	<summary>
+  units of barometric pressure, in for pounds per square inch or mb for millibars
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.unitsClass.speed">
+	<summary>
+  units of speed, mph for miles per hour or kph for kilometers per hour 
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.astronomyClass.sunrise">
+	<summary>
+  today's sunrise time. The time is a string in a local time format of "h:mm am/pm", for example "7:02 am" 
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.astronomyClass.sunset">
+	<summary>
+  today's sunset time. The time is a string in a local time format of "h:mm am/pm", for example "4:51 pm"
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.title">
+	<summary>
+  The title of the feed, which includes the location city. For example "Yahoo! Weather - Sunnyvale, CA" 
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.link">
+	<summary>
+  The URL for the Yahoo! Weather page of the forecast for this location. For example http://us.rd.yahoo.com/dailynews/rss/weather/ Sunnyvale__CA/ *http://xml.weather.yahoo.com/ forecast/94089_f.html
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.language">
+	<summary>
+  The language of the weather forecast, for example, en-us for US English. 
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.description">
+	<summary>
+  The overall description of the feed including the location, for example "Yahoo! Weather for Sunnyvale, CA" 
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.lastBuildDate">
+	<summary>
+  The last time the feed was updated. The format is in the date format defined by RFC822 Section 5, for example Mon, 256 Sep 17:25:18 -0700.
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.ttl">
+	<summary>
+  Time to Live; how long in minutes this feed should be cached. 
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.location">
+	<summary>
+  The location of this forecast.
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.units">
+	<summary>
+  Units for various aspects of the forecast.
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.wind">
+	<summary>
+  Forecast information about wind.
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.atmosphere">
+	<summary>
+  Forecast information about current atmospheric pressure, humidity, and visibility.
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.astronomy">
+	<summary>
+  Forecast information about current astronomical conditions.
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.image">
+	<summary>
+  The image used to identify this feed
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.item">
+	<summary>
+  The local weather conditions and forecast for a specific location.
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.itemClass.title">
+	<summary>
+  The forecast title and time, for example "Conditions for New York, NY at 1:51 pm EST" 
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.itemClass.link">
+	<summary>
+  The Yahoo! Weather URL for this forecast. 
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.itemClass.description">
+	<summary>
+  A simple summary of the current conditions and two-day forecast, in HTML format, including a link to Yahoo! Weather for the full forecast.
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.itemClass.guid">
+	<summary>
+  Unique identifier for the forecast, made up of the location ID, the date, and the time. The attribute isPermaLink is false. 
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.itemClass.pubDate">
+	<summary>
+  The date and time this forecast was posted, in the date format defined by RFC822 Section 5, for example Mon, 25 Sep 17:25:18 -0700. 
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.itemClass.lat">
+	<summary>
+  The latitude of the location.
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.itemClass.long">
+	<summary>
+  The longitude of the location
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.itemClass.condition">
+	<summary>
+  The longitude of the location
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.itemClass.forecast">
+	<summary>
+  The longitude of the location
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.windClass.chill">
+	<summary>
+  wind chill in degrees 
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.windClass.direction">
+	<summary>
+  wind direction, in degrees 
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.windClass.speed">
+	<summary>
+  wind speed, in the units specified in the speed attribute of the units element (mph or kph). 
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.itemClass.forecastClass.day">
+	<summary>
+   day of the week to which this forecast applies. Possible values are Mon Tue Wed Thu Fri Sat Sun 
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.itemClass.forecastClass.date">
+	<summary>
+  the date to which this forecast applies. The date is in "dd Mmm yyyy" format, for example "30 Nov 2005"
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.itemClass.forecastClass.low">
+	<summary>
+   the forecasted low temperature for this day, in the units specified by the units element 
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.itemClass.forecastClass.high">
+	<summary>
+  the forecasted high temperature for this day, in the units specified by the units element  
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.itemClass.forecastClass.text">
+	<summary>
+   a textual description of conditions, for example, "Partly Cloudy"
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.itemClass.forecastClass.code">
+	<summary>
+  the condition code for this forecast. You could use this code to choose a text description or image for the forecast.
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.atmosphereClass.humidity">
+	<summary>
+  humidity, in percent 
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.atmosphereClass.visibility">
+	<summary>
+   in the units specified by the distance attribute of the units element (mi or km). Note that the visibility is specified as the actual value * 100. For example, a visibility of 16.5 miles will be specified as 1650. A visibility of 14 kilometers will appear as 1400. 
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.atmosphereClass.pressure">
+	<summary>
+  barometric pressure, in the units specified by the pressure attribute of the units element (in or mb).
+ </summary>
+</member><member name="P:YahooWeatherLib.YahooWeatherForecast.rssClass.channelClass.atmosphereClass.rising">
+	<summary>
+  state of the barometric pressure,   steady = 0, rising = 1, falling = 2
+ </summary>
+</member>
+</members>
+</doc>

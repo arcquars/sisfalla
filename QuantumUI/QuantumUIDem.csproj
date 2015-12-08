@@ -1,0 +1,377 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AD94D213-347A-4B38-AD07-AC5C435ECD75}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QuantumUI</RootNamespace>
+    <AssemblyName>QuantumUI_Demandas</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>\\ad-server\INSTALADORES\Quantum\Demandas\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>41</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>646EA71F3E6A09828F80FF3884925C97C0ECED48</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>SISFALLA_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>quantum.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=12.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Business Objects\Common\4.0\managed\dotnet2\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=12.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Business Objects\Common\4.0\managed\dotnet2\CrystalDecisions.ReportSource.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=12.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Business Objects\Common\4.0\managed\dotnet2\CrystalDecisions.Shared.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=12.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Business Objects\Common\4.0\managed\dotnet2\CrystalDecisions.Windows.Forms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Excel, Version=1.3.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\MC\SMEC\ExcelLib\Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>paraOrdenar\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.DataAccess, Version=2.112.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CtrlModulos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlModulos.Designer.cs">
+      <DependentUpon>CtrlModulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="paraOrdenar\ActiveDirectoryAuthentication.cs" />
+    <Compile Include="FormIngreso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormIngreso.Designer.cs">
+      <DependentUpon>FormIngreso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="paraOrdenar\LdapAuthentication.cs" />
+    <Compile Include="PluginMgr.cs" />
+    <Compile Include="QuantumPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuantumPrincipal.Designer.cs">
+      <DependentUpon>QuantumPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CtrlModulos.resx">
+      <DependentUpon>CtrlModulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormIngreso.resx">
+      <DependentUpon>FormIngreso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuantumPrincipal.resx">
+      <DependentUpon>QuantumPrincipal.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ARIALN.TTF">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="MANUAL USUARIO - CNDC DEMANDAS.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Demandas\DemandasUI\DemandasUI.csproj">
+      <Project>{80CD642F-C8D8-4538-B127-2778B1F84A2C}</Project>
+      <Name>DemandasUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Demandas\ModeloDemandas\ModeloDemandas.csproj">
+      <Project>{00E1353A-66AD-4DCA-AE96-A02785A7295D}</Project>
+      <Name>ModeloDemandas</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Demandas\OraDalDemandas\OraDalDemandas.csproj">
+      <Project>{D7503FC5-BFDA-4992-AFD3-977FA8ADDC05}</Project>
+      <Name>OraDalDemandas</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FrameworkQuantum\MenuQuantum\MenuQuantum.csproj">
+      <Project>{2CD4D188-D8B7-495B-8DFC-ADD90F851B74}</Project>
+      <Name>MenuQuantum</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QuantumPluginLib\QuantumPluginLib.csproj">
+      <Project>{4DD95999-495F-4F4C-91FE-29FE5939DE87}</Project>
+      <Name>QuantumPluginLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FrameworkQuantum\SincronizacionLib\SincronizacionLib.csproj">
+      <Project>{F7C1CD1A-DB3F-40C3-B17C-5624450DB2D1}</Project>
+      <Name>SincronizacionLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FrameworkQuantum\BLL\BLL.csproj">
+      <Project>{4E0C033D-3816-44C7-A205-FE5D1E4D5E2E}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FrameworkQuantum\UtilesComunes\UtilesComunes.csproj">
+      <Project>{6D9F0A0B-EBF4-47EE-97C0-ECD24530FD0A}</Project>
+      <Name>UtilesComunes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FrameworkQuantum\Config\Config.csproj">
+      <Project>{CC9E0791-9873-4A57-816B-FDF5F7D56FCC}</Project>
+      <Name>Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FrameworkQuantum\Controles\Controles.csproj">
+      <Project>{3019B6F9-7A6A-4302-82EE-6D85BDF90C9C}</Project>
+      <Name>Controles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FrameworkQuantum\DAL\DAL.csproj">
+      <Project>{FE2B3AB7-7A49-4825-9D0F-17031560D930}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FrameworkQuantum\ExceptionHandlerLib\ExceptionHandlerLib.csproj">
+      <Project>{0363C846-AB70-4FAB-8488-111890B6AEF5}</Project>
+      <Name>ExceptionHandlerLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FrameworkQuantum\Forms\Forms.csproj">
+      <Project>{DDEA82E3-9C8A-4A1C-9987-5AA9E0A0C93D}</Project>
+      <Name>Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FrameworkQuantum\PistasLib\PistasLib.csproj">
+      <Project>{62559EE4-3E5E-4F97-8E3E-B4AE0A2086A9}</Project>
+      <Name>PistasLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FrameworkQuantum\PluginComunicacionBase\PluginComunicacionBase.csproj">
+      <Project>{E835B576-689B-41DD-8433-A816EF03F06D}</Project>
+      <Name>PluginComunicacionBase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
+    <None Include="Resources\Clear.png" />
+    <None Include="Resources\Delete.png" />
+    <None Include="Resources\disable__v3929.png" />
+    <None Include="Resources\Edit.png" />
+    <None Include="Resources\Filter.png" />
+    <None Include="Resources\Refresh.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\splash.png" />
+    <None Include="Resources\Zoom_In_Out.png" />
+    <None Include="Resources\ic_imprimir.png" />
+    <None Include="Resources\emailButton.png" />
+    <None Include="Resources\email_go.png" />
+    <None Include="Resources\checked.gif" />
+    <None Include="Resources\copiarDeInforme.png" />
+    <None Include="Resources\ElaborarInf.png" />
+    <Content Include="quantum.ico" />
+    <Content Include="Resources\imagesCA2S9SO0.jpg" />
+    <None Include="Resources\InfPrelim.png" />
+    <None Include="Resources\informe4.png" />
+    <None Include="Resources\InformeListo.png" />
+    <None Include="Resources\InformeEnviado.png" />
+    <None Include="Resources\InformeBlanco.png" />
+    <None Include="Resources\logo_q.png" />
+    <None Include="Resources\notifRegistrada.png" />
+    <None Include="Resources\notifEnviada.png" />
+    <None Include="Resources\notifRecibida.png" />
+    <None Include="Resources\notifEnviada.ico" />
+    <None Include="Resources\notifRegistrada.ico" />
+    <Content Include="Resources\quantum.ico" />
+    <None Include="Resources\RevertirInforme.png" />
+    <None Include="Resources\RevertirInforme.ico" />
+    <None Include="Resources\TerminarInf.ico" />
+    <Content Include="SISFALLAConfig.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="BusinessObjects.Enterprise.Sdk">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="BusinessObjects.Foundation.Logging">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="BusinessObjects.Licensing.KeycodeDecoder">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="log4net">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Oracle.DataAccess">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="SISFALLAConfig.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="stdole">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

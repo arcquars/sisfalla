@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3DF20AB5-9FEA-43DF-8C36-53F5B95755ED}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LecturaArchivos</RootNamespace>
+    <AssemblyName>LecturaArchivos</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Excel">
+      <HintPath>..\..\Excel_dll\Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CreadorTablaLectura.cs" />
+    <Compile Include="DestructorObjetosExcel.cs" />
+    <Compile Include="Fecha.cs" />
+    <Compile Include="LectorCSV_Jemread.cs" />
+    <Compile Include="LectorCSV_MAXCOM.cs" />
+    <Compile Include="LectorPRN_Notus.cs" />
+    <Compile Include="LectorPRN_PCMAP_v431.cs" />
+    <Compile Include="LectorXLS_AIMS_PRO.cs" />
+    <Compile Include="LectorCSV_ION_SETUP_v2.cs" />
+    <Compile Include="LectorXLS_MAP110.cs" />
+    <Compile Include="LectorXLS_Plawin.cs" />
+    <Compile Include="ParserFecha.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UtilitarioLectura.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\FrameworkQuantum\BLL\BLL.csproj">
+      <Project>{4E0C033D-3816-44C7-A205-FE5D1E4D5E2E}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\PistasLib\PistasLib.csproj">
+      <Project>{62559EE4-3E5E-4F97-8E3E-B4AE0A2086A9}</Project>
+      <Name>PistasLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModeloMedicionComercial\ModeloMedicionComercial.csproj">
+      <Project>{7499EFC3-DC70-4656-BF2E-01B43F6B2AF6}</Project>
+      <Name>ModeloMedicionComercial</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{77D30B6D-66D8-4AE7-A647-E705A74F61D4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OraDalSisFalla</RootNamespace>
+    <AssemblyName>OraDalSisFalla</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Oracle.DataAccess, Version=2.112.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ComponenteMgr.cs" />
+    <Compile Include="OraDalF_GF_RComponenteEdac.cs" />
+    <Compile Include="Operacion\OraDalOperacion.cs" />
+    <Compile Include="OraDalAnalisisFallaMgr.cs" />
+    <Compile Include="OraDalAsignacionResposabilidadMgr.cs" />
+    <Compile Include="OraDalColapsoMgr.cs" />
+    <Compile Include="OraDalFotoRegFalla.cs" />
+    <Compile Include="OraDalF_GF_Param_Edac.cs" />
+    <Compile Include="OraDalInformeFallaMgr.cs" />
+    <Compile Include="OraDalNotificacionMgr.cs" />
+    <Compile Include="OraDalOperacionAlimentadorMgr.cs" />
+    <Compile Include="OraDalOperacionInterruptoresMgr.cs" />
+    <Compile Include="OraDalP_GF_ConfiguracionMgr.cs" />
+    <Compile Include="OraDalP_GF_CorreosMgr.cs" />
+    <Compile Include="OraDalRContactoMgr.cs" />
+    <Compile Include="OraDalRegFallaMgr.cs" />
+    <Compile Include="OraDalRelesOperadosMgr.cs" />
+    <Compile Include="OraDalRRegFallaComponenteMgr.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OraDalTiempoDetalleMgr.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ModeloSisFalla\ModeloSisFalla.csproj">
+      <Project>{052DA623-72A9-45DE-9224-76AA20EB59C7}</Project>
+      <Name>ModeloSisFalla</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\SincronizacionLib\SincronizacionLib.csproj">
+      <Project>{F7C1CD1A-DB3F-40C3-B17C-5624450DB2D1}</Project>
+      <Name>SincronizacionLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\BLL\BLL.csproj">
+      <Project>{4E0C033D-3816-44C7-A205-FE5D1E4D5E2E}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\DAL\DAL.csproj">
+      <Project>{FE2B3AB7-7A49-4825-9D0F-17031560D930}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\PistasLib\PistasLib.csproj">
+      <Project>{62559EE4-3E5E-4F97-8E3E-B4AE0A2086A9}</Project>
+      <Name>PistasLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\PluginComunicacionBase\PluginComunicacionBase.csproj">
+      <Project>{E835B576-689B-41DD-8433-A816EF03F06D}</Project>
+      <Name>PluginComunicacionBase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,60 @@
+<SOAP-ENV:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+<SOAP-ENV:Body>
+<a1:AppManifest id="ref-1" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Microsoft.Samples.AppUpdater/AppUpdater%2C%20Version%3D1.0.0.27556%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<_Resources href="#ref-3"/>
+<_VersionInfo href="#ref-4"/>
+<_State href="#ref-5"/>
+</a1:AppManifest>
+<a1:ResourceFiles id="ref-3" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Microsoft.Samples.AppUpdater/AppUpdater%2C%20Version%3D1.0.0.27556%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<ResourceList href="#ref-6"/>
+</a1:ResourceFiles>
+<a1:AppVersionInfo id="ref-4" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Microsoft.Samples.AppUpdater/AppUpdater%2C%20Version%3D1.0.0.27556%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<_VersionManifestUrl id="ref-7"></_VersionManifestUrl>
+<_VersionNumber href="#ref-7"/>
+<_VersionLastChangeTime>2002-02-28T15:19:29.6036958-08:00</_VersionLastChangeTime>
+</a1:AppVersionInfo>
+<a1:UpdateState id="ref-5" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Microsoft.Samples.AppUpdater/AppUpdater%2C%20Version%3D1.0.0.27556%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<_Phase>Complete</_Phase>
+<_UpdateFailureEncoutered>false</_UpdateFailureEncoutered>
+<_UpdateFailureCount>0</_UpdateFailureCount>
+<_DownloadSource href="#ref-7"/>
+<_DownloadDestination href="#ref-7"/>
+<_NewVersionDirectory href="#ref-7"/>
+</a1:UpdateState>
+<a2:SortedList id="ref-6" xmlns:a2="http://schemas.microsoft.com/clr/ns/System.Collections">
+<keys href="#ref-8"/>
+<values href="#ref-9"/>
+<_size>2</_size>
+<version>2</version>
+<comparer href="#ref-10"/>
+<keyList xsi:null="1"/>
+<valueList xsi:null="1"/>
+</a2:SortedList>
+<SOAP-ENC:Array id="ref-8" SOAP-ENC:arrayType="xsd:anyType[16]">
+<item id="ref-11" xsi:type="SOAP-ENC:string">c:\documents and settings\jamiec\desktop\redist\samples\simplesample\simplesample\bin\release\appupdater.dll</item>
+<item id="ref-12" xsi:type="SOAP-ENC:string">C:\Documents and Settings\jamiec\Desktop\redist\Samples\SimpleSample\SimpleSample\bin\Release\SimpleSample.exe</item>
+</SOAP-ENC:Array>
+<SOAP-ENC:Array id="ref-9" SOAP-ENC:arrayType="xsd:anyType[16]">
+<item href="#ref-13"/>
+<item href="#ref-14"/>
+</SOAP-ENC:Array>
+<a2:Comparer id="ref-10" xmlns:a2="http://schemas.microsoft.com/clr/ns/System.Collections">
+</a2:Comparer>
+<a1:Resource id="ref-13" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Microsoft.Samples.AppUpdater/AppUpdater%2C%20Version%3D1.0.0.27556%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<_Name href="#ref-11"/>
+<_Url xsi:null="1"/>
+<_FilePath xsi:null="1"/>
+<_IsFolder>false</_IsFolder>
+<_LastModified>0001-01-01T00:00:00.0000000-08:00</_LastModified>
+<_AddedAtRuntime>true</_AddedAtRuntime>
+</a1:Resource>
+<a1:Resource id="ref-14" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Microsoft.Samples.AppUpdater/AppUpdater%2C%20Version%3D1.0.0.27556%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<_Name href="#ref-12"/>
+<_Url xsi:null="1"/>
+<_FilePath xsi:null="1"/>
+<_IsFolder>false</_IsFolder>
+<_LastModified>0001-01-01T00:00:00.0000000-08:00</_LastModified>
+<_AddedAtRuntime>true</_AddedAtRuntime>
+</a1:Resource>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

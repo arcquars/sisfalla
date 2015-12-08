@@ -1,0 +1,585 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{091F9484-795A-45A8-AA3B-2253830447B8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Proyectos</RootNamespace>
+    <AssemblyName>Proyectos</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\QuantumUI\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v11.2.Core, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Excel, Version=1.3.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>.\Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.DataAccess, Version=2.112.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CtrlDatosBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDatosBase.Designer.cs">
+      <DependentUpon>CtrlDatosBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlSelectorHojaDocExcel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlSelectorHojaDocExcel.Designer.cs">
+      <DependentUpon>CtrlSelectorHojaDocExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EnumsProyectos.cs" />
+    <Compile Include="FormAgentesExistentes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAgentesExistentes.designer.cs">
+      <DependentUpon>FormAgentesExistentes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormElimHistoCronogramaInversion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormElimHistoCronogramaInversion.Designer.cs">
+      <DependentUpon>FormElimHistoCronogramaInversion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormModificarRegistrosDesdeExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormModificarRegistrosDesdeExcel.Designer.cs">
+      <DependentUpon>FormModificarRegistrosDesdeExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlDatosDeRduccionDeEmisores.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDatosDeRduccionDeEmisores.Designer.cs">
+      <DependentUpon>CtrlDatosDeRduccionDeEmisores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlDatosDeTransmisionAsociadasAlProyecto.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDatosDeTransmisionAsociadasAlProyecto.Designer.cs">
+      <DependentUpon>CtrlDatosDeTransmisionAsociadasAlProyecto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlDatosEconomicosYCronogramaInversion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDatosEconomicosYCronogramaInversion.Designer.cs">
+      <DependentUpon>CtrlDatosEconomicosYCronogramaInversion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlDatosGenerales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDatosGenerales.designer.cs">
+      <DependentUpon>CtrlDatosGenerales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlDatosTecnicosDeProyBiomasa.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDatosTecnicosDeProyBiomasa.Designer.cs">
+      <DependentUpon>CtrlDatosTecnicosDeProyBiomasa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlDatosTecnicosDeProysCapacitores.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDatosTecnicosDeProysCapacitores.Designer.cs">
+      <DependentUpon>CtrlDatosTecnicosDeProysCapacitores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlDatosTecnicosDeProysDeTransmisionDeTransformador.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDatosTecnicosDeProysDeTransmisionDeTransformador.Designer.cs">
+      <DependentUpon>CtrlDatosTecnicosDeProysDeTransmisionDeTransformador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlDatosTecnicosHidroelectricos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDatosTecnicosHidroelectricos.Designer.cs">
+      <DependentUpon>CtrlDatosTecnicosHidroelectricos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlDatosTecnicosProysCicloCombinado.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDatosTecnicosProysCicloCombinado.Designer.cs">
+      <DependentUpon>CtrlDatosTecnicosProysCicloCombinado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlDatosTecnicosProysEolicos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDatosTecnicosProysEolicos.Designer.cs">
+      <DependentUpon>CtrlDatosTecnicosProysEolicos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlDatosTecnicosProysGeotermico.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDatosTecnicosProysGeotermico.Designer.cs">
+      <DependentUpon>CtrlDatosTecnicosProysGeotermico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlDatosTecnicosProysReactores.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDatosTecnicosProysReactores.Designer.cs">
+      <DependentUpon>CtrlDatosTecnicosProysReactores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlDatostecnicosProysTermicoADiesel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDatostecnicosProysTermicoADiesel.Designer.cs">
+      <DependentUpon>CtrlDatostecnicosProysTermicoADiesel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlDatosTecnicosProysTermicoAGasTurbinas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDatosTecnicosProysTermicoAGasTurbinas.Designer.cs">
+      <DependentUpon>CtrlDatosTecnicosProysTermicoAGasTurbinas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlDatosTecnicosProysLineaTransmision.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDatosTecnicosProysLineaTransmision.Designer.cs">
+      <DependentUpon>CtrlDatosTecnicosProysLineaTransmision.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlDatosTecnicosProyTermicoADualFuel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDatosTecnicosProyTermicoADualFuel.Designer.cs">
+      <DependentUpon>CtrlDatosTecnicosProyTermicoADualFuel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlLocalizacionDeProysDeGeneracion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlLocalizacionDeProysDeGeneracion.Designer.cs">
+      <DependentUpon>CtrlLocalizacionDeProysDeGeneracion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlLocalizacionDeProysDeTransmision.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlLocalizacionDeProysDeTransmision.Designer.cs">
+      <DependentUpon>CtrlLocalizacionDeProysDeTransmision.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlPrincipal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlPrincipal.Designer.cs">
+      <DependentUpon>CtrlPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlPrincipalTop.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlPrincipalTop.Designer.cs">
+      <DependentUpon>CtrlPrincipalTop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlPrincipalIzquierda.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlPrincipalIzquierda.Designer.cs">
+      <DependentUpon>CtrlPrincipalIzquierda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlSeriesHidrolologicas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlSeriesHidrolologicas.designer.cs">
+      <DependentUpon>CtrlSeriesHidrolologicas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormABProyectoMaestro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormABProyectoMaestro.Designer.cs">
+      <DependentUpon>FormABProyectoMaestro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCopiarDatosDeOtraEtapa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCopiarDatosDeOtraEtapa.Designer.cs">
+      <DependentUpon>FormCopiarDatosDeOtraEtapa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCrearSerieHidrologica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCrearSerieHidrologica.Designer.cs">
+      <DependentUpon>FormCrearSerieHidrologica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEntidadResponsable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEntidadResponsable.Designer.cs">
+      <DependentUpon>FormEntidadResponsable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProyectosHidrologicos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProyectosHidrologicos.Designer.cs">
+      <DependentUpon>FormProyectosHidrologicos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LectorXls.cs" />
+    <Compile Include="Parser.cs" />
+    <Compile Include="PluginProyectos.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TipoProyectoUIMgr.cs" />
+    <Compile Include="AyudanteGrados.cs" />
+    <EmbeddedResource Include="CtrlSelectorHojaDocExcel.resx">
+      <DependentUpon>CtrlSelectorHojaDocExcel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAgentesExistentes.resx">
+      <DependentUpon>FormAgentesExistentes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormElimHistoCronogramaInversion.resx">
+      <DependentUpon>FormElimHistoCronogramaInversion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormModificarRegistrosDesdeExcel.resx">
+      <DependentUpon>FormModificarRegistrosDesdeExcel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlDatosDeRduccionDeEmisores.resx">
+      <DependentUpon>CtrlDatosDeRduccionDeEmisores.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlDatosDeTransmisionAsociadasAlProyecto.resx">
+      <DependentUpon>CtrlDatosDeTransmisionAsociadasAlProyecto.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlDatosEconomicosYCronogramaInversion.resx">
+      <DependentUpon>CtrlDatosEconomicosYCronogramaInversion.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlDatosGenerales.resx">
+      <DependentUpon>CtrlDatosGenerales.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlDatosTecnicosDeProyBiomasa.resx">
+      <DependentUpon>CtrlDatosTecnicosDeProyBiomasa.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlDatosTecnicosDeProysCapacitores.resx">
+      <DependentUpon>CtrlDatosTecnicosDeProysCapacitores.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlDatosTecnicosDeProysDeTransmisionDeTransformador.resx">
+      <DependentUpon>CtrlDatosTecnicosDeProysDeTransmisionDeTransformador.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlDatosTecnicosHidroelectricos.resx">
+      <DependentUpon>CtrlDatosTecnicosHidroelectricos.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlDatosTecnicosProysCicloCombinado.resx">
+      <DependentUpon>CtrlDatosTecnicosProysCicloCombinado.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlDatosTecnicosProysEolicos.resx">
+      <DependentUpon>CtrlDatosTecnicosProysEolicos.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlDatosTecnicosProysGeotermico.resx">
+      <DependentUpon>CtrlDatosTecnicosProysGeotermico.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlDatosTecnicosProysReactores.resx">
+      <DependentUpon>CtrlDatosTecnicosProysReactores.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlDatostecnicosProysTermicoADiesel.resx">
+      <DependentUpon>CtrlDatostecnicosProysTermicoADiesel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlDatosTecnicosProysTermicoAGasTurbinas.resx">
+      <DependentUpon>CtrlDatosTecnicosProysTermicoAGasTurbinas.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlDatosTecnicosProysLineaTransmision.resx">
+      <DependentUpon>CtrlDatosTecnicosProysLineaTransmision.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlDatosTecnicosProyTermicoADualFuel.resx">
+      <DependentUpon>CtrlDatosTecnicosProyTermicoADualFuel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlLocalizacionDeProysDeGeneracion.resx">
+      <DependentUpon>CtrlLocalizacionDeProysDeGeneracion.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlLocalizacionDeProysDeTransmision.resx">
+      <DependentUpon>CtrlLocalizacionDeProysDeTransmision.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlPrincipal.resx">
+      <DependentUpon>CtrlPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlPrincipalTop.resx">
+      <DependentUpon>CtrlPrincipalTop.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlPrincipalIzquierda.resx">
+      <DependentUpon>CtrlPrincipalIzquierda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlSeriesHidrolologicas.resx">
+      <DependentUpon>CtrlSeriesHidrolologicas.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormABProyectoMaestro.resx">
+      <DependentUpon>FormABProyectoMaestro.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCopiarDatosDeOtraEtapa.resx">
+      <DependentUpon>FormCopiarDatosDeOtraEtapa.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCrearSerieHidrologica.resx">
+      <DependentUpon>FormCrearSerieHidrologica.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEntidadResponsable.resx">
+      <DependentUpon>FormEntidadResponsable.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProyectosHidrologicos.resx">
+      <DependentUpon>FormProyectosHidrologicos.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\FrameworkQuantum\BLL\BLL.csproj">
+      <Project>{4E0C033D-3816-44C7-A205-FE5D1E4D5E2E}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\Config\Config.csproj">
+      <Project>{CC9E0791-9873-4A57-816B-FDF5F7D56FCC}</Project>
+      <Name>Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\Controles\Controles.csproj">
+      <Project>{3019B6F9-7A6A-4302-82EE-6D85BDF90C9C}</Project>
+      <Name>Controles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\DAL\DAL.csproj">
+      <Project>{FE2B3AB7-7A49-4825-9D0F-17031560D930}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\ExceptionHandlerLib\ExceptionHandlerLib.csproj">
+      <Project>{0363C846-AB70-4FAB-8488-111890B6AEF5}</Project>
+      <Name>ExceptionHandlerLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\Forms\Forms.csproj">
+      <Project>{DDEA82E3-9C8A-4A1C-9987-5AA9E0A0C93D}</Project>
+      <Name>Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\MenuQuantum\MenuQuantum.csproj">
+      <Project>{2CD4D188-D8B7-495B-8DFC-ADD90F851B74}</Project>
+      <Name>MenuQuantum</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\PistasLib\PistasLib.csproj">
+      <Project>{62559EE4-3E5E-4F97-8E3E-B4AE0A2086A9}</Project>
+      <Name>PistasLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\PluginComunicacionBase\PluginComunicacionBase.csproj">
+      <Project>{E835B576-689B-41DD-8433-A816EF03F06D}</Project>
+      <Name>PluginComunicacionBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\SincronizacionLib\SincronizacionLib.csproj">
+      <Project>{F7C1CD1A-DB3F-40C3-B17C-5624450DB2D1}</Project>
+      <Name>SincronizacionLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\UtilesComunes\UtilesComunes.csproj">
+      <Project>{6D9F0A0B-EBF4-47EE-97C0-ECD24530FD0A}</Project>
+      <Name>UtilesComunes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\ZedGraphLib\CNDCZedGraphLib.csproj">
+      <Project>{A4111917-3A37-4181-9BE1-5BE0C965CB72}</Project>
+      <Name>CNDCZedGraphLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\QuantumPluginLib\QuantumPluginLib.csproj">
+      <Project>{4DD95999-495F-4F4C-91FE-29FE5939DE87}</Project>
+      <Name>QuantumPluginLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModeloProyectos\ModeloProyectos.csproj">
+      <Project>{8AFC8198-9E77-4640-B5C8-C73EAB3A03C0}</Project>
+      <Name>ModeloProyectos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OraDalProyectos\OraDalProyectos.csproj">
+      <Project>{5D48CA66-069E-4301-A246-76BAF56406BE}</Project>
+      <Name>OraDalProyectos</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagenes\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagenes\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="InformeListoA.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\ElabInf2.png" />
+    <None Include="Resources\ElabInf21.png" />
+    <None Include="Resources\ElaborarInf - copia.png" />
+    <None Include="Resources\InformeBlanco.png" />
+    <None Include="Resources\informe4.png" />
+    <None Include="Resources\InfRectif.png" />
+    <None Include="Resources\adicionar.png" />
+    <None Include="Resources\abrir1.png" />
+    <None Include="Resources\abrir.png" />
+    <None Include="Resources\TerminarInf.png" />
+    <None Include="Resources\Delete.png" />
+    <None Include="Resources\InformeListo - copia.png" />
+    <None Include="Resources\pegar.png" />
+    <None Include="Resources\AdFilaIni.png" />
+    <None Include="Resources\AdFilaFin.png" />
+    <None Include="Resources\ElimFilaIni.png" />
+    <None Include="Resources\ElimFilaFin.png" />
+    <None Include="Resources\IcoExcel.png" />
+    <None Include="Resources\pegarExcel.png" />
+    <Content Include="SISFALLAConfig.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

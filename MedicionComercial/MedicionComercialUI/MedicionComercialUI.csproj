@@ -1,0 +1,429 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2F6096E9-A48F-42C0-85E1-53C14ABF13E0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MedicionComercialUI</RootNamespace>
+    <AssemblyName>MedicionComercialUI</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Excel">
+      <HintPath>Migrador\Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CtrlDatosMedidorBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDatosMedidorBase.Designer.cs">
+      <DependentUpon>CtrlDatosMedidorBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlDatosPuntoMedicionBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDatosPuntoMedicionBase.Designer.cs">
+      <DependentUpon>CtrlDatosPuntoMedicionBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlDefCanal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDefCanal.Designer.cs">
+      <DependentUpon>CtrlDefCanal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlFiltro.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlFiltro.Designer.cs">
+      <DependentUpon>CtrlFiltro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlFormulasPtoMed.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlFormulasPtoMed.Designer.cs">
+      <DependentUpon>CtrlFormulasPtoMed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlIntervalo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlIntervalo.Designer.cs">
+      <DependentUpon>CtrlIntervalo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlLecturaMedidor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlLecturaMedidor.Designer.cs">
+      <DependentUpon>CtrlLecturaMedidor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlMedidorCanal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlMedidorCanal.Designer.cs">
+      <DependentUpon>CtrlMedidorCanal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlPtoMedicionFto.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlPtoMedicionFto.Designer.cs">
+      <DependentUpon>CtrlPtoMedicionFto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlPuntoMedicion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlPuntoMedicion.Designer.cs">
+      <DependentUpon>CtrlPuntoMedicion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlResumenMedidor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlResumenMedidor.Designer.cs">
+      <DependentUpon>CtrlResumenMedidor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlSelecCanal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlSelecCanal.Designer.cs">
+      <DependentUpon>CtrlSelecCanal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlVisorDatosLectura.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlVisorDatosLectura.Designer.cs">
+      <DependentUpon>CtrlVisorDatosLectura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrMedidorMaxMin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrMedidorMaxMin.Designer.cs">
+      <DependentUpon>CtrMedidorMaxMin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormABMIntervalo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormABMIntervalo.Designer.cs">
+      <DependentUpon>FormABMIntervalo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormABMPuntosMedicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormABMPuntosMedicion.Designer.cs">
+      <DependentUpon>FormABMPuntosMedicion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDatosLectura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDatosLectura.Designer.cs">
+      <DependentUpon>FormDatosLectura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditorFormula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditorFormula.Designer.cs">
+      <DependentUpon>FormEditorFormula.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFormula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFormula.Designer.cs">
+      <DependentUpon>FormFormula.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLecturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLecturas.Designer.cs">
+      <DependentUpon>FormLecturas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLecturaVirtuales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLecturaVirtuales.Designer.cs">
+      <DependentUpon>FormLecturaVirtuales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMedidor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMedidor.designer.cs">
+      <DependentUpon>FormMedidor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMedidorFlujoMaxMin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMedidorFlujoMaxMin.Designer.cs">
+      <DependentUpon>FormMedidorFlujoMaxMin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMedidorFlujoMaxMinDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMedidorFlujoMaxMinDetalle.Designer.cs">
+      <DependentUpon>FormMedidorFlujoMaxMinDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRMedidorFormato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRMedidorFormato.Designer.cs">
+      <DependentUpon>FormRMedidorFormato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IFiltro.cs" />
+    <Compile Include="FormConfigSoft.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConfigSoft.Designer.cs">
+      <DependentUpon>FormConfigSoft.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormABMDefCanales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormABMDefCanales.Designer.cs">
+      <DependentUpon>FormABMDefCanales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormABMMedidores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormABMMedidores.Designer.cs">
+      <DependentUpon>FormABMMedidores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRMedidorCanal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRMedidorCanal.Designer.cs">
+      <DependentUpon>FormRMedidorCanal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSoftwareLectura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSoftwareLectura.Designer.cs">
+      <DependentUpon>FormSoftwareLectura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListaTokens.cs" />
+    <Compile Include="Migrador\LectorXls.cs" />
+    <Compile Include="PluginMC.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\FrameworkQuantum\BLL\BLL.csproj">
+      <Project>{4E0C033D-3816-44C7-A205-FE5D1E4D5E2E}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\Config\Config.csproj">
+      <Project>{CC9E0791-9873-4A57-816B-FDF5F7D56FCC}</Project>
+      <Name>Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\Controles\Controles.csproj">
+      <Project>{3019B6F9-7A6A-4302-82EE-6D85BDF90C9C}</Project>
+      <Name>Controles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\DAL\DAL.csproj">
+      <Project>{FE2B3AB7-7A49-4825-9D0F-17031560D930}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\ExceptionHandlerLib\ExceptionHandlerLib.csproj">
+      <Project>{0363C846-AB70-4FAB-8488-111890B6AEF5}</Project>
+      <Name>ExceptionHandlerLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\Forms\Forms.csproj">
+      <Project>{DDEA82E3-9C8A-4A1C-9987-5AA9E0A0C93D}</Project>
+      <Name>Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\MenuQuantum\MenuQuantum.csproj">
+      <Project>{2CD4D188-D8B7-495B-8DFC-ADD90F851B74}</Project>
+      <Name>MenuQuantum</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\PistasLib\PistasLib.csproj">
+      <Project>{62559EE4-3E5E-4F97-8E3E-B4AE0A2086A9}</Project>
+      <Name>PistasLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\UtilesComunes\UtilesComunes.csproj">
+      <Project>{6D9F0A0B-EBF4-47EE-97C0-ECD24530FD0A}</Project>
+      <Name>UtilesComunes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\QuantumPluginLib\QuantumPluginLib.csproj">
+      <Project>{4DD95999-495F-4F4C-91FE-29FE5939DE87}</Project>
+      <Name>QuantumPluginLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExpresionesLib\ExpresionesLib.csproj">
+      <Project>{DF5B3EB5-1CC3-454D-8961-8382CDCBC965}</Project>
+      <Name>ExpresionesLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LecturaArchivos\LecturaArchivos.csproj">
+      <Project>{3DF20AB5-9FEA-43DF-8C36-53F5B95755ED}</Project>
+      <Name>LecturaArchivos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModeloMedicionComercial\ModeloMedicionComercial.csproj">
+      <Project>{7499EFC3-DC70-4656-BF2E-01B43F6B2AF6}</Project>
+      <Name>ModeloMedicionComercial</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OraDalMedicionComercial\OraDalMedicionComercial.csproj">
+      <Project>{FC6AB865-934D-4BCF-9568-FED3A0530C0F}</Project>
+      <Name>OraDalMedicionComercial</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CtrlDatosMedidorBase.resx">
+      <DependentUpon>CtrlDatosMedidorBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlDatosPuntoMedicionBase.resx">
+      <DependentUpon>CtrlDatosPuntoMedicionBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlDefCanal.resx">
+      <DependentUpon>CtrlDefCanal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlFiltro.resx">
+      <DependentUpon>CtrlFiltro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlFormulasPtoMed.resx">
+      <DependentUpon>CtrlFormulasPtoMed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlIntervalo.resx">
+      <DependentUpon>CtrlIntervalo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlLecturaMedidor.resx">
+      <DependentUpon>CtrlLecturaMedidor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlMedidorCanal.resx">
+      <DependentUpon>CtrlMedidorCanal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlPtoMedicionFto.resx">
+      <DependentUpon>CtrlPtoMedicionFto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlPuntoMedicion.resx">
+      <DependentUpon>CtrlPuntoMedicion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlResumenMedidor.resx">
+      <DependentUpon>CtrlResumenMedidor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlSelecCanal.resx">
+      <DependentUpon>CtrlSelecCanal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlVisorDatosLectura.resx">
+      <DependentUpon>CtrlVisorDatosLectura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrMedidorMaxMin.resx">
+      <DependentUpon>CtrMedidorMaxMin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormABMIntervalo.resx">
+      <DependentUpon>FormABMIntervalo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormABMPuntosMedicion.resx">
+      <DependentUpon>FormABMPuntosMedicion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDatosLectura.resx">
+      <DependentUpon>FormDatosLectura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditorFormula.resx">
+      <DependentUpon>FormEditorFormula.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFormula.resx">
+      <DependentUpon>FormFormula.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLecturas.resx">
+      <DependentUpon>FormLecturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLecturaVirtuales.resx">
+      <DependentUpon>FormLecturaVirtuales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMedidor.resx">
+      <DependentUpon>FormMedidor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMedidorFlujoMaxMin.resx">
+      <DependentUpon>FormMedidorFlujoMaxMin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMedidorFlujoMaxMinDetalle.resx">
+      <DependentUpon>FormMedidorFlujoMaxMinDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRMedidorFormato.resx">
+      <DependentUpon>FormRMedidorFormato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConfigSoft.resx">
+      <DependentUpon>FormConfigSoft.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormABMDefCanales.resx">
+      <DependentUpon>FormABMDefCanales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormABMMedidores.resx">
+      <DependentUpon>FormABMMedidores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRMedidorCanal.resx">
+      <DependentUpon>FormRMedidorCanal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSoftwareLectura.resx">
+      <DependentUpon>FormSoftwareLectura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abrir1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Clear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disable__v3929.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\subir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bajar.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

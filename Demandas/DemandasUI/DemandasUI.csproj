@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{80CD642F-C8D8-4538-B127-2778B1F84A2C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DemandasUI</RootNamespace>
+    <AssemblyName>DemandasUI</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Controles">
+      <HintPath>..\..\FrameworkQuantum\Controles\obj\Debug\Controles.dll</HintPath>
+    </Reference>
+    <Reference Include="Excel">
+      <HintPath>..\..\Proyectos\Proyectos\Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Oracle.DataAccess, Version=2.112.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormAgentesExistentes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAgentesExistentes.Designer.cs">
+      <DependentUpon>FormAgentesExistentes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMigradorBloquePrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMigradorBloquePrincipal.Designer.cs">
+      <DependentUpon>FormMigradorBloquePrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNodosDemanda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNodosDemanda.designer.cs">
+      <DependentUpon>FormNodosDemanda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormVisualizadorDatosMigrados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVisualizadorDatosMigrados.designer.cs">
+      <DependentUpon>FormVisualizadorDatosMigrados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EnumsDemandas.cs" />
+    <Compile Include="FormAsignacionNodosSalidas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAsignacionNodosSalidas.Designer.cs">
+      <DependentUpon>FormAsignacionNodosSalidas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInsertarRegistros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInsertarRegistros.designer.cs">
+      <DependentUpon>FormInsertarRegistros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormModificarRegistrosDesdeExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormModificarRegistrosDesdeExcel.designer.cs">
+      <DependentUpon>FormModificarRegistrosDesdeExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormABMNodosDemanda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormABMNodosDemanda.designer.cs">
+      <DependentUpon>FormABMNodosDemanda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEntidadResponsable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEntidadResponsable.designer.cs">
+      <DependentUpon>FormEntidadResponsable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNodosProyectos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNodosProyectos.designer.cs">
+      <DependentUpon>FormNodosProyectos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAsignarNodosDeConexion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAsignarNodosDeConexion.designer.cs">
+      <DependentUpon>FormAsignarNodosDeConexion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMigrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMigrador.designer.cs">
+      <DependentUpon>FormMigrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTiposDeAgentes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTiposDeAgentes.designer.cs">
+      <DependentUpon>FormTiposDeAgentes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LectorXls.cs" />
+    <Compile Include="Parser.cs" />
+    <Compile Include="PluginDemandas.cs" />
+    <Compile Include="CtrlPrincipal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlPrincipal.Designer.cs">
+      <DependentUpon>CtrlPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\FrameworkQuantum\BLL\BLL.csproj">
+      <Project>{4E0C033D-3816-44C7-A205-FE5D1E4D5E2E}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\DAL\DAL.csproj">
+      <Project>{FE2B3AB7-7A49-4825-9D0F-17031560D930}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\ExceptionHandlerLib\ExceptionHandlerLib.csproj">
+      <Project>{0363C846-AB70-4FAB-8488-111890B6AEF5}</Project>
+      <Name>ExceptionHandlerLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\Forms\Forms.csproj">
+      <Project>{DDEA82E3-9C8A-4A1C-9987-5AA9E0A0C93D}</Project>
+      <Name>Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\MenuQuantum\MenuQuantum.csproj">
+      <Project>{2CD4D188-D8B7-495B-8DFC-ADD90F851B74}</Project>
+      <Name>MenuQuantum</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\PistasLib\PistasLib.csproj">
+      <Project>{62559EE4-3E5E-4F97-8E3E-B4AE0A2086A9}</Project>
+      <Name>PistasLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\UtilesComunes\UtilesComunes.csproj">
+      <Project>{6D9F0A0B-EBF4-47EE-97C0-ECD24530FD0A}</Project>
+      <Name>UtilesComunes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\QuantumPluginLib\QuantumPluginLib.csproj">
+      <Project>{4DD95999-495F-4F4C-91FE-29FE5939DE87}</Project>
+      <Name>QuantumPluginLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModeloDemandas\ModeloDemandas.csproj">
+      <Project>{00E1353A-66AD-4DCA-AE96-A02785A7295D}</Project>
+      <Name>ModeloDemandas</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OraDalDemandas\OraDalDemandas.csproj">
+      <Project>{D7503FC5-BFDA-4992-AFD3-977FA8ADDC05}</Project>
+      <Name>OraDalDemandas</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormAgentesExistentes.resx">
+      <DependentUpon>FormAgentesExistentes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMigradorBloquePrincipal.resx">
+      <DependentUpon>FormMigradorBloquePrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNodosDemanda.resx">
+      <DependentUpon>FormNodosDemanda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVisualizadorDatosMigrados.resx">
+      <DependentUpon>FormVisualizadorDatosMigrados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAsignacionNodosSalidas.resx">
+      <DependentUpon>FormAsignacionNodosSalidas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInsertarRegistros.resx">
+      <DependentUpon>FormInsertarRegistros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormModificarRegistrosDesdeExcel.resx">
+      <DependentUpon>FormModificarRegistrosDesdeExcel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormABMNodosDemanda.resx">
+      <DependentUpon>FormABMNodosDemanda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEntidadResponsable.resx">
+      <DependentUpon>FormEntidadResponsable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNodosProyectos.resx">
+      <DependentUpon>FormNodosProyectos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlPrincipal.resx">
+      <DependentUpon>CtrlPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAsignarNodosDeConexion.resx">
+      <DependentUpon>FormAsignarNodosDeConexion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMigrador.resx">
+      <DependentUpon>FormMigrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTiposDeAgentes.resx">
+      <DependentUpon>FormTiposDeAgentes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abrir1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\adicionar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ElabInf2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ElabInf21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ElaborarInf - copia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\informe4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InformeBlanco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InformeListo - copia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InfRectif.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

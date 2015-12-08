@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuracion>
+  <LDAPAuthentication>
+    <Server name="general">
+      <address>192.168.2.19</address>
+    </Server>
+    
+  </LDAPAuthentication>
+    
+  <Visualizacion>
+    <fonts name ="general">
+      <fontfamily>Arial</fontfamily>
+      <fontsize>8</fontsize>
+    </fonts>
+  </Visualizacion>
+  <Grids>
+    <Grid name="Config">
+      <fontfamily>Arial</fontfamily>
+      <fontsize>8</fontsize>
+      <borderStyle>FIXEDSINGLE</borderStyle>
+    </Grid >
+    <Grid name = "Demo">
+      <VisibleColumns></VisibleColumns>
+      <Font>Arial, 12pt</Font>
+    </Grid>
+    <Grid name="Principal">
+      <Width>550</Width>
+      <height>750</height>
+    </Grid>
+  </Grids>
+  <Conexiones>
+    <ConexionBD name = "Dominio">
+      <Cadena>USER ID=quantum;DATA SOURCE=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.2.8)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SID=quantum)));PASSWORD="quantum";PERSIST SECURITY INFO=true;</Cadena>
+      <Cadena1>USER ID=quantum;DATA SOURCE=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.2.193)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SID=desarrollo)));PASSWORD="pwd123";PERSIST SECURITY INFO=true;</Cadena1>
+      <Autenticacion>BaseDatos</Autenticacion>
+    </ConexionBD>
+    <ConexionBD name = "BaseDatos">
+      <Cadena>USER ID=quantum;DATA SOURCE=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.2.8)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SID=quantum)));PASSWORD="quantum";PERSIST SECURITY INFO=true;</Cadena>
+      <Cadena1>USER ID=quantum;DATA SOURCE=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.2.193)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SID=desarrollo)));PASSWORD="pwd123";PERSIST SECURITY INFO=true;</Cadena1>
+      <Autenticacion>BaseDatos</Autenticacion>
+    </ConexionBD>
+  </Conexiones>
+</Configuracion>

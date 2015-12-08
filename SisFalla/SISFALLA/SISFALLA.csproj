@@ -1,0 +1,528 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0EEDCEE5-B033-4711-B2CF-13B9EF74203C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SISFALLA</RootNamespace>
+    <AssemblyName>SISFALLALib</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>\\ad-server\INSTALADORES\Quantum\Deploy\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>25</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>646EA71F3E6A09828F80FF3884925C97C0ECED48</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>SISFALLA_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>quantum.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=12.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Business Objects\Common\4.0\managed\dotnet2\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=12.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Business Objects\Common\4.0\managed\dotnet2\CrystalDecisions.ReportSource.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=12.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Business Objects\Common\4.0\managed\dotnet2\CrystalDecisions.Shared.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=12.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Business Objects\Common\4.0\managed\dotnet2\CrystalDecisions.Windows.Forms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>paraOrdenar\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="oracle.dataaccess, Version=2.112.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
+      <HintPath>C:\Windows\assembly\GAC_32\Oracle.DataAccess\2.112.2.0__89b483f429c47342\oracle.dataaccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActualizadorDelActualizador.cs" />
+    <Compile Include="Configuracion\CtrlConfiguracion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuracion\CtrlConfiguracion.Designer.cs">
+      <DependentUpon>CtrlConfiguracion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\CtrlDominio.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuracion\CtrlDominio.Designer.cs">
+      <DependentUpon>CtrlDominio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EnvioCorreo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnvioCorreo.Designer.cs">
+      <DependentUpon>EnvioCorreo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlPanelMensajes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlPanelMensajes.Designer.cs">
+      <DependentUpon>CtrlPanelMensajes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlSincronizacion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlSincronizacion.Designer.cs">
+      <DependentUpon>CtrlSincronizacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\FormEditarConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\FormEditarConfig.Designer.cs">
+      <DependentUpon>FormEditarConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMensajes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMensajes.Designer.cs">
+      <DependentUpon>FormMensajes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\Dominio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\Dominio.Designer.cs">
+      <DependentUpon>Dominio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\CtrlDominios.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Configuracion\CtrlDominios.Designer.cs">
+      <DependentUpon>CtrlDominios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\FormDominios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\FormDominios.Designer.cs">
+      <DependentUpon>FormDominios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IProveedorTablaRegFalla.cs" />
+    <Compile Include="Inicializador.cs" />
+    <Compile Include="paraOrdenar\DBIntranet.cs" />
+    <Compile Include="paraOrdenar\RegistroServidor.cs" />
+    <Compile Include="paraOrdenar\RegistroPublica.cs" />
+    <Compile Include="paraOrdenar\DBWeb.cs" />
+    <Compile Include="paraOrdenar\MostrarPublicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="paraOrdenar\MostrarPublicacion.Designer.cs">
+      <DependentUpon>MostrarPublicacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="paraOrdenar\ImageExtensionMethods.cs" />
+    <Compile Include="PluginSisFalla.cs" />
+    <Compile Include="SisFallaPrincipal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SisFallaPrincipal.Designer.cs">
+      <DependentUpon>SisFallaPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplashQuantum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashQuantum.Designer.cs">
+      <DependentUpon>SplashQuantum.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Configuracion\CtrlConfiguracion.resx">
+      <DependentUpon>CtrlConfiguracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\CtrlDominio.resx">
+      <DependentUpon>CtrlDominio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnvioCorreo.resx">
+      <DependentUpon>EnvioCorreo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlPanelMensajes.resx">
+      <DependentUpon>CtrlPanelMensajes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlSincronizacion.resx">
+      <DependentUpon>CtrlSincronizacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\FormEditarConfig.resx">
+      <DependentUpon>FormEditarConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMensajes.resx">
+      <DependentUpon>FormMensajes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\Dominio.resx">
+      <DependentUpon>Dominio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\CtrlDominios.resx">
+      <DependentUpon>CtrlDominios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\FormDominios.resx">
+      <DependentUpon>FormDominios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="paraOrdenar\MostrarPublicacion.resx">
+      <DependentUpon>MostrarPublicacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SisFallaPrincipal.resx">
+      <DependentUpon>SisFallaPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SplashQuantum.resx">
+      <DependentUpon>SplashQuantum.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ARIALN.TTF">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\FrameworkQuantum\Controles\Controles.csproj">
+      <Project>{3019B6F9-7A6A-4302-82EE-6D85BDF90C9C}</Project>
+      <Name>Controles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\MenuQuantum\MenuQuantum.csproj">
+      <Project>{2CD4D188-D8B7-495B-8DFC-ADD90F851B74}</Project>
+      <Name>MenuQuantum</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\ReportesQuantum\ReportesQuantum.csproj">
+      <Project>{66C94BE4-5245-4D0C-A358-87B9B85E092E}</Project>
+      <Name>ReportesQuantum</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\Reportes\Reportes.csproj">
+      <Project>{2B625F3B-0717-496C-B5E9-D509D5FAEB9C}</Project>
+      <Name>Reportes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\QuantumPluginLib\QuantumPluginLib.csproj">
+      <Project>{4DD95999-495F-4F4C-91FE-29FE5939DE87}</Project>
+      <Name>QuantumPluginLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SisFallaUIComun\SisFallaUIComun.csproj">
+      <Project>{E90D639D-B164-449A-8795-AC43F108C58C}</Project>
+      <Name>SisFallaUIComun</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SisFallaUIInforme\SisFallaUIInforme.csproj">
+      <Project>{EEA9900B-D3B8-46F8-B452-EE4D64DD87A8}</Project>
+      <Name>SisFallaUIInforme</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SisFallaUINotificacion\SisFallaUINotificacion.csproj">
+      <Project>{9609F565-2EE3-4DD4-8B2B-5A19810FA18F}</Project>
+      <Name>SisFallaUINotificacion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModeloSisFalla\ModeloSisFalla.csproj">
+      <Project>{052DA623-72A9-45DE-9224-76AA20EB59C7}</Project>
+      <Name>ModeloSisFalla</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\repSisfalla\repSisfalla.csproj">
+      <Project>{18BA9EA5-1487-4D6C-A8EC-8F3D1477DE7B}</Project>
+      <Name>repSisfalla</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\SincronizacionLib\SincronizacionLib.csproj">
+      <Project>{F7C1CD1A-DB3F-40C3-B17C-5624450DB2D1}</Project>
+      <Name>SincronizacionLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SisFallaEmailLib\SisFallaEmailLib.csproj">
+      <Project>{C162C709-FB3C-4DFF-A0C3-91DCAB3468BF}</Project>
+      <Name>SisFallaEmailLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\BLL\BLL.csproj">
+      <Project>{4E0C033D-3816-44C7-A205-FE5D1E4D5E2E}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\UtilesComunes\UtilesComunes.csproj">
+      <Project>{6D9F0A0B-EBF4-47EE-97C0-ECD24530FD0A}</Project>
+      <Name>UtilesComunes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\Config\Config.csproj">
+      <Project>{CC9E0791-9873-4A57-816B-FDF5F7D56FCC}</Project>
+      <Name>Config</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OraDalSisFalla\OraDalSisFalla.csproj">
+      <Project>{77D30B6D-66D8-4AE7-A647-E705A74F61D4}</Project>
+      <Name>OraDalSisFalla</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\DAL\DAL.csproj">
+      <Project>{FE2B3AB7-7A49-4825-9D0F-17031560D930}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\ExceptionHandlerLib\ExceptionHandlerLib.csproj">
+      <Project>{0363C846-AB70-4FAB-8488-111890B6AEF5}</Project>
+      <Name>ExceptionHandlerLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\Forms\Forms.csproj">
+      <Project>{DDEA82E3-9C8A-4A1C-9987-5AA9E0A0C93D}</Project>
+      <Name>Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\PistasLib\PistasLib.csproj">
+      <Project>{62559EE4-3E5E-4F97-8E3E-B4AE0A2086A9}</Project>
+      <Name>PistasLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameworkQuantum\PluginComunicacionBase\PluginComunicacionBase.csproj">
+      <Project>{E835B576-689B-41DD-8433-A816EF03F06D}</Project>
+      <Name>PluginComunicacionBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WcfDalSisFalla\WcfDalSisFalla.csproj">
+      <Project>{C55F67BB-BCC0-4809-BBA7-B379CD42F227}</Project>
+      <Name>WcfDalSisFalla</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InformeEnviadoError.png" />
+    <None Include="versionModulo.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="wall1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\1283262845_calculator.png" />
+    <None Include="Resources\Add.png" />
+    <None Include="Resources\blue-wallpapers-high-definition.jpg" />
+    <None Include="Resources\cancel.png" />
+    <None Include="Resources\Clear.png" />
+    <None Include="Resources\Delete.png" />
+    <None Include="Resources\disable__v3929.png" />
+    <None Include="Resources\Edit.png" />
+    <None Include="Resources\Filter.png" />
+    <None Include="Resources\Refresh.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\splash.png" />
+    <None Include="Resources\Zoom_In_Out.png" />
+    <None Include="Resources\ic_imprimir.png" />
+    <None Include="Resources\emailButton.png" />
+    <None Include="Resources\email_go.png" />
+    <None Include="Resources\checked.gif" />
+    <None Include="Resources\copiarDeInforme.png" />
+    <None Include="Resources\ElaborarInf.png" />
+    <Content Include="quantum.ico" />
+    <None Include="Resources\CopiarDeAgentes.ico" />
+    <None Include="Resources\copiarDeInforme.ico" />
+    <Content Include="Resources\ie1.png" />
+    <Content Include="Resources\ie2.png" />
+    <None Include="Resources\ie3.jpg" />
+    <None Include="Resources\ie3.png" />
+    <Content Include="Resources\imagesCA2S9SO0.jpg" />
+    <None Include="Resources\InfPrelim.png" />
+    <None Include="Resources\informe4.png" />
+    <None Include="Resources\InformeListo.png" />
+    <None Include="Resources\InformeEnviado.png" />
+    <None Include="Resources\InformeBlanco.png" />
+    <None Include="Resources\InformeBlanco.ico" />
+    <None Include="Resources\logo_q.png" />
+    <Content Include="Resources\logo_quantum.png" />
+    <None Include="Resources\notifRegistrada.png" />
+    <None Include="Resources\notifEnviada.png" />
+    <None Include="Resources\notifRecibida.png" />
+    <None Include="Resources\notifEnviada.ico" />
+    <None Include="Resources\notifRegistrada.ico" />
+    <Content Include="Resources\quantum.ico" />
+    <None Include="Resources\RevertirInforme.png" />
+    <None Include="Resources\RevertirInforme.ico" />
+    <None Include="Resources\TerminarInf.ico" />
+    <Content Include="SISFALLAConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="BusinessObjects.Enterprise.Sdk">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="BusinessObjects.Foundation.Logging">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="BusinessObjects.Licensing.KeycodeDecoder">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="log4net">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="SISFALLAConfig.xml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="stdole">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

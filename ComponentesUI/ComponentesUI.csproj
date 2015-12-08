@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{840D3282-690D-441C-9F22-51DF7D93BA9F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ComponentesUI</RootNamespace>
+    <AssemblyName>ComponentesUI</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="repSisfalla">
+      <HintPath>..\SisFalla\repSisfalla\obj\x86\Debug\repSisfalla.dll</HintPath>
+    </Reference>
+    <Reference Include="SisFallaUIComun">
+      <HintPath>..\SisFallaUIComun\obj\Debug\SisFallaUIComun.dll</HintPath>
+    </Reference>
+    <Reference Include="SisFallaUIInforme">
+      <HintPath>..\SisFallaUIInforme\obj\Debug\SisFallaUIInforme.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CtrlBaseComponente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlBaseComponente.Designer.cs">
+      <DependentUpon>CtrlBaseComponente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlDatosGenerales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDatosGenerales.Designer.cs">
+      <DependentUpon>CtrlDatosGenerales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlDatosRed.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDatosRed.designer.cs">
+      <DependentUpon>CtrlDatosRed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlDatosTecnicos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDatosTecnicos.Designer.cs">
+      <DependentUpon>CtrlDatosTecnicos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtrlDescNodo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDescNodo.designer.cs">
+      <DependentUpon>CtrlDescNodo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBajaComponente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBajaComponente.Designer.cs">
+      <DependentUpon>FormBajaComponente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNuevoComponente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNuevoComponente.Designer.cs">
+      <DependentUpon>FormNuevoComponente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAbmComponente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbmComponente.Designer.cs">
+      <DependentUpon>FrmAbmComponente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmComponente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmComponente.Designer.cs">
+      <DependentUpon>FrmComponente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IControl.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FrameworkQuantum\BLL\BLL.csproj">
+      <Project>{4E0C033D-3816-44C7-A205-FE5D1E4D5E2E}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FrameworkQuantum\Controles\Controles.csproj">
+      <Project>{3019B6F9-7A6A-4302-82EE-6D85BDF90C9C}</Project>
+      <Name>Controles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FrameworkQuantum\DAL\DAL.csproj">
+      <Project>{FE2B3AB7-7A49-4825-9D0F-17031560D930}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FrameworkQuantum\ExceptionHandlerLib\ExceptionHandlerLib.csproj">
+      <Project>{0363C846-AB70-4FAB-8488-111890B6AEF5}</Project>
+      <Name>ExceptionHandlerLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FrameworkQuantum\Forms\Forms.csproj">
+      <Project>{DDEA82E3-9C8A-4A1C-9987-5AA9E0A0C93D}</Project>
+      <Name>Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FrameworkQuantum\MenuQuantum\MenuQuantum.csproj">
+      <Project>{2CD4D188-D8B7-495B-8DFC-ADD90F851B74}</Project>
+      <Name>MenuQuantum</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FrameworkQuantum\PistasLib\PistasLib.csproj">
+      <Project>{62559EE4-3E5E-4F97-8E3E-B4AE0A2086A9}</Project>
+      <Name>PistasLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FrameworkQuantum\UtilesComunes\UtilesComunes.csproj">
+      <Project>{6D9F0A0B-EBF4-47EE-97C0-ECD24530FD0A}</Project>
+      <Name>UtilesComunes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModeloComponentes\ModeloComponentes.csproj">
+      <Project>{A60AA23E-8F01-4CA9-9D48-C16F77DEA71C}</Project>
+      <Name>ModeloComponentes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OraDalComponentes\OraDalComponentes.csproj">
+      <Project>{068E6296-9594-45A3-9544-A1886569C33C}</Project>
+      <Name>OraDalComponentes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QuantumPluginLib\QuantumPluginLib.csproj">
+      <Project>{4DD95999-495F-4F4C-91FE-29FE5939DE87}</Project>
+      <Name>QuantumPluginLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SisFalla\ModeloSisFalla\ModeloSisFalla.csproj">
+      <Project>{052DA623-72A9-45DE-9224-76AA20EB59C7}</Project>
+      <Name>ModeloSisFalla</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CtrlBaseComponente.resx">
+      <DependentUpon>CtrlBaseComponente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlDatosGenerales.resx">
+      <DependentUpon>CtrlDatosGenerales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlDatosRed.resx">
+      <DependentUpon>CtrlDatosRed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlDatosTecnicos.resx">
+      <DependentUpon>CtrlDatosTecnicos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlDescNodo.resx">
+      <DependentUpon>CtrlDescNodo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBajaComponente.resx">
+      <DependentUpon>FormBajaComponente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNuevoComponente.resx">
+      <DependentUpon>FormNuevoComponente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbmComponente.resx">
+      <DependentUpon>FrmAbmComponente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmComponente.resx">
+      <DependentUpon>FrmComponente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Resources\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disable__v3929.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

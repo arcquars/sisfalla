@@ -1,0 +1,146 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="Informe_Falla" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+  <xs:element name="Informe_Falla" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="F_GF_INFORMEFALLA" msprop:BaseTable.0="F_GF_INFORMEFALLA">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PK_COD_FALLA" msprop:OraDbType="112" msprop:BaseColumn="PK_COD_FALLA" type="xs:int" minOccurs="0" />
+              <xs:element name="PK_ORIGEN_INFORME" msprop:OraDbType="113" msprop:BaseColumn="PK_ORIGEN_INFORME" type="xs:long" minOccurs="0" />
+              <xs:element name="PK_D_COD_TIPOINFORME" msprop:OraDbType="113" msprop:BaseColumn="PK_D_COD_TIPOINFORME" type="xs:long" minOccurs="0" />
+              <xs:element name="FEC_INICIO" msprop:OraDbType="123" msprop:BaseColumn="FEC_INICIO" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FEC_FINAL" msprop:OraDbType="123" msprop:BaseColumn="FEC_FINAL" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DESCRIPCION_INFORME" msprop:OraDbType="126" msprop:BaseColumn="DESCRIPCION_INFORME" type="xs:string" minOccurs="0" />
+              <xs:element name="RESTITUCION" msprop:OraDbType="126" msprop:BaseColumn="RESTITUCION" type="xs:string" minOccurs="0" />
+              <xs:element name="INFORMACION_ADICIONAL" msprop:OraDbType="126" msprop:BaseColumn="INFORMACION_ADICIONAL" type="xs:string" minOccurs="0" />
+              <xs:element name="D_COD_ESTADO" msprop:OraDbType="126" msprop:BaseColumn="D_COD_ESTADO" type="xs:string" minOccurs="0" />
+              <xs:element name="SEC_LOG" msprop:OraDbType="113" msprop:BaseColumn="SEC_LOG" type="xs:long" minOccurs="0" />
+              <xs:element name="D_COD_ORIGEN" msprop:OraDbType="113" msprop:BaseColumn="D_COD_ORIGEN" type="xs:long" minOccurs="0" />
+              <xs:element name="SINC_VER" msprop:OraDbType="113" msprop:BaseColumn="SINC_VER" type="xs:long" minOccurs="0" />
+              <xs:element name="OPERACION_PROTECCIONES" msprop:OraDbType="126" msprop:BaseColumn="OPERACION_PROTECCIONES" type="xs:string" minOccurs="0" />
+              <xs:element name="D_COD_TIPO_DESCONEXION" msprop:OraDbType="113" msprop:BaseColumn="D_COD_TIPO_DESCONEXION" type="xs:long" minOccurs="0" />
+              <xs:element name="D_COD_CAUSA" msprop:OraDbType="113" msprop:BaseColumn="D_COD_CAUSA" type="xs:long" minOccurs="0" />
+              <xs:element name="COD_PERSONA" msprop:OraDbType="113" msprop:BaseColumn="COD_PERSONA" type="xs:long" minOccurs="0" />
+              <xs:element name="D_COD_ESTADO_INF" msprop:OraDbType="113" msprop:BaseColumn="D_COD_ESTADO_INF" type="xs:long" minOccurs="0" />
+              <xs:element name="NUM_FALLA_AGENTE" msprop:OraDbType="126" msprop:BaseColumn="NUM_FALLA_AGENTE" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="F_GF_OP_ALIMENTADOR" msprop:BaseTable.0="F_GF_OP_ALIMENTADOR">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PK_COD_FALLA" msprop:OraDbType="112" msprop:BaseColumn="PK_COD_FALLA" type="xs:int" minOccurs="0" />
+              <xs:element name="PK_ORIGEN_INFORME" msprop:OraDbType="113" msprop:BaseColumn="PK_ORIGEN_INFORME" type="xs:long" minOccurs="0" />
+              <xs:element name="PK_D_COD_TIPOINFORME" msprop:OraDbType="113" msprop:BaseColumn="PK_D_COD_TIPOINFORME" type="xs:long" minOccurs="0" />
+              <xs:element name="PK_COD_COMPONENTE" msprop:OraDbType="113" msprop:BaseColumn="PK_COD_COMPONENTE" type="xs:long" minOccurs="0" />
+              <xs:element name="FECHA_APERTURA" msprop:OraDbType="123" msprop:BaseColumn="FECHA_APERTURA" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="D_COD_TIPO_OPER_APER" msprop:OraDbType="107" msprop:BaseColumn="D_COD_TIPO_OPER_APER" type="xs:decimal" minOccurs="0" />
+              <xs:element name="FECHA_CIERRE" msprop:OraDbType="106" msprop:BaseColumn="FECHA_CIERRE" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="RELE_OPERADO" msprop:OraDbType="111" msprop:BaseColumn="RELE_OPERADO" type="xs:short" minOccurs="0" />
+              <xs:element name="D_COD_TIPO_OP_CIERRE" msprop:OraDbType="107" msprop:BaseColumn="D_COD_TIPO_OP_CIERRE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="POT_DESC" msprop:OraDbType="122" msprop:BaseColumn="POT_DESC" type="xs:float" minOccurs="0" />
+              <xs:element name="SINC_VER" msprop:OraDbType="113" msprop:BaseColumn="SINC_VER" type="xs:long" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="F_GF_OP_INTERRUPTOR" msprop:BaseTable.0="F_GF_OP_INTERRUPTOR">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PK_COD_FALLA" msprop:OraDbType="113" msprop:BaseColumn="PK_COD_FALLA" type="xs:long" minOccurs="0" />
+              <xs:element name="PK_ORIGEN_INFORME" msprop:OraDbType="113" msprop:BaseColumn="PK_ORIGEN_INFORME" type="xs:long" minOccurs="0" />
+              <xs:element name="PK_D_COD_TIPOINFORME" msprop:OraDbType="113" msprop:BaseColumn="PK_D_COD_TIPOINFORME" type="xs:long" minOccurs="0" />
+              <xs:element name="PK_COD_COMPONENTE" msprop:OraDbType="113" msprop:BaseColumn="PK_COD_COMPONENTE" type="xs:long" minOccurs="0" />
+              <xs:element name="FECHA_APERTURA" msprop:OraDbType="123" msprop:BaseColumn="FECHA_APERTURA" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="PK_D_COD_TIPO_OPER_APER" msprop:OraDbType="113" msprop:BaseColumn="PK_D_COD_TIPO_OPER_APER" type="xs:long" minOccurs="0" />
+              <xs:element name="FECHA_CIERRE" msprop:OraDbType="123" msprop:BaseColumn="FECHA_CIERRE" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="PK_D_COD_TIPO_OPER_CIERRE" msprop:OraDbType="113" msprop:BaseColumn="PK_D_COD_TIPO_OPER_CIERRE" type="xs:long" minOccurs="0" />
+              <xs:element name="RECONECTADO" msprop:OraDbType="111" msprop:BaseColumn="RECONECTADO" type="xs:short" minOccurs="0" />
+              <xs:element name="SINC_VER" msprop:OraDbType="113" msprop:BaseColumn="SINC_VER" type="xs:long" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="F_GF_RELES_OPER" msprop:BaseTable.0="F_GF_RELES_OPER">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PK_COD_FALLA" msprop:OraDbType="113" msprop:BaseColumn="PK_COD_FALLA" type="xs:long" minOccurs="0" />
+              <xs:element name="PK_ORIGEN_INFORME" msprop:OraDbType="113" msprop:BaseColumn="PK_ORIGEN_INFORME" type="xs:long" minOccurs="0" />
+              <xs:element name="PK_D_COD_TIPOINFORME" msprop:OraDbType="113" msprop:BaseColumn="PK_D_COD_TIPOINFORME" type="xs:long" minOccurs="0" />
+              <xs:element name="PK_COD_COMPONENTE" msprop:OraDbType="113" msprop:BaseColumn="PK_COD_COMPONENTE" type="xs:long" minOccurs="0" />
+              <xs:element name="TIPO_RELE" msprop:OraDbType="126" msprop:BaseColumn="TIPO_RELE" type="xs:string" minOccurs="0" />
+              <xs:element name="FUNCION_RELE" msprop:OraDbType="126" msprop:BaseColumn="FUNCION_RELE" type="xs:string" minOccurs="0" />
+              <xs:element name="TIEMPO_RELE" msprop:OraDbType="108" msprop:BaseColumn="TIEMPO_RELE" type="xs:double" minOccurs="0" />
+              <xs:element name="ZONA_RELE" msprop:OraDbType="108" msprop:BaseColumn="ZONA_RELE" type="xs:double" minOccurs="0" />
+              <xs:element name="DISTANCIA_RELE" msprop:OraDbType="108" msprop:BaseColumn="DISTANCIA_RELE" type="xs:double" minOccurs="0" />
+              <xs:element name="NUMERO_RELE" msprop:OraDbType="108" msprop:BaseColumn="NUMERO_RELE" type="xs:double" minOccurs="0" />
+              <xs:element name="SINC_VER" msprop:OraDbType="113" msprop:BaseColumn="SINC_VER" type="xs:long" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="F_GF_RESPONSABILIDAD" msprop:BaseTable.0="F_GF_RESPONSABILIDAD">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PK_COD_FALLA" msprop:OraDbType="112" msprop:BaseColumn="PK_COD_FALLA" type="xs:int" minOccurs="0" />
+              <xs:element name="PK_D_COD_TIPOINFORME" msprop:OraDbType="113" msprop:BaseColumn="PK_D_COD_TIPOINFORME" type="xs:long" minOccurs="0" />
+              <xs:element name="PK_ORIGEN_INFORME" msprop:OraDbType="113" msprop:BaseColumn="PK_ORIGEN_INFORME" type="xs:long" minOccurs="0" />
+              <xs:element name="PK_COD_COMPONENTE" msprop:OraDbType="113" msprop:BaseColumn="PK_COD_COMPONENTE" type="xs:long" minOccurs="0" />
+              <xs:element name="PK_COD_PERSONA_RESPONSABLE" msprop:OraDbType="113" msprop:BaseColumn="PK_COD_PERSONA_RESPONSABLE" type="xs:long" minOccurs="0" />
+              <xs:element name="TIEMPO_RESPONSABILIDAD" msprop:OraDbType="122" msprop:BaseColumn="TIEMPO_RESPONSABILIDAD" type="xs:float" minOccurs="0" />
+              <xs:element name="D_COD_ESTADO" msprop:OraDbType="126" msprop:BaseColumn="D_COD_ESTADO" type="xs:string" minOccurs="0" />
+              <xs:element name="SEC_LOG" msprop:OraDbType="113" msprop:BaseColumn="SEC_LOG" type="xs:long" minOccurs="0" />
+              <xs:element name="SINC_VER" msprop:OraDbType="113" msprop:BaseColumn="SINC_VER" type="xs:long" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="F_GF_RREGFALLA_COMPONENTE" msprop:BaseTable.0="F_GF_RREGFALLA_COMPONENTE">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PK_COD_FALLA" msprop:OraDbType="112" msprop:BaseColumn="PK_COD_FALLA" type="xs:int" minOccurs="0" />
+              <xs:element name="PK_ORIGEN_INFORME" msprop:OraDbType="113" msprop:BaseColumn="PK_ORIGEN_INFORME" type="xs:long" minOccurs="0" />
+              <xs:element name="PK_D_COD_TIPOINFORME" msprop:OraDbType="113" msprop:BaseColumn="PK_D_COD_TIPOINFORME" type="xs:long" minOccurs="0" />
+              <xs:element name="PK_COD_COMPONENTE" msprop:OraDbType="113" msprop:BaseColumn="PK_COD_COMPONENTE" type="xs:long" minOccurs="0" />
+              <xs:element name="POTENCIA_DESCONECTADA" msprop:OraDbType="122" msprop:BaseColumn="POTENCIA_DESCONECTADA" type="xs:float" minOccurs="0" />
+              <xs:element name="TIEMPO_INDISPONIBILIDAD" msprop:OraDbType="122" msprop:BaseColumn="TIEMPO_INDISPONIBILIDAD" type="xs:float" minOccurs="0" />
+              <xs:element name="TIEMPO_PRECONEXION" msprop:OraDbType="122" msprop:BaseColumn="TIEMPO_PRECONEXION" type="xs:float" minOccurs="0" />
+              <xs:element name="TIEMPO_CONEXION" msprop:OraDbType="122" msprop:BaseColumn="TIEMPO_CONEXION" type="xs:float" minOccurs="0" />
+              <xs:element name="TIEMPO_SISTEMA" msprop:OraDbType="122" msprop:BaseColumn="TIEMPO_SISTEMA" type="xs:float" minOccurs="0" />
+              <xs:element name="D_COD_MOTIVO" msprop:OraDbType="113" msprop:BaseColumn="D_COD_MOTIVO" type="xs:long" minOccurs="0" />
+              <xs:element name="FK_COD_RESPONSABLE" msprop:OraDbType="113" msprop:BaseColumn="FK_COD_RESPONSABLE" type="xs:long" minOccurs="0" />
+              <xs:element name="FEC_APERTURA" msprop:OraDbType="123" msprop:BaseColumn="FEC_APERTURA" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="D_COD_TIPOPERACIONAPERTURA" msprop:OraDbType="113" msprop:BaseColumn="D_COD_TIPOPERACIONAPERTURA" type="xs:long" minOccurs="0" />
+              <xs:element name="FEC_CIERRE" msprop:OraDbType="123" msprop:BaseColumn="FEC_CIERRE" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="D_COD_TIPOOPERACIONCIERRE" msprop:OraDbType="113" msprop:BaseColumn="D_COD_TIPOOPERACIONCIERRE" type="xs:long" minOccurs="0" />
+              <xs:element name="ETAPA_EDAC" msprop:OraDbType="126" msprop:BaseColumn="ETAPA_EDAC" type="xs:string" minOccurs="0" />
+              <xs:element name="D_COD_ESTADO" msprop:OraDbType="126" msprop:BaseColumn="D_COD_ESTADO" type="xs:string" minOccurs="0" />
+              <xs:element name="SEC_LOG" msprop:OraDbType="113" msprop:BaseColumn="SEC_LOG" type="xs:long" minOccurs="0" />
+              <xs:element name="SINC_VER" msprop:OraDbType="113" msprop:BaseColumn="SINC_VER" type="xs:long" minOccurs="0" />
+              <xs:element name="FLUJO_N1_N2" msprop:OraDbType="126" msprop:BaseColumn="FLUJO_N1_N2" type="xs:string" minOccurs="0" />
+              <xs:element name="TTOTAL_DESCONEXION" msprop:OraDbType="122" msprop:BaseColumn="TTOTAL_DESCONEXION" type="xs:float" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="F_GF_TIEMPOSDETALLE" msprop:BaseTable.0="F_GF_TIEMPOSDETALLE">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PK_COD_FALLA" msprop:OraDbType="112" msprop:BaseColumn="PK_COD_FALLA" type="xs:int" minOccurs="0" />
+              <xs:element name="PK_D_COD_TIPOINFORME" msprop:OraDbType="113" msprop:BaseColumn="PK_D_COD_TIPOINFORME" type="xs:long" minOccurs="0" />
+              <xs:element name="PK_ORIGEN_INFORME" msprop:OraDbType="113" msprop:BaseColumn="PK_ORIGEN_INFORME" type="xs:long" minOccurs="0" />
+              <xs:element name="PK_COD_COMPONENTE" msprop:OraDbType="113" msprop:BaseColumn="PK_COD_COMPONENTE" type="xs:long" minOccurs="0" />
+              <xs:element name="PK_COD_PERSONA" msprop:OraDbType="113" msprop:BaseColumn="PK_COD_PERSONA" type="xs:long" minOccurs="0" />
+              <xs:element name="TIEMPO_INDISPONIBILIDAD" msprop:OraDbType="122" msprop:BaseColumn="TIEMPO_INDISPONIBILIDAD" type="xs:float" minOccurs="0" />
+              <xs:element name="TIEMPO_PRECONEXION" msprop:OraDbType="122" msprop:BaseColumn="TIEMPO_PRECONEXION" type="xs:float" minOccurs="0" />
+              <xs:element name="TIEMPO_CONEXION" msprop:OraDbType="122" msprop:BaseColumn="TIEMPO_CONEXION" type="xs:float" minOccurs="0" />
+              <xs:element name="TIEMPO_SISTEMA" msprop:OraDbType="122" msprop:BaseColumn="TIEMPO_SISTEMA" type="xs:float" minOccurs="0" />
+              <xs:element name="FK_COD_RESPONSABLE" msprop:OraDbType="113" msprop:BaseColumn="FK_COD_RESPONSABLE" type="xs:long" minOccurs="0" />
+              <xs:element name="D_COD_MOTIVO" msprop:OraDbType="113" msprop:BaseColumn="D_COD_MOTIVO" type="xs:long" minOccurs="0" />
+              <xs:element name="D_COD_ESTADO" msprop:OraDbType="126" msprop:BaseColumn="D_COD_ESTADO" type="xs:string" minOccurs="0" />
+              <xs:element name="SEC_LOG" msprop:OraDbType="113" msprop:BaseColumn="SEC_LOG" type="xs:long" minOccurs="0" />
+              <xs:element name="SINC_VER" msprop:OraDbType="113" msprop:BaseColumn="SINC_VER" type="xs:long" minOccurs="0" />
+              <xs:element name="TIPORESPONSABILIDAD" msprop:OraDbType="111" msprop:BaseColumn="TIPORESPONSABILIDAD" type="xs:short" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

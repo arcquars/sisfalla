@@ -1,0 +1,29 @@
+BEGIN 
+-- se crea una copia de respaldo de la tabla; 
+EXECUTE IMMEDIATE 'create table f_gf_informefallabk as select * from f_gf_informefalla';
+
+-- se agregan campos temporales;
+EXECUTE IMMEDIATE 'alter table f_gf_informefalla add ( descripcion_informe_tmp clob, informacion_adicional_tmp clob, restitucion_tmp clob ,operacion_protecciones_tmp clob )'; 
+-- se copia la información de los campos originales a los campos temporales;
+
+EXECUTE IMMEDIATE 'update f_gf_informefalla set descripcion_informe_tmp = descripcion_informe , informacion_adicional_tmp = informacion_adicional, restitucion_tmp = restitucion , operacion_protecciones_tmp = operacion_protecciones'; 
+-- se eliminan los campos originales:
+EXECUTE IMMEDIATE 'alter table f_gf_informefalla drop (descripcion_informe, informacion_adicional,restitucion, operacion_protecciones )'; 
+-- se agregan los nuevos campos ;
+
+EXECUTE IMMEDIATE 'alter table f_gf_informefalla add ( descripcion_informe clob, informacion_adicional clob, restitucion clob ,operacion_protecciones clob )'; 
+
+-- se copian los campos temporales a los definitivos:
+EXECUTE IMMEDIATE 'update f_gf_informefalla set descripcion_informe = descripcion_informe_tmp , informacion_adicional = informacion_adicional_tmp, restitucion = restitucion_tmp ,operacion_protecciones =operacion_protecciones_tmp '; 
+
+-- se eliminan los campos temporales:
+EXECUTE IMMEDIATE 'alter table f_gf_informefalla drop (descripcion_informe_tmp, informacion_adicional_tmp,restitucion_tmp,operacion_protecciones_tmp ) ';
+
+-- se agregan los comentarios en las columnas nuevas;
+EXECUTE IMMEDIATE 'comment on column f_gf_informefalla.descripcion_informe is ''descripcion general de la falla.'' ';
+EXECUTE IMMEDIATE 'comment on column f_gf_informefalla.informacion_adicional is ''información adicional de la falla'' ';
+EXECUTE IMMEDIATE 'comment on column f_gf_informefalla.restitucion is ''descripcion del proceso de restitucion'' ';
+EXECUTE IMMEDIATE 'comment on column f_gf_informefalla.operacion_protecciones is ''descripción de la operación de protecciones'' ';
+
+EXECUTE IMMEDIATE 'drop table f_gf_informefallabk ';
+END ;
