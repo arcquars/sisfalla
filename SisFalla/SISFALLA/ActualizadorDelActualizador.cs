@@ -18,6 +18,7 @@ namespace SISFALLA
             string exeActualizadorIns = Path.Combine(dirAppInstalacion, "ActualizadorSisFallaV2.exe");
             string exeActualizadorDoc = Path.Combine(pathSisFalla, "ActualizadorSisFallaV2.exe");
 
+
             if (File.Exists(exeActualizadorDoc))
             {
                 try

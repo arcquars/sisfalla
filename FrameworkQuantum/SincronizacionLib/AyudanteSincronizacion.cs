@@ -82,6 +82,7 @@ namespace CNDC.Sincronizacion
 
         public Dictionary<string, decimal> GetMaxSincVer()
         {
+            Console.WriteLine("GetMaxSincVer:::::::::::::::::::::::::::::::::::::::::::::::");
             //string sql = "SELECT SINC_ORDER, NOMBRE_TABLA as tablename, GET_P_SINC (NOMBRE_TABLA) MAX FROM P_SINC_TABLAS ORDER BY SINC_ORDER";
             string sql = "SELECT SINC_ORDER, NOMBRE_TABLA as tablename, GET_P_SINC (NOMBRE_TABLA) MAX FROM P_SINC_TABLAS ORDER BY SINC_ORDER";
             Dictionary<string, decimal> resultado = new Dictionary<string, decimal>();

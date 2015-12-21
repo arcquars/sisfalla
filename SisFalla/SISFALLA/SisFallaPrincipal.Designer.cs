@@ -1,4 +1,7 @@
-﻿namespace SISFALLA
+﻿using System;
+using System.Configuration;
+
+namespace SISFALLA
 {
     partial class SisFallaPrincipal
     {
@@ -341,9 +344,14 @@
             // 
             // _bgWorker
             // 
-            this._bgWorker.WorkerReportsProgress = true;
-            this._bgWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this._bgWorker_DoWork);
-            this._bgWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this._bgWorker_RunWorkerCompleted);
+            bool offline = Convert.ToBoolean(ConfigurationManager.AppSettings["OffLine"]);
+            Console.WriteLine("ssssssssssssssseeeeeeeeeeeeeetttttttttttttttt:: "+offline);
+            if (!offline)
+            {
+                this._bgWorker.WorkerReportsProgress = true;
+                this._bgWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this._bgWorker_DoWork);
+                this._bgWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this._bgWorker_RunWorkerCompleted);
+            }
             // 
             // _cmDescargarFalla
             // 

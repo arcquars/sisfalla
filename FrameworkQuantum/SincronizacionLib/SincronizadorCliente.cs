@@ -9,6 +9,7 @@ using BLL;
 using CNDC.Pistas;
 using CNDC.UtilesComunes;
 
+
 namespace CNDC.Sincronizacion
 {
     public class SincronizadorCliente
@@ -42,7 +43,7 @@ namespace CNDC.Sincronizacion
 
         private void ConfirmarSincronizador(Dictionary<string, decimal> Local, Dictionary<string, decimal> Servidor)
         {
-            
+            Console.WriteLine("1 sssssssssssss:::::::::::::::::::::::::::::::::::::::: ");
             foreach (KeyValuePair<string,  decimal> pair  in Local)
             { 
                 if (Servidor.ContainsKey(pair.Key))
@@ -58,19 +59,16 @@ namespace CNDC.Sincronizacion
                 {
                     PistaMgr.Instance.Error("SincronizadorCliente", string.Format("Servidor no tiene la Tabla: {0}", pair.Key));
                 }
-                    
-                
-
-                
             }
         }
 
         private bool ValidarEstructuraTablas( AyudanteSincronizacion ayudante )
         {
+            Console.WriteLine("2 sssssssssssss:::::::::::::::::::::::::::::::::::::::: ");
             bool tf = true;
             Dictionary<string, decimal>  Local = ayudante.TablesColumns();
             Dictionary<string, decimal>  Servidor = MgrServidor.TablesColumns();
-           
+            
             foreach (KeyValuePair<string, decimal> pair in Local)
             {
                 if (Servidor.ContainsKey(pair.Key))
@@ -94,33 +92,43 @@ namespace CNDC.Sincronizacion
         private int count = 0;
         public bool SincronizarDatos()
         {
+            //ConfigurationManager.AppSettings["OffLine"] = "ss";
+            Console.WriteLine("3 sssssssssssss:::::::::::::::::::::::::::::::::::::::: ");
             bool resultado = false;
 
-            try
+            if (true)
             {
-                Pistas.PistaMgr.Instance.EscribirLog("Sincronizacion", "Inicio Sincronización" + DateTime.Now.ToString(), TipoPista.Debug);
-                resultado = SincronizarParametros();
-                Pistas.PistaMgr.Instance.EscribirLog("Sincronizacion", "SincronizarParametros " + DateTime.Now.ToString(), TipoPista.Debug);
+                try
+                {
+                    Pistas.PistaMgr.Instance.EscribirLog("Sincronizacion", "Inicio Sincronización" + DateTime.Now.ToString(), TipoPista.Debug);
+                    resultado = SincronizarParametros();
+                    Pistas.PistaMgr.Instance.EscribirLog("Sincronizacion", "SincronizarParametros " + DateTime.Now.ToString(), TipoPista.Debug);
+                }
+                catch (Exception e)
+                {
+
+                    Pistas.PistaMgr.Instance.EscribirLog("SincronizadorCliente", e, TipoPista.Error);
+                }
+
+
+                //if (count >=0)
+                //{
+                //    resultado = SincronizacionInformesDeFalla();
+                //    Pistas.PistaMgr.Instance.EscribirLog("Sincronizacion", "SincronizacionInformesDeFalla " + DateTime.Now.ToString(), TipoPista.Debug);
+                //}
+                //count++;
             }
-            catch (Exception e)
+            else
             {
-
-                Pistas.PistaMgr.Instance.EscribirLog("SincronizadorCliente", e, TipoPista.Error);
+                Console.WriteLine("ccccccccccccccccccc");
             }
-
-            
-            //if (count >=0)
-            //{
-            //    resultado = SincronizacionInformesDeFalla();
-            //    Pistas.PistaMgr.Instance.EscribirLog("Sincronizacion", "SincronizacionInformesDeFalla " + DateTime.Now.ToString(), TipoPista.Debug);
-            //}
-            //count++;
-           
             return resultado;
         }
         
         private bool SincronizarParametros()
-        {  bool resultado = false;
+        {
+            Console.WriteLine("4 sssssssssssss:::::::::::::::::::::::::::::::::::::::: ");
+            bool resultado = false;
             try
             {
                 MensajeEmergenteMgr.Intancia.LimpiarMensaje();
@@ -141,7 +149,10 @@ namespace CNDC.Sincronizacion
                 PistaMgr.Instance.EscribirEnLocal("Sincronizador", "Iniciando Sincronizacion: PASO1 " + DateTime.Now.ToString("HH:mm:ss"));
                 Dictionary<string, decimal> sincVersionesLocal = ayudante.GetMaxSincVer();
                 PistaMgr.Instance.EscribirEnLocal("Sincronizador", "Iniciando Sincronizacion: PASO2 " + DateTime.Now.ToString("HH:mm:ss"));
+                Console.WriteLine("0eeeeeeeeeeee:: ");
                 Dictionary<string, decimal> sincVersionesServidor = MgrServidor.GetMaxSincVer();
+                Console.WriteLine("1eeeeeeeeeeee:: ");
+                Console.WriteLine("2eeeeeeeeeeee:: "+sincVersionesLocal.Count);
                 PistaMgr.Instance.EscribirEnLocal("Sincronizador", "Iniciando Sincronizacion: PASO3 " + DateTime.Now.ToString("HH:mm:ss"));
                 int contadorTablasSincronizadas = 0;
                 Dictionary<IProveedorConfirmacionSinc, DataTable> dicProveedoresConfirmacion = new Dictionary<IProveedorConfirmacionSinc, DataTable>();
@@ -246,9 +257,9 @@ namespace CNDC.Sincronizacion
          */
         public  bool  SincronizarInformesFalla()
         {
+            Console.WriteLine("5 sssssssssssss:::::::::::::::::::::::::::::::::::::::: ");
             bool resultado = false;
-
-
+            
             try
             {
                 PistaMgr.Instance.Debug("SincronizacionInformesDeFalla", string.Format("Inicio Sincronizacion: {0}", DateTime.Now.ToString("HH:mm:ss")));
@@ -295,6 +306,7 @@ namespace CNDC.Sincronizacion
   
         public void OnSincronizando(int c, int t, string tx)
         {
+            Console.WriteLine("6 sssssssssssss:::::::::::::::::::::::::::::::::::::::: ");
             if (Sincronizando != null)
             {
                 Sincronizando(this, new SincEventArgs(c, t,tx));

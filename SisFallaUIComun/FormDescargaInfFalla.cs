@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -67,6 +68,7 @@ namespace SISFALLA
                     if (_runInBack)
                     {
                         this.Visible = false;
+
                         _btnDecargar_Click(null, null);
                     }
                 }
@@ -102,17 +104,26 @@ namespace SISFALLA
 
         private void _btnDecargar_Click(object sender, EventArgs e)
         {
-            if (_chlbxAgentes.Items.Count == 0)
+            bool offline = Convert.ToBoolean(ConfigurationManager.AppSettings["OffLine"]);
+            if (!offline)
             {
-                MessageBox.Show("No hay items seleccionados.");
+                if (_chlbxAgentes.Items.Count == 0)
+                {
+                    MessageBox.Show("No hay items seleccionados.");
+                }
+                else
+                {
+                    FormTareaAsincrona tarea = new FormTareaAsincrona();
+                    tarea.Visualizar("Descargando Informes de Falla", "Descargando...", DescargarInformes);
+                }
+                this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                this.Close();
             }
             else
             {
-                FormTareaAsincrona tarea = new FormTareaAsincrona();
-                tarea.Visualizar("Descargando Informes de Falla", "Descargando...", DescargarInformes);
+
+                MessageBox.Show("Sistema en modo fuera de linea.", "Descarga de Informes.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            this.DialogResult = System.Windows.Forms.DialogResult.OK ;
-            this.Close();
         }
 
         private List<AgentesInvolucradosTmp> GetAgentesInvolucrados(int pkcodFalla)

@@ -11,7 +11,7 @@ using CNDC.Pistas;
 using CNDC.Sincronizacion;
 using MenuQuantum;
 using QuantumPluginLib;
-
+using System.Configuration;
 namespace QuantumUI
 {
     public partial class QuantumPrincipal : BaseForm, IFormPrincipal
@@ -96,7 +96,11 @@ namespace QuantumUI
             }
             else
             {
-                Sesion.Instancia.FechaHoraServidor = CNDC.Sincronizacion.SincronizadorCliente.Instancia.MgrServidor.GetFechaHoraServ();
+                bool offline = Convert.ToBoolean(ConfigurationManager.AppSettings["OffLine"]);
+                if (!offline)
+                {
+                    Sesion.Instancia.FechaHoraServidor = CNDC.Sincronizacion.SincronizadorCliente.Instancia.MgrServidor.GetFechaHoraServ();
+                }
                 if (Sesion.Instancia.FechaHoraServidor == null)
                 {
                     _lblHoraCNDC.Text = MessageMgr.Instance.GetMessage("SIN_CONEX_CNDC");
@@ -185,9 +189,8 @@ namespace QuantumUI
                 _pluginActual.AbrirSplash();
                 AdministradorAyuda.Instance.ProveedorAyuda = new OraDalProveedorAyuda();
                 _pluginActual.CargarDatosDeInicio();
-
+                
                 CargarMenu();
-
                 _timerHora.Enabled = true;
                 _timerHoraCNDC.Enabled = true;
                 CargarBarraDeEstado();

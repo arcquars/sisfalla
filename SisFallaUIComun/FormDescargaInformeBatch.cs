@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -63,24 +64,29 @@ namespace SISFALLA
  
         private int _pkCodFalla = -1;
         private void _btnDecargar_Click(object sender, EventArgs e)
-        {  
+        {
 
-            
+            bool offline = Convert.ToBoolean(ConfigurationManager.AppSettings["OffLine"]);
+            if (!offline)
+            {
                 int _pkCodFallaSeleccionadoInicio = (int)_cmbRegistrosFallaInicio.SelectedValue;
                 int _pkCodFallaSeleccionadoFin = (int)_cmbRegistrosFallaFin.SelectedValue;
-                
-               
-
 
                 for (_pkCodFalla = _pkCodFallaSeleccionadoInicio; _pkCodFalla <= _pkCodFallaSeleccionadoFin; _pkCodFalla++)
                 {
                     FormTareaAsincrona tarea = new FormTareaAsincrona();
                     tarea.Visualizar("Descargando Informes de Falla", "Descargando...", DescargarInformes);
                 }
-          
-           
-            this.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.Close();
+
+
+                this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                this.Close();
+            }
+            else
+            {
+
+                MessageBox.Show("Sistema en modo fuera de linea.", "Descarga de Informes.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         public static bool ImportarInforme(byte[] informe, out bool continuaImportando)
@@ -126,50 +132,50 @@ namespace SISFALLA
 
                 if (agentes.Contains (agCndc))
                 {
-                    agentes.Remove(agCndc);
-                    bool continuaPre = false;
-                    bool continuaFin = false;
-                    bool continuaRec = false;
-
-                    bool dummy;
-
-                    byte[] informePreCNDC = WcfServicioMgr.Instancia.Servicio.GetInforme(CNDC.BLL.Sesion.Instancia.TokenSession, _pkCodFalla, agCndc.PkCodPersona, (long)PK_D_COD_TIPOINFORME.PRELIMINAR);
-                    ImportarInforme(informePreCNDC, out continuaPre);
-
-                    byte[] informeFinCNDC = WcfServicioMgr.Instancia.Servicio.GetInforme(CNDC.BLL.Sesion.Instancia.TokenSession, _pkCodFalla, agCndc.PkCodPersona, (long)PK_D_COD_TIPOINFORME.FINAL );
-                    ImportarInforme(informeFinCNDC, out continuaFin);
-
-                    byte[] informeRecCNDC = WcfServicioMgr.Instancia.Servicio.GetInforme(CNDC.BLL.Sesion.Instancia.TokenSession, _pkCodFalla, agCndc.PkCodPersona, (long)PK_D_COD_TIPOINFORME.RECTIFICATORIO );
-                    ImportarInforme(informeRecCNDC, out continuaRec);
-
-                    if (continuaPre)
-                    {
-                        foreach (AgentesInvolucradosTmp a in agentes)
-                        {
-                            byte[] informe = WcfServicioMgr.Instancia.Servicio.GetInforme(CNDC.BLL.Sesion.Instancia.TokenSession, _pkCodFalla, a.PkCodPersona, (long)PK_D_COD_TIPOINFORME.PRELIMINAR);
-                            ImportarInforme(informe, out dummy);
-                        }
-                    }
-
-                    if (continuaFin)
-
-                    {
-                        foreach (AgentesInvolucradosTmp a in agentes)
-                        {
-                            byte[] informe = WcfServicioMgr.Instancia.Servicio.GetInforme(CNDC.BLL.Sesion.Instancia.TokenSession, _pkCodFalla, a.PkCodPersona, (long)PK_D_COD_TIPOINFORME.FINAL );
-                            ImportarInforme(informe, out dummy);
-                        }
-                    }
-
-                    if (continuaRec)
-                    {
-                        foreach (AgentesInvolucradosTmp a in agentes)
-                        {
-                            byte[] informe = WcfServicioMgr.Instancia.Servicio.GetInforme(CNDC.BLL.Sesion.Instancia.TokenSession, _pkCodFalla, a.PkCodPersona, (long)PK_D_COD_TIPOINFORME.RECTIFICATORIO);
-                            ImportarInforme(informe, out dummy);
-                        }
-                    }
                     
+                        agentes.Remove(agCndc);
+                        bool continuaPre = false;
+                        bool continuaFin = false;
+                        bool continuaRec = false;
+
+                        bool dummy;
+
+                        byte[] informePreCNDC = WcfServicioMgr.Instancia.Servicio.GetInforme(CNDC.BLL.Sesion.Instancia.TokenSession, _pkCodFalla, agCndc.PkCodPersona, (long)PK_D_COD_TIPOINFORME.PRELIMINAR);
+                        ImportarInforme(informePreCNDC, out continuaPre);
+
+                        byte[] informeFinCNDC = WcfServicioMgr.Instancia.Servicio.GetInforme(CNDC.BLL.Sesion.Instancia.TokenSession, _pkCodFalla, agCndc.PkCodPersona, (long)PK_D_COD_TIPOINFORME.FINAL);
+                        ImportarInforme(informeFinCNDC, out continuaFin);
+
+                        byte[] informeRecCNDC = WcfServicioMgr.Instancia.Servicio.GetInforme(CNDC.BLL.Sesion.Instancia.TokenSession, _pkCodFalla, agCndc.PkCodPersona, (long)PK_D_COD_TIPOINFORME.RECTIFICATORIO);
+                        ImportarInforme(informeRecCNDC, out continuaRec);
+
+                        if (continuaPre)
+                        {
+                            foreach (AgentesInvolucradosTmp a in agentes)
+                            {
+                                byte[] informe = WcfServicioMgr.Instancia.Servicio.GetInforme(CNDC.BLL.Sesion.Instancia.TokenSession, _pkCodFalla, a.PkCodPersona, (long)PK_D_COD_TIPOINFORME.PRELIMINAR);
+                                ImportarInforme(informe, out dummy);
+                            }
+                        }
+
+                        if (continuaFin)
+
+                        {
+                            foreach (AgentesInvolucradosTmp a in agentes)
+                            {
+                                byte[] informe = WcfServicioMgr.Instancia.Servicio.GetInforme(CNDC.BLL.Sesion.Instancia.TokenSession, _pkCodFalla, a.PkCodPersona, (long)PK_D_COD_TIPOINFORME.FINAL);
+                                ImportarInforme(informe, out dummy);
+                            }
+                        }
+
+                        if (continuaRec)
+                        {
+                            foreach (AgentesInvolucradosTmp a in agentes)
+                            {
+                                byte[] informe = WcfServicioMgr.Instancia.Servicio.GetInforme(CNDC.BLL.Sesion.Instancia.TokenSession, _pkCodFalla, a.PkCodPersona, (long)PK_D_COD_TIPOINFORME.RECTIFICATORIO);
+                                ImportarInforme(informe, out dummy);
+                            }
+                        }
                 }
 
 

@@ -22,6 +22,8 @@ using WcfDalSisFalla;
 using System.IO;
 using CNDC.Pistas;
 
+using System.Configuration;
+
 namespace SISFALLA
 {
     public partial class SisFallaPrincipal : QuantumBaseControl
@@ -63,13 +65,16 @@ namespace SISFALLA
 
         void bgwSincronizadorFallas_DoWork(object sender, DoWorkEventArgs e)
         {
-                    
-            CNDC.Pistas.PistaMgr.Instance.EscribirLog("Sincronizacion", "ActualizarFallas " + DateTime.Now.ToString(), TipoPista.Debug);
-            if (SincronizadorCliente.Instancia.SincronizarInformesFalla())
+            bool offline = Convert.ToBoolean(ConfigurationManager.AppSettings["OffLine"]);
+            if (!offline)
             {
-                ActualizarFallas();             
-            }            
-            CNDC.Pistas.PistaMgr.Instance.EscribirLog("Sincronizacion", "ActualizarFallas Terminado " + DateTime.Now.ToString(), TipoPista.Debug);
+                CNDC.Pistas.PistaMgr.Instance.EscribirLog("Sincronizacion", "ActualizarFallas " + DateTime.Now.ToString(), TipoPista.Debug);
+                if (SincronizadorCliente.Instancia.SincronizarInformesFalla())
+                {
+                    ActualizarFallas();
+                }
+                CNDC.Pistas.PistaMgr.Instance.EscribirLog("Sincronizacion", "ActualizarFallas Terminado " + DateTime.Now.ToString(), TipoPista.Debug);
+            }
         }
 
         void _dgvFallas_MouseUp(object sender, MouseEventArgs e)
@@ -184,13 +189,21 @@ namespace SISFALLA
                 {
                     PistaMgr.Instance.Debug("CargarDatosInicio", "Iniciando Sincronizacion");
                     SincronizadorCliente.Instancia.Sincronizando += new EventHandler<SincEventArgs>(Sincronizador_Sincronizando);
-                    if (SincronizadorCliente.Instancia.SincronizarDatos())
+                    bool offline = Convert.ToBoolean(ConfigurationManager.AppSettings["OffLine"]);
+                    if (!offline)
                     {
-                        List<MensajeEmergente> mensajes = new List<MensajeEmergente>();
-                        mensajes = MensajeEmergenteMgr.Intancia.GetMensajes();
-                        _ctrlSincronizacion.Finalizar(mensajes);
+                        if (SincronizadorCliente.Instancia.SincronizarDatos())
+                        {
+                            List<MensajeEmergente> mensajes = new List<MensajeEmergente>();
+                            mensajes = MensajeEmergenteMgr.Intancia.GetMensajes();
+                            _ctrlSincronizacion.Finalizar(mensajes);
+                        }
+                        PistaMgr.Instance.Debug("CargarDatosInicio", "Fin Sincronizacion");
                     }
-                    PistaMgr.Instance.Debug("CargarDatosInicio", "Fin Sincronizacion");
+                    else
+                    {
+                        Console.WriteLine("Trabajo fuera de linea..");
+                    }
                 }
 
             }
