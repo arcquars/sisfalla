@@ -121,7 +121,7 @@ namespace WcfDalSisFalla
             }
             catch (Exception ex)
             {
-                PistaMgr.Instance.Error("WcfDalSisFalla GetFechaHoraServ", new Exception("Fecha:" + strFechaHora, ex));
+                PistaMgr.Instance.Error("WcfDalSisFalla GetFechaHoraServ", new Exception("Fecha:" + strFechaHora +" :: ", ex));
             }
             return resultado;
         }

@@ -52,15 +52,35 @@ namespace QuantumUI
             ToolStripLabel nombreUsuario = new ToolStripLabel();
             ToolStripLabel rol = new ToolStripLabel();
             nombreUsuario.Text = " Usuario : " + CNDC.BLL.Sesion.Instancia.UsuarioActual.Nombre;
+            //CNDC.BLL.Sesion.Instancia.ConfigConexion.IsConnection = false;
+            //Console.WriteLine("wwwwwww::: " + CNDC.BLL.Sesion.Instancia.ConfigConexion.IsConnection);
             rol.Text = " Rol: ";
             ToolStripComboBox tcmp = new ToolStripComboBox();
+            ToolStripComboBox tscbConexion = new ToolStripComboBox();
+            ToolStripButton tsbSincro = new ToolStripButton("Sincronizar");
+
+            tscbConexion.ComboBox.Items.Add(new KeyValuePair<int, string>(0, "Conectado"));
+            tscbConexion.ComboBox.Items.Add(new KeyValuePair<int, string>(1, "Sin Conexion"));
+            tscbConexion.ComboBox.DisplayMember = "Value";
+            tscbConexion.ComboBox.ValueMember = "Key";
+
+            if (!CNDC.BLL.Sesion.Instancia.ConfigConexion.IsConnection)
+            {
+                tscbConexion.ComboBox.SelectedIndex = 1;
+            }
+            else
+            {
+                tscbConexion.ComboBox.SelectedIndex = 0;
+            }
+            
+            tscbConexion.ComboBox.SelectedIndexChanged += new EventHandler(TscbSelectedIndexChanged);
+            tsbSincro.Click += new EventHandler(TsbSincroClick);
             tcmp.ComboBox.DataSource = CNDC.BLL.Sesion.Instancia.RolesActuales;
             _statusStrip.Items.Add(nombreUsuario);
             _statusStrip.Items.Add(new ToolStripSeparator());
             _statusStrip.Items.Add(rol);
             _statusStrip.Items.Add(tcmp);
             _statusStrip.Items.Add(new ToolStripSeparator());
-
             //_statusStrip.Items.Add(new ToolStripLabel(" Equipo : " + CNDC.BLL.Sesion.Instancia.GetObjetoGlobal<string>("host")));
             //_statusStrip.Items.Add(new ToolStripSeparator());
             _statusStrip.Items.Add(new ToolStripLabel(" Empresa : " + CNDC.BLL.Sesion.Instancia.EmpresaActual.Nombre));
@@ -72,7 +92,10 @@ namespace QuantumUI
             _lblHoraCNDC = new ToolStripLabel();
             _lblHoraCNDC.Font = new System.Drawing.Font(_lblHoraCNDC.Font, FontStyle.Bold);
             _statusStrip.Items.Add(_lblHoraCNDC);
-            
+            _statusStrip.Items.Add(new ToolStripSeparator());
+            _statusStrip.Items.Add(tscbConexion);
+            _statusStrip.Items.Add(new ToolStripSeparator());
+            _statusStrip.Items.Add(tsbSincro);
             SetLblHoraCNDC();
             
            
@@ -96,8 +119,8 @@ namespace QuantumUI
             }
             else
             {
-                bool offline = Convert.ToBoolean(ConfigurationManager.AppSettings["OffLine"]);
-                if (!offline)
+                bool offline = CNDC.BLL.Sesion.Instancia.ConfigConexion.IsConnection;
+                if (offline)
                 {
                     Sesion.Instancia.FechaHoraServidor = CNDC.Sincronizacion.SincronizadorCliente.Instancia.MgrServidor.GetFechaHoraServ();
                 }
@@ -285,6 +308,28 @@ namespace QuantumUI
         private void _timerHoraCNDC_Tick(object sender, EventArgs e)
         {
             SetLblHoraCNDC();
+        }
+
+        private void TsbSincroClick(object sender, EventArgs e)
+        {
+            Console.WriteLine("ssssssssssssssssss");
+        }
+
+        private void TscbSelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            ComboBox cc = (sender as ComboBox);
+            KeyValuePair<int, string> kvpSelected = (KeyValuePair<int, string>)cc.SelectedItem;
+            Console.WriteLine("gggggg:: "+ kvpSelected.Key);
+            if (kvpSelected.Key == 0)
+            {
+                CNDC.BLL.Sesion.Instancia.ConfigConexion.IsConnection = true;
+            }
+            else
+            {
+                CNDC.BLL.Sesion.Instancia.ConfigConexion.IsConnection = false;
+            }
+            
+
         }
     }
 }

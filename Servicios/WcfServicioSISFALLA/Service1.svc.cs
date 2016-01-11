@@ -334,6 +334,7 @@ namespace WcfServicioSISFALLA
             {
                 PistaMgr.Instance.Error("WcfServicioSISFALLA.GetStrFechaHora()", ex);
             }
+            PistaMgr.Instance.EscribirEnLocal("GetStrFechaHora() ::: ", resultado);
             return resultado;
         }
 
@@ -421,6 +422,11 @@ namespace WcfServicioSISFALLA
                 PistaMgr.Instance.Error("WcfServicioSISFALLA.GetInforme()", ex);
             }
             return b;
+        }
+
+        public bool TestConexion()
+        {
+            return true;
         }
     }
 

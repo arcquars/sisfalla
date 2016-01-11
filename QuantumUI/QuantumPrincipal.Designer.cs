@@ -109,7 +109,6 @@
         private Controles.CNDCPanelControl cndcPanelControl2;
         private System.Windows.Forms.Timer _timerHora;
         private System.Windows.Forms.Timer _timerHoraCNDC;
-
     }
 }
 

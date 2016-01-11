@@ -344,9 +344,8 @@ namespace SISFALLA
             // 
             // _bgWorker
             // 
-            bool offline = Convert.ToBoolean(ConfigurationManager.AppSettings["OffLine"]);
-            Console.WriteLine("ssssssssssssssseeeeeeeeeeeeeetttttttttttttttt:: "+offline);
-            if (!offline)
+            bool offline = CNDC.BLL.Sesion.Instancia.ConfigConexion.IsConnection;
+            if (offline)
             {
                 this._bgWorker.WorkerReportsProgress = true;
                 this._bgWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this._bgWorker_DoWork);

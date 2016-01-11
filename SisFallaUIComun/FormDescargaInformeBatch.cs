@@ -66,8 +66,8 @@ namespace SISFALLA
         private void _btnDecargar_Click(object sender, EventArgs e)
         {
 
-            bool offline = Convert.ToBoolean(ConfigurationManager.AppSettings["OffLine"]);
-            if (!offline)
+            bool offline = CNDC.BLL.Sesion.Instancia.ConfigConexion.IsConnection;
+            if (offline)
             {
                 int _pkCodFallaSeleccionadoInicio = (int)_cmbRegistrosFallaInicio.SelectedValue;
                 int _pkCodFallaSeleccionadoFin = (int)_cmbRegistrosFallaFin.SelectedValue;

@@ -10,6 +10,8 @@ namespace CNDC.DAL
         private TipoBaseDatos _tipoBD;
         private TipoAutenticacion _tipoAutenticacion;
 
+        private bool _isConnection;
+
         public ConfigConexionMgr()
         {
             LeerConfiguracion();
@@ -27,6 +29,7 @@ namespace CNDC.DAL
                     LeerTipoAutenticacionDeRegistro();
                     _tipoBD = TipoBaseDatos.Centralizada;
                 }
+                LeerConnectionDeRegistro();
             }
             catch (Exception ex)
             {
@@ -39,6 +42,12 @@ namespace CNDC.DAL
             UtilesComunes.LlaveDeRegistro.EscribirValorDeRegistro(Microsoft.Win32.Registry.LocalMachine, "SOFTWARE\\SisFallaV2", "TipoAutenticacion", _tipoAutenticacion.ToString());
         }
 
+        private void GuardarConnectionEnRegistro()
+        {
+            Console.WriteLine("ppppppppppppppppppppppppppp GuardarConnectionEnRegistro:: " + _isConnection);
+            UtilesComunes.LlaveDeRegistro.EscribirValorDeRegistro(Microsoft.Win32.Registry.LocalMachine, "SOFTWARE\\SisFallaV2", "Connection", _isConnection.ToString());
+        }
+
         private void LeerTipoAutenticacionDeRegistro()
         {
             string valorLlave = UtilesComunes.LlaveDeRegistro.LeerValorDeRegistro(Microsoft.Win32.Registry.LocalMachine, "SOFTWARE\\SisFallaV2", "TipoAutenticacion");
@@ -49,6 +58,20 @@ namespace CNDC.DAL
             else
             {
                 _tipoAutenticacion = (TipoAutenticacion)Enum.Parse(typeof(TipoAutenticacion), valorLlave);
+            }
+        }
+
+        private void LeerConnectionDeRegistro()
+        {
+            string valorLlave = UtilesComunes.LlaveDeRegistro.LeerValorDeRegistro(Microsoft.Win32.Registry.LocalMachine, "SOFTWARE\\SisFallaV2", "Connection");
+            if (string.IsNullOrEmpty(valorLlave))
+            {
+                UtilesComunes.LlaveDeRegistro.EscribirValorDeRegistro(Microsoft.Win32.Registry.LocalMachine, "SOFTWARE\\SisFallaV2", "Connection", "1");
+                _isConnection = false;
+            }
+            else
+            {
+                _isConnection = Convert.ToBoolean(valorLlave);
             }
         }
 
@@ -69,6 +92,16 @@ namespace CNDC.DAL
             {
                 _tipoAutenticacion = value;
                 GuardarTipoAutenticacionEnRegistro();
+            }
+        }
+
+        public bool IsConnection
+        {
+            get { return _isConnection; }
+            set
+            {
+                _isConnection = value;
+                GuardarConnectionEnRegistro();
             }
         }
 

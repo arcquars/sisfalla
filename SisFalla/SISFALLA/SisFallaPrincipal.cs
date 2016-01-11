@@ -65,8 +65,8 @@ namespace SISFALLA
 
         void bgwSincronizadorFallas_DoWork(object sender, DoWorkEventArgs e)
         {
-            bool offline = Convert.ToBoolean(ConfigurationManager.AppSettings["OffLine"]);
-            if (!offline)
+            bool offline = CNDC.BLL.Sesion.Instancia.ConfigConexion.IsConnection;
+            if (offline)
             {
                 CNDC.Pistas.PistaMgr.Instance.EscribirLog("Sincronizacion", "ActualizarFallas " + DateTime.Now.ToString(), TipoPista.Debug);
                 if (SincronizadorCliente.Instancia.SincronizarInformesFalla())
@@ -189,8 +189,8 @@ namespace SISFALLA
                 {
                     PistaMgr.Instance.Debug("CargarDatosInicio", "Iniciando Sincronizacion");
                     SincronizadorCliente.Instancia.Sincronizando += new EventHandler<SincEventArgs>(Sincronizador_Sincronizando);
-                    bool offline = Convert.ToBoolean(ConfigurationManager.AppSettings["OffLine"]);
-                    if (!offline)
+                    bool offline = CNDC.BLL.Sesion.Instancia.ConfigConexion.IsConnection;
+                    if (offline)
                     {
                         if (SincronizadorCliente.Instancia.SincronizarDatos())
                         {

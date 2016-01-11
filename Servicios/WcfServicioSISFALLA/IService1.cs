@@ -55,5 +55,8 @@ namespace WcfServicioSISFALLA
         [OperationContract]
         byte[] GetInforme(string token,int codFalla, long origen, long tipo);
 
+        [OperationContract]
+        bool TestConexion();
+
     }
 }

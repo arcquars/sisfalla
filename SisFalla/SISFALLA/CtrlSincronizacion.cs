@@ -22,7 +22,7 @@ namespace SISFALLA
         public void Iniciar()
         {
             _btnVerMensajes.Visible = false;
-            _pgBar.Visible = true;
+            //_pgBar.Visible = true;
             _pgBar.Dock = DockStyle.Fill;
         }
 
