@@ -65,16 +65,14 @@ namespace SISFALLA
 
         void bgwSincronizadorFallas_DoWork(object sender, DoWorkEventArgs e)
         {
-            bool offline = CNDC.BLL.Sesion.Instancia.ConfigConexion.IsConnection;
-            if (offline)
-            {
-                CNDC.Pistas.PistaMgr.Instance.EscribirLog("Sincronizacion", "ActualizarFallas " + DateTime.Now.ToString(), TipoPista.Debug);
-                if (SincronizadorCliente.Instancia.SincronizarInformesFalla())
-                {
-                    ActualizarFallas();
-                }
-                CNDC.Pistas.PistaMgr.Instance.EscribirLog("Sincronizacion", "ActualizarFallas Terminado " + DateTime.Now.ToString(), TipoPista.Debug);
-            }
+            Console.WriteLine("mioooooooo desde el hilo...");
+            
+                    CNDC.Pistas.PistaMgr.Instance.EscribirLog("Sincronizacion", "ActualizarFallas " + DateTime.Now.ToString(), TipoPista.Debug);
+                    if (SincronizadorCliente.Instancia.SincronizarInformesFalla())
+                    {
+                        ActualizarFallas();
+                    }
+                    CNDC.Pistas.PistaMgr.Instance.EscribirLog("Sincronizacion", "ActualizarFallas Terminado " + DateTime.Now.ToString(), TipoPista.Debug);
         }
 
         void _dgvFallas_MouseUp(object sender, MouseEventArgs e)
@@ -190,15 +188,24 @@ namespace SISFALLA
                     PistaMgr.Instance.Debug("CargarDatosInicio", "Iniciando Sincronizacion");
                     SincronizadorCliente.Instancia.Sincronizando += new EventHandler<SincEventArgs>(Sincronizador_Sincronizando);
                     bool offline = CNDC.BLL.Sesion.Instancia.ConfigConexion.IsConnection;
-                    if (offline)
+                    Console.WriteLine("carlossssssssssssssssssssssssssssssssss");
+                    if (SincronizadorCliente.Instancia.PingHost())
                     {
-                        if (SincronizadorCliente.Instancia.SincronizarDatos())
+                        if (SincronizadorCliente.Instancia.PingHost())
                         {
-                            List<MensajeEmergente> mensajes = new List<MensajeEmergente>();
-                            mensajes = MensajeEmergenteMgr.Intancia.GetMensajes();
-                            _ctrlSincronizacion.Finalizar(mensajes);
+                            if (SincronizadorCliente.Instancia.SincronizarDatos())
+                            {
+                                List<MensajeEmergente> mensajes = new List<MensajeEmergente>();
+                                mensajes = MensajeEmergenteMgr.Intancia.GetMensajes();
+                                _ctrlSincronizacion.Finalizar(mensajes);
+                            }
+                            PistaMgr.Instance.Debug("CargarDatosInicio", "Fin Sincronizacion");
                         }
-                        PistaMgr.Instance.Debug("CargarDatosInicio", "Fin Sincronizacion");
+                        else
+                        {
+                            messageNotConectionVpn();
+                        }
+                        
                     }
                     else
                     {
@@ -733,6 +740,31 @@ namespace SISFALLA
             }
         }
 
+        private void _btnSincronizar_Click(object sender, EventArgs e)
+        {
+            CNDC.Pistas.PistaMgr.Instance.EscribirLog("Sincronizacion", "ActualizarFallas Desde boton actualizar " + DateTime.Now.ToString(), TipoPista.Debug);
+            if (SincronizadorCliente.Instancia.PingHost())
+            {
+                Console.WriteLine("Hiso ping al ping virtual");
+                if (SincronizadorCliente.Instancia.SincronizarInformesFalla())
+                {
+                    ActualizarFallas();
+                }
+                CNDC.Pistas.PistaMgr.Instance.EscribirLog("Sincronizacion", "ActualizarFallas Terminado Desde boton actualizar" + DateTime.Now.ToString(), TipoPista.Debug);
+            }
+            else
+            {
+                Console.WriteLine("No hay conexion con la vpn.");
+                messageNotConectionVpn();
+            }
+            
+        }
+
+        private void messageNotConectionVpn()
+        {
+            MessageBox.Show("No hay conexion con la vpn.", "", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+        }
+
         RegFalla _fallaSeleccionadaTemp;
         private void _sincTimer_Tick(object sender, EventArgs e)
         {
@@ -757,7 +789,14 @@ namespace SISFALLA
         bool _huboCambiosEnSincronizacion = false;
         private void _bgWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            _huboCambiosEnSincronizacion = CNDC.Sincronizacion.SincronizadorCliente.Instancia.SincronizarDatos();
+            if (SincronizadorCliente.Instancia.PingHost())
+            {
+                _huboCambiosEnSincronizacion = CNDC.Sincronizacion.SincronizadorCliente.Instancia.SincronizarDatos();
+            }
+            else
+            {
+                messageNotConectionVpn();
+            }
         }
 
         private void _bgWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -856,11 +895,9 @@ namespace SISFALLA
 
         private void _tbsDescargarInformesDeFalla_Click(object sender, EventArgs e)
         {
-             
             RegFalla regFalla = Sesion.Instancia.GetObjetoGlobal<RegFalla>("Principal.FallaActual");
 
-          
-          FormDescargaInfFalla frm = new FormDescargaInfFalla(regFalla.CodFalla,true  );
+            FormDescargaInfFalla frm = new FormDescargaInfFalla(regFalla.CodFalla, false);
             frm.Show();
 
        

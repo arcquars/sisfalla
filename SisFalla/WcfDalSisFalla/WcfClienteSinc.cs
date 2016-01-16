@@ -20,9 +20,15 @@ namespace WcfDalSisFalla
         {
             Console.WriteLine("WcfClienteSinc ccc 1:: ");
             DataTable resultado = null;
-            byte[] b = WcfServicioMgr.Instancia.Servicio.GetInformesFallaSincronizacion(Sesion.Instancia.TokenSession);
-            PistaMgr.Instance.EscribirLog("WcfClienteSinc", "GetInformesFallaSincronizacion:" + b.Length.ToString(), TipoPista.Debug);
-             resultado =   Serializador.DeSerializar<DataTable>(b);
+            try {
+                byte[] b = WcfServicioMgr.Instancia.Servicio.GetInformesFallaSincronizacion(Sesion.Instancia.TokenSession);
+                PistaMgr.Instance.EscribirLog("WcfClienteSinc", "GetInformesFallaSincronizacion:" + b.Length.ToString(), TipoPista.Debug);
+                resultado = Serializador.DeSerializar<DataTable>(b);
+            }
+            catch (Exception e)
+            {
+                PistaMgr.Instance.Error("GetSincronizacionInformesFalla upb ", e);
+            }
 
             return resultado;
         }
@@ -30,9 +36,17 @@ namespace WcfDalSisFalla
         {
             Console.WriteLine("WcfClienteSinc ccc 2:: ");
             DataTable resultado = null;
-            byte[] b = WcfServicioMgr.Instancia.Servicio.GetRegistrosSincronizacion(Sesion.Instancia.TokenSession, nombreTabla, version, pkCodEmpresa);
-            b = GZip.DesComprimir(b);
-            resultado = Serializador.DeSerializar<DataTable>(b);
+            try
+            {
+                byte[] b = WcfServicioMgr.Instancia.Servicio.GetRegistrosSincronizacion(Sesion.Instancia.TokenSession, nombreTabla, version, pkCodEmpresa);
+                b = GZip.DesComprimir(b);
+                resultado = Serializador.DeSerializar<DataTable>(b);
+            }
+            catch (Exception e)
+            {
+                PistaMgr.Instance.Error("GetRegistrosSincronizacion upb ", e);
+            }
+            
             return resultado;
         }
         public Dictionary<string, decimal> TablesColumns()

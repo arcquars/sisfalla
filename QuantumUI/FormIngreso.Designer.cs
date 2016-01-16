@@ -33,6 +33,10 @@
             this.TextBoxUsuario = new Controles.CNDCTextBox();
             this.cndcLabelInfo = new Controles.CNDCLabel();
             this.cndcLabelDestino = new Controles.CNDCLabel();
+
+            this.cndcLabelConexion = new Controles.CNDCLabel();
+            this.cndcComboConexion = new Controles.CNDCComboBox();
+
             this.cndcComboDestino = new Controles.CNDCComboBox();
             this._btnAceptar = new Controles.CNDCButton();
             this._btnCancelar = new Controles.CNDCButton();
@@ -103,6 +107,31 @@
             this.cndcLabelDestino.TablaCampoBD = null;
             this.cndcLabelDestino.Text = "Conectarse :";
             this.cndcLabelDestino.Visible = false;
+            // 
+            // cndcLabelConexion
+            // 
+            this.cndcLabelConexion.AutoSize = true;
+            this.cndcLabelConexion.Location = new System.Drawing.Point(132, 88);
+            this.cndcLabelConexion.Name = "cndcLabelConexion";
+            this.cndcLabelConexion.Size = new System.Drawing.Size(67, 13);
+            this.cndcLabelConexion.TabIndex = 4;
+            this.cndcLabelConexion.TablaCampoBD = null;
+            this.cndcLabelConexion.Text = "Conectado:";
+            //this.cndcLabelConexion.Visible = false;
+            // 
+            // cndcComboConexion
+            // 
+            this.cndcComboConexion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cndcComboConexion.EnterComoTab = false;
+            this.cndcComboConexion.Etiqueta = null;
+            this.cndcComboConexion.FormattingEnabled = true;
+            this.cndcComboConexion.Location = new System.Drawing.Point(203, 85);
+            this.cndcComboConexion.Name = "cndcComboConexion";
+            this.cndcComboConexion.Size = new System.Drawing.Size(112, 21);
+            this.cndcComboConexion.TabIndex = 3;
+            this.cndcComboConexion.TablaCampoBD = null;
+            //this.cndcComboConexion.Visible = false;
+
             // 
             // cndcComboDestino
             // 
@@ -201,6 +230,8 @@
             this.Controls.Add(this._btnAceptar);
             this.Controls.Add(this.cndcComboDestino);
             this.Controls.Add(this.cndcLabelDestino);
+            this.Controls.Add(this.cndcComboConexion);
+            this.Controls.Add(this.cndcLabelConexion);
             this.Controls.Add(this.cndcLabelInfo);
             this.Controls.Add(this.TextBoxUsuario);
             this.Controls.Add(this.cndcLabelPass);
@@ -225,6 +256,10 @@
         private Controles.CNDCTextBox TextBoxUsuario;
         private Controles.CNDCLabel cndcLabelInfo;
         private Controles.CNDCLabel cndcLabelDestino;
+
+        private Controles.CNDCLabel cndcLabelConexion;
+        private Controles.CNDCComboBox cndcComboConexion;
+
         private Controles.CNDCComboBox cndcComboDestino;
         private Controles.CNDCButton _btnAceptar;
         private Controles.CNDCButton _btnCancelar;

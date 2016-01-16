@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.NetworkInformation;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -89,6 +90,8 @@ namespace CNDC.Sincronizacion
             return tf;
         }
 
+
+
         private int count = 0;
         public bool SincronizarDatos()
         {
@@ -96,7 +99,7 @@ namespace CNDC.Sincronizacion
             Console.WriteLine("3 sssssssssssss:::::::::::::::::::::::::::::::::::::::: ");
             bool resultado = false;
 
-            if (true)
+            if (this.PingHost())
             {
                 try
                 {
@@ -120,7 +123,7 @@ namespace CNDC.Sincronizacion
             }
             else
             {
-                Console.WriteLine("ccccccccccccccccccc");
+                Console.WriteLine("No se pudo hacer ping en el servidor...");
             }
             return resultado;
         }
@@ -303,7 +306,24 @@ namespace CNDC.Sincronizacion
           
             return resultado;
         }
-  
+
+        public bool PingHost()
+        {
+            bool pingable = false;
+            Ping pinger = new Ping();
+            try
+            {
+                PingReply reply = pinger.Send("192.168.177.128");
+                pingable = reply.Status == IPStatus.Success;
+            }
+            catch(PingException e)
+            {
+                PistaMgr.Instance.Error("SincronizadorCliente", "PingHost(): " + e.Message);
+            }
+            return pingable;
+        }
+
+
         public void OnSincronizando(int c, int t, string tx)
         {
             Console.WriteLine("6 sssssssssssss:::::::::::::::::::::::::::::::::::::::: ");

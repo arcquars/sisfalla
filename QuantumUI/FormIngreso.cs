@@ -53,7 +53,25 @@ namespace QuantumUI
             cndcLabelInfo.Text = "Introducir nombre de usuario y contraseña ...";//MessageMgr.Instance.GetMessage("INGRESAR_US_CONTRASENA");
             cndcComboDestino.Items.Add("Remoto - CNDC");
             cndcComboDestino.Items.Add("Local - OFFLINE");
-            cndcComboDestino.SelectedIndex = 0; 
+            cndcComboDestino.SelectedIndex = 0;
+
+            // Carga items para combo de conexion
+            cndcComboConexion.Items.Add(new KeyValuePair<int, string>(0, "Conectado"));
+            cndcComboConexion.Items.Add(new KeyValuePair<int, string>(1, "Sin Conexion"));
+            cndcComboConexion.DisplayMember = "Value";
+            cndcComboConexion.ValueMember = "Key";
+
+            if (!CNDC.BLL.Sesion.Instancia.ConfigConexion.IsConnection)
+            {
+                cndcComboConexion.SelectedIndex = 1;
+            }
+            else
+            {
+                cndcComboConexion.SelectedIndex = 0;
+            }
+
+            cndcComboConexion.SelectedIndexChanged += new EventHandler(TscbSelectedIndexChanged);
+
         }
 
         private bool ValidateUser(string username, string password)
@@ -178,6 +196,22 @@ namespace QuantumUI
             }
         }
 
-        
+        private void TscbSelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            ComboBox cc = (sender as ComboBox);
+            KeyValuePair<int, string> kvpSelected = (KeyValuePair<int, string>)cc.SelectedItem;
+            Console.WriteLine("gggggg:: " + kvpSelected.Key);
+            if (kvpSelected.Key == 0)
+            {
+                CNDC.BLL.Sesion.Instancia.ConfigConexion.IsConnection = true;
+            }
+            else
+            {
+                CNDC.BLL.Sesion.Instancia.ConfigConexion.IsConnection = false;
+            }
+
+
+        }
+
     }
 }

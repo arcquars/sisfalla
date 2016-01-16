@@ -68,9 +68,8 @@ namespace SISFALLA
                     if (_runInBack)
                     {
                         this.Visible = false;
-
                         _btnDecargar_Click(null, null);
-                    }
+                        }
                 }
               
             }}
@@ -104,8 +103,7 @@ namespace SISFALLA
 
         private void _btnDecargar_Click(object sender, EventArgs e)
         {
-            bool offline = CNDC.BLL.Sesion.Instancia.ConfigConexion.IsConnection;
-            if (offline)
+            if (CNDC.Sincronizacion.SincronizadorCliente.Instancia.PingHost())
             {
                 if (_chlbxAgentes.Items.Count == 0)
                 {
@@ -121,8 +119,8 @@ namespace SISFALLA
             }
             else
             {
-
-                MessageBox.Show("Sistema en modo fuera de linea.", "Descarga de Informes.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No hay conexion con la vpn.", "", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                this.Close();
             }
         }
 
@@ -209,7 +207,7 @@ namespace SISFALLA
             }
             catch (Exception ex)
             {
-                PistaMgr.Instance.Error("FormDescargaInfFalla", ex);
+                PistaMgr.Instance.Error("FormDescargaInfFalla   ", ex);
             }
         }
         private static bool ImportarInforme(byte[] informe, out bool continuaImportando)

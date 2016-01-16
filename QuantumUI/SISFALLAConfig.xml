@@ -17,7 +17,7 @@
     <Grid name="Config">
       <fontfamily>Arial</fontfamily>
       <fontsize>8</fontsize>
-      <borderStyle>FIXEDSINGLE</borderStyle>
+      <borderStyle>FIXEDSINGLE</borderStyle>BaseDB
     </Grid >
     <Grid name = "Demo">
       <VisibleColumns></VisibleColumns>

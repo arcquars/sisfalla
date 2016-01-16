@@ -16,7 +16,6 @@ namespace ModeloSisFalla
    public  interface iCambioContrasenaMgr
     {
         void CambiarContrasena(string nuevaContrasena);
-        string ObtenerNombreDeUsuario();
+        string ObtenerNombreDeUsuario();		
     }
-    
 }

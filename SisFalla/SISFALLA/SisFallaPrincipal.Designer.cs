@@ -60,6 +60,9 @@ namespace SISFALLA
             this._cmbVista = new Controles.CNDCComboBox();
             this.cndcLabel1 = new Controles.CNDCLabel();
             this._btnPublicar = new Controles.CNDCButton();
+
+            this._btnSincronizar = new Controles.CNDCButton();
+
             this._bgWorker = new System.ComponentModel.BackgroundWorker();
             this._cmDescargarFalla = new System.Windows.Forms.ContextMenuStrip(this.components);
             this._tbsDescargarInformesDeFalla = new System.Windows.Forms.ToolStripMenuItem();
@@ -183,7 +186,7 @@ namespace SISFALLA
             // 
             // _timerSinc
             // 
-            this._timerSinc.Interval = 30000;
+            this._timerSinc.Interval = 10000;
             this._timerSinc.Tick += new System.EventHandler(this._sincTimer_Tick);
             // 
             // _pnlPrincipal
@@ -277,6 +280,8 @@ namespace SISFALLA
             this._pnlBotones.Controls.Add(this._cmbVista);
             this._pnlBotones.Controls.Add(this.cndcLabel1);
             this._pnlBotones.Controls.Add(this._btnPublicar);
+            this._pnlBotones.Controls.Add(this._btnSincronizar);
+
             this._pnlBotones.Dock = System.Windows.Forms.DockStyle.Top;
             this._pnlBotones.Location = new System.Drawing.Point(0, 0);
             this._pnlBotones.Name = "_pnlBotones";
@@ -342,15 +347,24 @@ namespace SISFALLA
             this._btnPublicar.Visible = false;
             this._btnPublicar.Click += new System.EventHandler(this._btnPublicar_Click);
             // 
+            // _btnSincronizar
+            // 
+            this._btnSincronizar.Location = new System.Drawing.Point(672, 5);
+            this._btnSincronizar.Name = "_btnSincronizar";
+            this._btnSincronizar.Size = new System.Drawing.Size(117, 23);
+            this._btnSincronizar.TabIndex = 3;
+            this._btnSincronizar.TablaCampoBD = null;
+            this._btnSincronizar.Text = "Sincronizar";
+            this._btnSincronizar.UseVisualStyleBackColor = true;
+            this._btnSincronizar.Click += new System.EventHandler(this._btnSincronizar_Click);
+            // 
             // _bgWorker
             // 
-            bool offline = CNDC.BLL.Sesion.Instancia.ConfigConexion.IsConnection;
-            if (offline)
-            {
+            
                 this._bgWorker.WorkerReportsProgress = true;
                 this._bgWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this._bgWorker_DoWork);
                 this._bgWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this._bgWorker_RunWorkerCompleted);
-            }
+            
             // 
             // _cmDescargarFalla
             // 
@@ -430,6 +444,9 @@ namespace SISFALLA
         private System.Windows.Forms.ToolStripButton _btnVerInfRectificatorio;
         private Controles.CNDCPanelControl _pnlBotones;
         private Controles.CNDCButton _btnPublicar;
+
+        private Controles.CNDCButton _btnSincronizar;
+
         private System.Windows.Forms.DataGridViewImageColumn ColNotif;
         private System.Windows.Forms.DataGridViewImageColumn ColPrelim;
         private System.Windows.Forms.DataGridViewImageColumn ColFinal;

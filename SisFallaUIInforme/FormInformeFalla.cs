@@ -1055,14 +1055,16 @@ namespace SISFALLA
 
         private void EnviarInforme()
         {
-            _dataSetInforme.Tables[InformeFalla.NOMBRE_TABLA].Rows[0]["D_COD_ESTADO_INF"] = 3594;
             
-            if (Sesion.Instancia.RolSIN != "CNDC")
-            {
-                _informeEnviadoViaWCF = CNDC.Sincronizacion.SincronizadorCliente.Instancia.MgrServidor.Subir(_dataSetInforme, "SISFALLA");
-            }
+                _dataSetInforme.Tables[InformeFalla.NOMBRE_TABLA].Rows[0]["D_COD_ESTADO_INF"] = 3594;
 
-            _formConfigEnvio.Enviar();
+                if (Sesion.Instancia.RolSIN != "CNDC" && CNDC.Sincronizacion.SincronizadorCliente.Instancia.PingHost())
+                {
+                    _informeEnviadoViaWCF = CNDC.Sincronizacion.SincronizadorCliente.Instancia.MgrServidor.Subir(_dataSetInforme, "SISFALLA");
+                }
+
+                _formConfigEnvio.Enviar();
+            
         }
         
         private void VerificarResultadoDeEnvio()

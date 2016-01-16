@@ -66,8 +66,7 @@ namespace SISFALLA
         private void _btnDecargar_Click(object sender, EventArgs e)
         {
 
-            bool offline = CNDC.BLL.Sesion.Instancia.ConfigConexion.IsConnection;
-            if (offline)
+            if (CNDC.Sincronizacion.SincronizadorCliente.Instancia.PingHost())
             {
                 int _pkCodFallaSeleccionadoInicio = (int)_cmbRegistrosFallaInicio.SelectedValue;
                 int _pkCodFallaSeleccionadoFin = (int)_cmbRegistrosFallaFin.SelectedValue;
@@ -85,7 +84,7 @@ namespace SISFALLA
             else
             {
 
-                MessageBox.Show("Sistema en modo fuera de linea.", "Descarga de Informes.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No hay conexion con la vpn.", "", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
         }
 
@@ -124,15 +123,15 @@ namespace SISFALLA
         }
         private void DescargarInformes()
         {
-            try
-            {
-              List<AgentesInvolucradosTmp> agentes = GetAgentesInvolucrados (_pkCodFalla) ;
-           
-                AgentesInvolucradosTmp agCndc = new AgentesInvolucradosTmp(7,"CNDC");
-
-                if (agentes.Contains (agCndc))
+                try
                 {
-                    
+                    List<AgentesInvolucradosTmp> agentes = GetAgentesInvolucrados(_pkCodFalla);
+
+                    AgentesInvolucradosTmp agCndc = new AgentesInvolucradosTmp(7, "CNDC");
+
+                    if (agentes.Contains(agCndc))
+                    {
+
                         agentes.Remove(agCndc);
                         bool continuaPre = false;
                         bool continuaFin = false;
@@ -176,20 +175,20 @@ namespace SISFALLA
                                 ImportarInforme(informe, out dummy);
                             }
                         }
+                    }
+
+
+
+                    //if (!_runInBack)
+                    //{
+                    //    MessageBox.Show("Descarga de Informes Finalizada.", "Descarga de Informes.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //}
+                    DialogResult = System.Windows.Forms.DialogResult.OK;
                 }
-
-
-
-                //if (!_runInBack)
-                //{
-                //    MessageBox.Show("Descarga de Informes Finalizada.", "Descarga de Informes.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //}
-                DialogResult = System.Windows.Forms.DialogResult.OK;
-            }
-            catch (Exception ex)
-            {
-                PistaMgr.Instance.Error("FormDescargaInfFalla", ex);
-            }
+                catch (Exception ex)
+                {
+                    PistaMgr.Instance.Error("FormDescargaInfFalla", ex);
+                }
         }
 
 
