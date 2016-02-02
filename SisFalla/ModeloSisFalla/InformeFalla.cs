@@ -440,6 +440,8 @@ namespace ModeloSisFalla
         bool ModificarSupervisorInforme(InformeFalla infFalla, Persona p);
         
         DataRow GetBloqueador(InformeFalla informeFalla);
+
+        bool UpdateElavoradoPor(long pkRegFalla, int tipoInf, long origenInforme, long codPersona, string nomPersona);
     }
 
     public enum ResultadoCopiaInforme : int

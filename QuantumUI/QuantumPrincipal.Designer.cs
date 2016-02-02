@@ -66,12 +66,12 @@
             // 
             // _timerHora
             // 
-            this._timerHora.Interval = 1000;
+            this._timerHora.Interval = 10000;
             this._timerHora.Tick += new System.EventHandler(this._timerHora_Tick);
             // 
             // _timerHoraCNDC
             // 
-            this._timerHoraCNDC.Interval = 30000;
+            this._timerHoraCNDC.Interval = 10000;
             this._timerHoraCNDC.Tick += new System.EventHandler(this._timerHoraCNDC_Tick);
             // 
             // QuantumPrincipal
@@ -98,6 +98,10 @@
             this.cndcPanelControl2.PerformLayout();
             this.ResumeLayout(false);
 
+            /*this.Enabled = false;
+            stem.Thread.Sleep(5000);
+            this.Enabled = true;
+            */
         }
 
         #endregion

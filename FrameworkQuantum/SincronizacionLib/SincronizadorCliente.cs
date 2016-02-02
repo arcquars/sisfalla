@@ -98,9 +98,7 @@ namespace CNDC.Sincronizacion
             //ConfigurationManager.AppSettings["OffLine"] = "ss";
             Console.WriteLine("3 sssssssssssss:::::::::::::::::::::::::::::::::::::::: ");
             bool resultado = false;
-
-            if (this.PingHost())
-            {
+            
                 try
                 {
                     Pistas.PistaMgr.Instance.EscribirLog("Sincronizacion", "Inicio Sincronización" + DateTime.Now.ToString(), TipoPista.Debug);
@@ -119,12 +117,7 @@ namespace CNDC.Sincronizacion
                 //    resultado = SincronizacionInformesDeFalla();
                 //    Pistas.PistaMgr.Instance.EscribirLog("Sincronizacion", "SincronizacionInformesDeFalla " + DateTime.Now.ToString(), TipoPista.Debug);
                 //}
-                //count++;
-            }
-            else
-            {
-                Console.WriteLine("No se pudo hacer ping en el servidor...");
-            }
+                //count++;            
             return resultado;
         }
         
@@ -313,7 +306,7 @@ namespace CNDC.Sincronizacion
             Ping pinger = new Ping();
             try
             {
-                PingReply reply = pinger.Send("192.168.177.128");
+                PingReply reply = pinger.Send("192.168.217.128");
                 pingable = reply.Status == IPStatus.Success;
             }
             catch(PingException e)

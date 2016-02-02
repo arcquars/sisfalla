@@ -11,6 +11,8 @@ using ModeloSisFalla;
 using System.Windows.Forms;
 using System.IO;
 
+using System.Net;
+
 namespace repSisfalla
 {
     public class RptInformeFalla : ProveedorDatosBase
@@ -24,9 +26,10 @@ namespace repSisfalla
 
         private void _btnAnalisisFalla_Click(object sender, EventArgs e)
         {
+            RptInformeFallaParametroExtra parametro = (RptInformeFallaParametroExtra)_parametroExtra;
             if ( _tablaAnalisis.Rows.Count > 0 )
-             {
-                 RptInformeFallaParametroExtra parametro = (RptInformeFallaParametroExtra)_parametroExtra;
+                //if (_tablaAnalisis.Rows.Count < 0)
+            {
 
                 byte[] contenido = (byte[])(_tablaAnalisis.Rows[0]["ARCHIVO"]);
                 string sNombreArchivo = string.Format("analisisdefalla_{0}_{1}_{2}.pdf" ,parametro.CodFalla ,parametro.Origen ,parametro.TipoInforme );
@@ -36,6 +39,137 @@ namespace repSisfalla
                 archivopdf.Close();
                 System.Diagnostics.Process.Start(sRutaAnalisis);
             }
+            else
+            {
+                if(parametro.TipoInforme == PK_D_COD_TIPOINFORME.FINAL)
+                {
+                    byte[] contenido = InsertAnalisisFalla(parametro);
+                    if (contenido != null)
+                    {
+                        string sNombreArchivo = string.Format("analisisdefalla_{0}_{1}_{2}.pdf", parametro.CodFalla, parametro.Origen, parametro.TipoInforme);
+                        string sRutaAnalisis = Path.Combine(@"C:\WCFSISFALLA", sNombreArchivo);
+                        FileStream archivopdf = new FileStream(sRutaAnalisis, FileMode.Create, FileAccess.Write);
+                        archivopdf.Write(contenido, 0, contenido.Length);
+                        archivopdf.Close();
+                        System.Diagnostics.Process.Start(sRutaAnalisis);
+                    }
+                }
+                else
+                {
+                    byte[] contenido = InsertAnalisisFallaRectifocatorio(parametro);
+                    if (contenido != null)
+                    {
+                        string sNombreArchivo = string.Format("analisisdefalla_{0}_{1}_{2}.pdf", parametro.CodFalla, parametro.Origen, parametro.TipoInforme);
+                        string sRutaAnalisis = Path.Combine(@"C:\WCFSISFALLA", sNombreArchivo);
+                        FileStream archivopdf = new FileStream(sRutaAnalisis, FileMode.Create, FileAccess.Write);
+                        archivopdf.Write(contenido, 0, contenido.Length);
+                        archivopdf.Close();
+                        System.Diagnostics.Process.Start(sRutaAnalisis);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encuentra el archivo en el local, tampoco existe archivo para descargar.", "", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    }
+                }
+                
+            }
+        }
+
+        private byte[] InsertAnalisisFalla(RptInformeFallaParametroExtra parametro)
+        {
+            WebClient myWebClient = new WebClient();
+            byte[] bytes = null;
+            try
+            {
+                bytes = myWebClient.DownloadData("http://www.cndc.bo/media/archivos/archivos/analisisdefalla_"+parametro.CodFalla+"_7_FINAL.pdf");
+                //bytes = myWebClient.DownloadData("http://www.cndc.bo/media/archivos/archivos/analisisdefalla_150360_7_FINAL.pdf");
+
+            }
+            catch (WebException webEx)
+            {
+                CNDC.Pistas.PistaMgr.Instance.EscribirLog("InsertAnalisisFallaRectifocatorio", "Error: no se encuentra el archivo en la url: " + webEx.Message, CNDC.Pistas.TipoPista.Error);
+                MessageBox.Show("No se encuentra el archivo en el local, tampoco existe archivo para descargar.", "", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+            }
+            if (bytes != null)
+            {
+                int tipo = Convert.ToInt32(parametro.TipoInforme);
+                this.saveDocAnalisis(bytes, parametro.CodFalla, tipo, parametro.Origen);
+            }
+            return bytes;
+        }
+
+        private byte[] InsertAnalisisFallaRectifocatorio(RptInformeFallaParametroExtra parametro)
+        {
+            WebClient myWebClient = new WebClient();
+            byte[] bytesFinal = null;
+            byte[] bytesRectificatorio = null;
+            try
+            {
+                //bytesRectificatorio = myWebClient.DownloadData("http://www.cndc.bo/media/archivos/archivos/analisisdefalla_" + parametro.CodFalla + "_7_RECTIFICATORIO.pdf");
+                bytesRectificatorio = myWebClient.DownloadData("http://www.cndc.bo/media/archivos/archivos/analisisdefalla_150360_7_FINAL.pdf");
+            }
+            catch (WebException webEx)
+            {
+                CNDC.Pistas.PistaMgr.Instance.EscribirLog("InsertAnalisisFallaRectifocatorio", "Error: no se encuentra el archivo en la url para el rectificatorio: "+webEx.Message, CNDC.Pistas.TipoPista.Error);
+            }
+            try
+            {
+                bytesFinal = myWebClient.DownloadData("http://www.cndc.bo/media/archivos/archivos/analisisdefalla_" + parametro.CodFalla + "_7_FINAL.pdf");
+                //bytesFinal = myWebClient.DownloadData("http://www.cndc.bo/media/archivos/archivos/analisisdefalla_150360_7_FINAL.pdf");
+            }
+            catch (WebException webEx)
+            {
+                CNDC.Pistas.PistaMgr.Instance.EscribirLog("InsertAnalisisFallaRectifocatorio", "Error: no se encuentra el archivo en la url para el final: " + webEx.Message, CNDC.Pistas.TipoPista.Error);
+            }
+            if (bytesRectificatorio != null)
+            {
+                int tipoInforme = Convert.ToInt32(parametro.TipoInforme);
+                this.saveDocAnalisis(bytesRectificatorio, parametro.CodFalla, tipoInforme, parametro.Origen);
+                return bytesRectificatorio;
+            }
+            else
+            {
+                if(bytesFinal != null)
+                {
+                    int tipoInforme = Convert.ToInt32(parametro.TipoInforme);
+                    this.saveDocAnalisis(bytesFinal, parametro.CodFalla, tipoInforme, parametro.Origen);
+                    return bytesFinal;
+                }
+
+            }
+            return bytesRectificatorio;
+        }
+
+        private void saveDocAnalisis(byte[] bytes, int codFalla, int tipoInforme, long origen)
+        {
+            string sql = string.Empty;
+
+            sql = @"
+                INSERT INTO F_GF_DOC_ANALISIS(
+                    PK_COD_FALLA, ARCHIVO, SINC_VER, 
+                    NOMBRE_DOC_ANALISIS, CAUSA, OBSERVACIONES, 
+                    DESCONEXION_COMPONENTE, PK_D_COD_TIPOINFORME, PK_ORIGEN_INFORME
+                ) VALUES(
+                    :NUM_INFORME, :ARCHIVO, null,
+                    :NOMBRE_DOC_ANALISIS, null, :OBSERVACIONES,
+                    null, :PK_D_COD_TIPOINFORME, :LPK_ORIGEN_INFORME
+                )";
+
+            OracleCommand cmd = CrearComando(sql);
+            cmd.Parameters.Add("NUM_INFORME", codFalla);
+            if(tipoInforme == 21)
+                cmd.Parameters.Add("NOMBRE_DOC_ANALISIS", "analisisdefalla_" + codFalla + "_7_FINAL.pdf");
+            else
+                cmd.Parameters.Add("NOMBRE_DOC_ANALISIS", "analisisdefalla_" + codFalla + "_7_RECTIFICATORIO.pdf");
+            cmd.Parameters.Add("OBSERVACIONES", "bajo desde web cndc");
+            cmd.Parameters.Add("PK_D_COD_TIPOINFORME", tipoInforme);
+            cmd.Parameters.Add("LPK_ORIGEN_INFORME", origen);
+
+            OracleParameter param = cmd.Parameters.Add("ARCHIVO", OracleDbType.Blob);
+            param.Direction = ParameterDirection.Input;
+            param.Value = bytes;
+            EjecutarComando(cmd, "ANALISIS");
+
         }
 
         public override List<DataTable> GetDatos()
@@ -479,7 +613,8 @@ namespace repSisfalla
         {
             List<ToolStripButton> resultado = new List<ToolStripButton>();
             RptInformeFallaParametroExtra parametro = (RptInformeFallaParametroExtra)_parametroExtra;
-            if ( _tablaAnalisis.Rows.Count > 0 && parametro.TipoInforme != PK_D_COD_TIPOINFORME.PRELIMINAR )
+            //if ( _tablaAnalisis.Rows.Count > 0 && parametro.TipoInforme != PK_D_COD_TIPOINFORME.PRELIMINAR )
+            if (parametro.TipoInforme != PK_D_COD_TIPOINFORME.PRELIMINAR)
             {
                 resultado.Add(_btnAnalisisFalla);
             }

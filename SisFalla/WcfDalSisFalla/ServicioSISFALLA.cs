@@ -10,10 +10,8 @@
 
 namespace WCFSisFalla
 {
-    
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WCFSisFalla.IServicioSISFALLA")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName = "WCFSisFalla.IServicioSISFALLA")]
     public interface IServicioSISFALLA
     {
         /*
@@ -22,73 +20,73 @@ namespace WCFSisFalla
         [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServicioSISFALLA/GetInformesFallaSincronizacion", ReplyAction = "http://tempuri.org/IServicioSISFALLA/GetInformesFallaSincronizacionResponse")]
         byte[] GetInformesFallaSincronizacion(string token);
 
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSISFALLA/GetTabla", ReplyAction="http://tempuri.org/IServicioSISFALLA/GetTablaResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServicioSISFALLA/GetTabla", ReplyAction = "http://tempuri.org/IServicioSISFALLA/GetTablaResponse")]
         byte[] GetTabla(string token, string nombreTabla);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSISFALLA/GetMaxSincVer", ReplyAction="http://tempuri.org/IServicioSISFALLA/GetMaxSincVerResponse")]
+
+        [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServicioSISFALLA/GetMaxSincVer", ReplyAction = "http://tempuri.org/IServicioSISFALLA/GetMaxSincVerResponse")]
         byte[] GetMaxSincVer(string token);
 
         [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServicioSISFALLA/TablesColumns", ReplyAction = "http://tempuri.org/IServicioSISFALLA/GetMaxSincVerResponse")]
         byte[] TablesColumns(string token);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSISFALLA/GetRegistrosSincronizacion", ReplyAction="http://tempuri.org/IServicioSISFALLA/GetRegistrosSincronizacionResponse")]
+
+        [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServicioSISFALLA/GetRegistrosSincronizacion", ReplyAction = "http://tempuri.org/IServicioSISFALLA/GetRegistrosSincronizacionResponse")]
         byte[] GetRegistrosSincronizacion(string token, string tabla, decimal versionCliente, long pkCodPersona);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSISFALLA/Subir", ReplyAction="http://tempuri.org/IServicioSISFALLA/SubirResponse")]
+
+        [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServicioSISFALLA/Subir", ReplyAction = "http://tempuri.org/IServicioSISFALLA/SubirResponse")]
         bool Subir(string token, byte[] dataSet, string modulo);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSISFALLA/ConfirmarSinc", ReplyAction="http://tempuri.org/IServicioSISFALLA/ConfirmarSincResponse")]
+
+        [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServicioSISFALLA/ConfirmarSinc", ReplyAction = "http://tempuri.org/IServicioSISFALLA/ConfirmarSincResponse")]
         bool ConfirmarSinc(string token, long codPersona, string nombreTabla, byte[] tabla);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSISFALLA/GetStrFechaHora", ReplyAction="http://tempuri.org/IServicioSISFALLA/GetStrFechaHoraResponse")]
+
+        [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServicioSISFALLA/GetStrFechaHora", ReplyAction = "http://tempuri.org/IServicioSISFALLA/GetStrFechaHoraResponse")]
         string GetStrFechaHora(string token);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSISFALLA/GetTablaTest", ReplyAction="http://tempuri.org/IServicioSISFALLA/GetTablaTestResponse")]
+
+        [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServicioSISFALLA/GetTablaTest", ReplyAction = "http://tempuri.org/IServicioSISFALLA/GetTablaTestResponse")]
         byte[] GetTablaTest(string token, string nombreTabla);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSISFALLA/IniciarSesion", ReplyAction="http://tempuri.org/IServicioSISFALLA/IniciarSesionResponse")]
+
+        [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServicioSISFALLA/IniciarSesion", ReplyAction = "http://tempuri.org/IServicioSISFALLA/IniciarSesionResponse")]
         long IniciarSesion(string token);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSISFALLA/ValidarOperacion", ReplyAction="http://tempuri.org/IServicioSISFALLA/ValidarOperacionResponse")]
+
+        [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServicioSISFALLA/ValidarOperacion", ReplyAction = "http://tempuri.org/IServicioSISFALLA/ValidarOperacionResponse")]
         bool ValidarOperacion(long EstadoOperacion, int pk_cod_falla, long PkDCodTipoinforme, long pkcodpersona);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSISFALLA/CerrarSesion", ReplyAction="http://tempuri.org/IServicioSISFALLA/CerrarSesionResponse")]
+
+        [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServicioSISFALLA/CerrarSesion", ReplyAction = "http://tempuri.org/IServicioSISFALLA/CerrarSesionResponse")]
         void CerrarSesion(string token);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSISFALLA/GetInforme", ReplyAction="http://tempuri.org/IServicioSISFALLA/GetInformeResponse")]
+
+        [System.ServiceModel.OperationContractAttribute(Action = "http://tempuri.org/IServicioSISFALLA/GetInforme", ReplyAction = "http://tempuri.org/IServicioSISFALLA/GetInformeResponse")]
         byte[] GetInforme(string token, int codFalla, long origen, long tipo);
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IServicioSISFALLAChannel : WCFSisFalla.IServicioSISFALLA, System.ServiceModel.IClientChannel
     {
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class ServicioSISFALLAClient : System.ServiceModel.ClientBase<WCFSisFalla.IServicioSISFALLA>, WCFSisFalla.IServicioSISFALLA
     {
-        
+
         public ServicioSISFALLAClient()
         {
         }
-        
-        public ServicioSISFALLAClient(string endpointConfigurationName) : 
+
+        public ServicioSISFALLAClient(string endpointConfigurationName) :
                 base(endpointConfigurationName)
         {
         }
-        
-        public ServicioSISFALLAClient(string endpointConfigurationName, string remoteAddress) : 
+
+        public ServicioSISFALLAClient(string endpointConfigurationName, string remoteAddress) :
                 base(endpointConfigurationName, remoteAddress)
         {
         }
-        
-        public ServicioSISFALLAClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+
+        public ServicioSISFALLAClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) :
                 base(endpointConfigurationName, remoteAddress)
         {
         }
-        
-        public ServicioSISFALLAClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+
+        public ServicioSISFALLAClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) :
                 base(binding, remoteAddress)
         {
         }
@@ -98,7 +96,7 @@ namespace WCFSisFalla
         {
             return base.Channel.GetInformesFallaSincronizacion(token);
         }
-        
+
         public byte[] GetTabla(string token, string nombreTabla)
         {
             return base.Channel.GetTabla(token, nombreTabla);
@@ -115,47 +113,47 @@ namespace WCFSisFalla
         {
             return base.Channel.GetMaxSincVer(token);
         }
-        
+
         public byte[] GetRegistrosSincronizacion(string token, string tabla, decimal versionCliente, long pkCodPersona)
         {
             return base.Channel.GetRegistrosSincronizacion(token, tabla, versionCliente, pkCodPersona);
         }
-        
+
         public bool Subir(string token, byte[] dataSet, string modulo)
         {
             return base.Channel.Subir(token, dataSet, modulo);
         }
-        
+
         public bool ConfirmarSinc(string token, long codPersona, string nombreTabla, byte[] tabla)
         {
             return base.Channel.ConfirmarSinc(token, codPersona, nombreTabla, tabla);
         }
-        
+
         public string GetStrFechaHora(string token)
         {
             return base.Channel.GetStrFechaHora(token);
         }
-        
+
         public byte[] GetTablaTest(string token, string nombreTabla)
         {
             return base.Channel.GetTablaTest(token, nombreTabla);
         }
-        
+
         public long IniciarSesion(string token)
         {
             return base.Channel.IniciarSesion(token);
         }
-        
+
         public bool ValidarOperacion(long EstadoOperacion, int pk_cod_falla, long PkDCodTipoinforme, long pkcodpersona)
         {
             return base.Channel.ValidarOperacion(EstadoOperacion, pk_cod_falla, PkDCodTipoinforme, pkcodpersona);
         }
-        
+
         public void CerrarSesion(string token)
         {
             base.Channel.CerrarSesion(token);
         }
-        
+
         public byte[] GetInforme(string token, int codFalla, long origen, long tipo)
         {
             return base.Channel.GetInforme(token, codFalla, origen, tipo);

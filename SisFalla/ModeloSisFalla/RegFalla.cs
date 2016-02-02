@@ -187,12 +187,19 @@ namespace ModeloSisFalla
         //GetTablaFallas(D_COD_ESTADO_INF? _filtroEstadoInforme);
         DataTable GetTablaFallas(long  pk_cod_pesona, D_COD_ESTADO_INF? filtroEstadoInforme);
 		DataTable GetTablaFallasSinInformes();
-    
-		BindingList<Persona> GetAgentesNotificados(int p);
+
+        void UpdateFecInicio(long regFallaId, DateTime nuevaFecIni);
+
+        BindingList<Persona> GetAgentesNotificados(int p);
 		BindingList<Persona> GetAgentesSinNotificar(int p);
 
 		DataTable GetAgentesInvolucrados(int p);
 
 		bool EstaInvolucrado(int pkCodFalla, long pkCodPersona);
+
+        bool isDelete(int pkCodFalla);
+
+        bool DeleteRegFallaById(int pkCodFalla);
+
 	}
 }

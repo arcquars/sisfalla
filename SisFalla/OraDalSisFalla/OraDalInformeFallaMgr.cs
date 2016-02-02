@@ -653,5 +653,45 @@ namespace OraDalSisFalla
             //}
             return resultado;
         }
+
+        public bool UpdateElavoradoPor(long pkRegFalla, int tipoInf, long origen, long codPersona, string nomPersona)
+        {
+            bool estado = true;
+            try
+            {
+                OracleCommand cmd = null;
+                string sql = string.Empty;
+
+                sql = @"UPDATE {0} SET " +
+                "{4}=:{4}, {5}=:{5} " +
+                "WHERE {1}=:{1} AND {2}=:{2} AND {3}=:{3}";
+
+                sql = string.Format(sql,
+                    NombreTabla,
+                    InformeFalla.C_PK_COD_FALLA,
+                    InformeFalla.C_PK_D_COD_TIPOINFORME,
+                    InformeFalla.C_D_COD_ORIGEN,
+                    InformeFalla.C_COD_PERSONA,
+                    InformeFalla.C_ELABORADO_POR
+                    );
+
+                cmd = CrearCommand();
+                cmd.CommandText = sql;
+                cmd.BindByName = true;
+                cmd.Parameters.Add(InformeFalla.C_PK_COD_FALLA, OracleDbType.Int64, pkRegFalla, System.Data.ParameterDirection.Input);
+                cmd.Parameters.Add(InformeFalla.C_PK_D_COD_TIPOINFORME, OracleDbType.Int32, tipoInf, System.Data.ParameterDirection.Input);
+                cmd.Parameters.Add(InformeFalla.C_D_COD_ORIGEN, OracleDbType.Int64, origen, System.Data.ParameterDirection.Input);
+                cmd.Parameters.Add("COD_PERSONA", OracleDbType.Int64, codPersona, System.Data.ParameterDirection.Input);
+                cmd.Parameters.Add("ELABORADO_POR", OracleDbType.Varchar2, nomPersona, System.Data.ParameterDirection.Input);
+
+                Actualizar(cmd);
+            }catch(Exception e)
+            {
+                estado = false;
+                PistaMgr.Instance.Error("DALSisFalla", "[UpdateElavoradoPor] "+e.Message);
+            }
+
+            return estado;
+        }
     }
 }

@@ -632,5 +632,64 @@ namespace OraDalSisFalla
             }
             return resultado;
         }
+
+        public void UpdateFecInicio(long regFallaId, DateTime nuevaFecIni)
+        {
+            OracleCommand cmd = null;
+            string sql = string.Empty;
+
+            sql = "UPDATE {0} SET " +
+            "{2}=:{2} " +
+            "WHERE {1}=:{1} ";
+
+            sql = string.Format(sql,
+                NombreTabla,
+                RegFalla.C_PK_COD_FALLA,
+                RegFalla.C_FEC_INICIO
+                );
+
+            cmd = CrearCommand();
+            cmd.CommandText = sql;
+            cmd.BindByName = true;
+            cmd.Parameters.Add(RegFalla.C_PK_COD_FALLA, OracleDbType.Int64, regFallaId, System.Data.ParameterDirection.Input);
+            cmd.Parameters.Add(RegFalla.C_FEC_INICIO, OracleDbType.Date, nuevaFecIni, System.Data.ParameterDirection.Input);
+
+            Actualizar(cmd);
+        }
+
+        public bool isDelete(int pkCodFalla)
+        {
+            string sql =
+            @"select * 
+            from F_GF_INFORMEFALLA infFalla
+            where PK_COD_FALLA = :pk_cod_falla ";
+            OracleCommand cmd = CrearCommand();
+            cmd.CommandText = sql;
+            cmd.Parameters.Add("pk_cod_falla", OracleDbType.Int32, pkCodFalla, System.Data.ParameterDirection.Input);
+            cmd.BindByName = true;
+            DataTable resultado = EjecutarCmd(cmd);
+
+            Console.WriteLine("Numero de filas:: "+ resultado.Rows.Count+"; codFalla:: "+pkCodFalla);
+            if (resultado.Rows.Count > 0)
+                return false;
+            else
+                return true;
+        }
+
+        public bool DeleteRegFallaById(int pkCodFalla)
+        {
+            bool delete = false;
+            OracleCommand cmdDeleteOper = CrearCommand();
+            cmdDeleteOper.CommandText =
+            @"DELETE
+                FROM F_GF_REGFALLA
+                WHERE PK_COD_FALLA = :PK_COD_FALLA";
+            cmdDeleteOper.Parameters.Add("PK_COD_FALLA", OracleDbType.Int32, pkCodFalla, System.Data.ParameterDirection.Input);
+            cmdDeleteOper.BindByName = true;
+
+            Actualizar(cmdDeleteOper);
+
+            return delete;
+        }
     }
 }

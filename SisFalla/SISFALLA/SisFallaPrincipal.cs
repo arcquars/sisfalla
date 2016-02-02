@@ -36,6 +36,8 @@ namespace SISFALLA
         private IProveedorTablaRegFalla _proveedorVistaSeleccionado;
         private const int MaxFallasVisibles = 22;
 
+        private bool refreshSisFalla;
+
         public SisFallaPrincipal()
         {
             InitializeComponent();
@@ -48,6 +50,8 @@ namespace SISFALLA
             bgwSincronizadorFallas.DoWork += bgwSincronizadorFallas_DoWork;
             bgwSincronizadorFallas.WorkerReportsProgress = true;
             bgwSincronizadorFallas.ProgressChanged += bgwSincronizadorFallas_ProgressChanged;
+
+            refreshSisFalla = false;
         }
 
         void bgwSincronizadorFallas_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -65,14 +69,25 @@ namespace SISFALLA
 
         void bgwSincronizadorFallas_DoWork(object sender, DoWorkEventArgs e)
         {
-            Console.WriteLine("mioooooooo desde el hilo...");
-            
-                    CNDC.Pistas.PistaMgr.Instance.EscribirLog("Sincronizacion", "ActualizarFallas " + DateTime.Now.ToString(), TipoPista.Debug);
+            if (SincronizadorCliente.Instancia.PingHost())
+            {
+                CNDC.Pistas.PistaMgr.Instance.EscribirLog("Sincronizacion", "ActualizarFallas " + DateTime.Now.ToString(), TipoPista.Debug);
+                
                     if (SincronizadorCliente.Instancia.SincronizarInformesFalla())
                     {
                         ActualizarFallas();
                     }
+                    else
+                    {
+                        
+                    }
                     CNDC.Pistas.PistaMgr.Instance.EscribirLog("Sincronizacion", "ActualizarFallas Terminado " + DateTime.Now.ToString(), TipoPista.Debug);
+                
+            }
+            else
+            {
+                
+            }
         }
 
         void _dgvFallas_MouseUp(object sender, MouseEventArgs e)
@@ -80,7 +95,6 @@ namespace SISFALLA
             DataGridView.HitTestInfo hitTestInfo;
             if (e.Button == MouseButtons.Right)
             {
-
 
                 foreach (DataGridViewRow row in _dgvFallas.Rows)
                 {
@@ -94,14 +108,39 @@ namespace SISFALLA
                 _dgvFallas.Rows[info.RowIndex].Selected = true; 
 
                 hitTestInfo = _dgvFallas.HitTest(e.X, e.Y);
+                
                 if ((hitTestInfo.Type == DataGridViewHitTestType.Cell)  && (  Sesion.Instancia.RolSIN != "CNDC"))
-                {
+                {    
+                    // Preguntamos si es Diferente de Jefe de Division para no mostrar la opcion de 
+                    // borrado del informe
+                    if (!isJefeDivisionCndc())
+                    {
+                        this._tbsBorrarInformesDeFalla.Visible = false;
+                    }
                     _cmDescargarFalla.Show(_dgvFallas, e.Location); 
-
                 }
+                Console.WriteLine("dddddd:: "+ Sesion.Instancia.RolSIN+"; "+ hitTestInfo.Type);
+                if ((  Sesion.Instancia.RolSIN == "CNDC") && isJefeDivisionCndc())
+                {
+                    this._tbsBorrarInformesDeFalla.Visible = true;
+                    this._tbsDescargarInformesDeFalla.Visible = false;
+                    _cmDescargarFalla.Show(_dgvFallas, e.Location);
+                }
+                
+            }
 
-            } 
+        }
 
+        private bool isJefeDivisionCndc()
+        {
+            bool rolCNDC = false;
+            foreach (Rol value in Sesion.Instancia.RolesActuales)
+            {
+                if (value.Num_Rol == 2)
+                    rolCNDC = true;
+            }
+
+            return rolCNDC;
         }
 
         void _txtFiltroNumeroFalla_KeyDown(object sender, KeyEventArgs e)
@@ -188,7 +227,6 @@ namespace SISFALLA
                     PistaMgr.Instance.Debug("CargarDatosInicio", "Iniciando Sincronizacion");
                     SincronizadorCliente.Instancia.Sincronizando += new EventHandler<SincEventArgs>(Sincronizador_Sincronizando);
                     bool offline = CNDC.BLL.Sesion.Instancia.ConfigConexion.IsConnection;
-                    Console.WriteLine("carlossssssssssssssssssssssssssssssssss");
                     if (SincronizadorCliente.Instancia.PingHost())
                     {
                         if (SincronizadorCliente.Instancia.PingHost())
@@ -203,7 +241,7 @@ namespace SISFALLA
                         }
                         else
                         {
-                            messageNotConectionVpn();
+                            MessageBox.Show("No hay conexion con la vpn.", "", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                         }
                         
                     }
@@ -263,7 +301,7 @@ namespace SISFALLA
                             if (i % 10 == 0)
                             {
                                 int p = (100 * i) / l;
-                                bgwSincronizadorFallas.ReportProgress(p, item.PkCodFalla);
+                                //bgwSincronizadorFallas.ReportProgress(p, item.PkCodFalla);
                             }
                             LastCodfalla = item.PkCodFalla;
                         }
@@ -275,7 +313,7 @@ namespace SISFALLA
                     }
                     
                     SincronizadorCliente.Instancia.Actualizar.Clear();
-                    bgwSincronizadorFallas.ReportProgress(100, LastCodfalla);
+                    //bgwSincronizadorFallas.ReportProgress(100, LastCodfalla);
                     _timerSinc.Enabled = true;
                 }
                 else
@@ -423,10 +461,30 @@ namespace SISFALLA
                     ActualizadorTablaRegFalla.Actualizar(tablaFallasActualizado, _dgvFallas.DataSource as DataTable);
                 }
             }
-            
-
         }
 
+        private void CargarFallas1()
+        {
+            DataTable tabla = ModeloMgr.Instancia.RegFallaMgr.GetAgentesInvolucrados();
+            if (tabla.Columns.Count > 0)
+            {
+                _dvwUsuarios = new DataView(tabla);
+                _dgvUsuarios.DataSource = _dvwUsuarios;
+                _dgvUsuarios.AsegurarColumnas();
+                _dvwUsuarios.RowFilter = " PK_COD_FALLA = 0";
+
+                DataTable tablaFallasActualizado = _proveedorVistaSeleccionado.GetTablaRegFalla();
+                
+                    _dgvFallas.DataSource = tablaFallasActualizado;
+                    _dgvFallas.AsegurarColumnas();
+                    _dgvFallas.Sort(_dgvFallas.Columns[RegFalla.C_PK_COD_FALLA], ListSortDirection.Descending);
+
+                    if (_dgvFallas.Rows.Count > 0)
+                    {
+                        _dgvFallas.Rows[0].Selected = true;
+                    }
+            }
+        }
         private void _dgvFallas_SelectionChanged(object sender, EventArgs e)
         {
             OnFallaSeleccionada();
@@ -552,6 +610,7 @@ namespace SISFALLA
 
         private void _btnVerInfFinal_Click(object sender, EventArgs e)
         {
+            Console.WriteLine("Click en final ....................... ver ");
             _btnVerInfFinal.Enabled = false;
             RegFalla regFalla = Sesion.Instancia.GetObjetoGlobal<RegFalla>("Principal.FallaActual");
             CNDCMenu.Instancia.EjecutarOpcion(29, new RptInformeFallaParametroExtra(regFalla.CodFalla, _idUsuarioSeleccionado, PK_D_COD_TIPOINFORME.FINAL));
@@ -749,20 +808,23 @@ namespace SISFALLA
                 if (SincronizadorCliente.Instancia.SincronizarInformesFalla())
                 {
                     ActualizarFallas();
+                    Recargar();
+                    _dgvFallas.Refresh();
+                    Console.WriteLine("Se hiso la actualizacion de fallas");
                 }
                 CNDC.Pistas.PistaMgr.Instance.EscribirLog("Sincronizacion", "ActualizarFallas Terminado Desde boton actualizar" + DateTime.Now.ToString(), TipoPista.Debug);
             }
             else
             {
-                Console.WriteLine("No hay conexion con la vpn.");
-                messageNotConectionVpn();
+                MessageBox.Show("No hay conexion con la vpn.", "", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
             
         }
 
         private void messageNotConectionVpn()
         {
-            MessageBox.Show("No hay conexion con la vpn.", "", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+            this.mensajeConexion = "No hay conexion con la vpn.";
+            //MessageBox.Show("No hay conexion con la vpn.", "", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
         }
 
         RegFalla _fallaSeleccionadaTemp;
@@ -770,37 +832,66 @@ namespace SISFALLA
         {
             if (Sesion.Instancia.ConfigConexion.TipoBD == CNDC.DAL.TipoBaseDatos.Local)
             {
-                PistaMgr.Instance.Debug("_sincTimer_Tick", "Iniciando Sincronizacion");
+                //PistaMgr.Instance.Debug("_sincTimer_Tick", "Iniciando Sincronizacion");
                 if (!FormInformeFalla.FormularioVisible)
                 {
-                    _timerSinc.Enabled = false;
+                    _timerSinc.Start();
                     _fallaSeleccionadaTemp = _fallaSeleccionada;
                     _ctrlSincronizacion.Iniciar();
                     _bgWorker.RunWorkerAsync();
+
+                    if (refreshSisFalla)
+                    {
+                        refreshSisFalla = false;
+                        Recargar();
+                        _dgvFallas.Refresh();
+                    }
+                }
+                else
+                {
+                    _timerSinc.Stop();
+                    refreshSisFalla = true;
                 }
 
             }
             else
             {
-                Recargar();
+                if (!FormInformeFalla.FormularioVisible)
+                {
+                    if (refreshSisFalla)
+                    {
+                        refreshSisFalla = false;
+                        CargarFallas1();
+                        _dgvFallas.Refresh();
+                    }
+                }
+                else
+                {
+                    refreshSisFalla = true;
+                }
             }
         }
-
+        
         bool _huboCambiosEnSincronizacion = false;
         private void _bgWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             if (SincronizadorCliente.Instancia.PingHost())
             {
+                this.mensajeConexion = string.Empty;
                 _huboCambiosEnSincronizacion = CNDC.Sincronizacion.SincronizadorCliente.Instancia.SincronizarDatos();
             }
             else
             {
+
                 messageNotConectionVpn();
             }
         }
 
         private void _bgWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+
+            this.label1.Text = this.mensajeConexion;
+            this.label1.Refresh();
             List<MensajeEmergente> mensajes = new List<MensajeEmergente>();
             if (Sesion.Instancia.RolSIN == "CNDC")
             {
@@ -899,8 +990,53 @@ namespace SISFALLA
 
             FormDescargaInfFalla frm = new FormDescargaInfFalla(regFalla.CodFalla, false);
             frm.Show();
+        }
 
-       
+        private void _tbsBorrarInformesDeFalla_Click(object sender, EventArgs e)
+        {
+            RegFalla regFalla = Sesion.Instancia.GetObjetoGlobal<RegFalla>("Principal.FallaActual");
+            if (ModeloSisFalla.ModeloMgr.Instancia.RegFallaMgr.isDelete(regFalla.CodFalla))
+            {
+                CtrlAgentesInvolucrados ctrlAgentesIn = new CtrlAgentesInvolucrados();
+                ctrlAgentesIn.VisualizarAgentesInvolucrados(regFalla);
+                ResultadoEnvioEmail r = ctrlAgentesIn.EnviarEmailBorrarRegFalla("");
+                string msg = string.Empty;
+                MessageBoxIcon icono = MessageBoxIcon.None;
+                switch (r)
+                {
+                    case ResultadoEnvioEmail.Enviado:
+                        msg = MessageMgr.Instance.GetMessage("NOTIFICACION_ENVIADA_FALLA");
+                        deleteRegistroFallaAndRefresh(regFalla);
+                        icono = MessageBoxIcon.Information;
+                        break;
+                    case ResultadoEnvioEmail.NoEnviado:
+                        msg = MessageMgr.Instance.GetMessage("NOTIF_NO_ENVIADA");
+                        icono = MessageBoxIcon.Error;
+                        break;
+                    case ResultadoEnvioEmail.EnviadoConError:
+                        msg = MessageMgr.Instance.GetMessage("NOTIF_ENVIADA_PARCIAL_FALLA");
+                        deleteRegistroFallaAndRefresh(regFalla);
+                        icono = MessageBoxIcon.Warning;
+                        break;
+                    case ResultadoEnvioEmail.EnvioCanceladoPorUs:
+                        msg = MessageMgr.Instance.GetMessage("NOTIF_CANCELADA_US");
+                        icono = MessageBoxIcon.Warning;
+                        break;
+                }
+                MessageBox.Show(msg, "Envío Notificación", MessageBoxButtons.OK, icono);
+                //System.Windows.Forms.DialogResult= System.Windows.Forms.DialogResult.OK;
+
+            }else
+            {
+                MessageBox.Show("Registro de Falla no se puede eliminar.", "Envío Notificación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void deleteRegistroFallaAndRefresh(RegFalla regFalla)
+        {
+            ModeloSisFalla.ModeloMgr.Instancia.RegFallaMgr.DeleteRegFallaById(regFalla.CodFalla);
+            Recargar();
+            _dgvFallas.Refresh();
         }
     }
 }

@@ -449,5 +449,29 @@ namespace CNDC.BLL
             bool res = Actualizar(cmd);
         }
 
+        public DataTable ListUsuariosElaboradoPor()
+        {
+            bool res = false;
+            string sql = @"
+                select 
+                    DISTINCT usu.PK_COD_USUARIO as id,
+                    person.NOM_PERSONA as Persona
+                from
+                    f_au_usuarios usu inner join
+                    F_AP_PERSONA person on usu.PK_COD_USUARIO=person.PK_COD_PERSONA
+                    inner join
+                    F_AU_RUSUARIOS_ROLES rol
+                    on usu.LOGIN=rol.LOGIN
+                where
+                    (rol.NUM_ROL={0} or rol.NUM_ROL={1})
+                order by
+                    person.NOM_PERSONA   
+                ";
+            sql = string.Format(sql, 1, 4);
+            DataTable tabla = EjecutarSql(sql);
+            
+            return tabla;
+        }
+
     }
 }

@@ -70,6 +70,8 @@ namespace SISFALLA
             _cmbProblemasGen.DisplayMember = DefDominio.C_DESCRIPCION;
             _cmbProblemasGen.ValueMember = DefDominio.C_COD_DOMINIO;
             _cmbProblemasGen.DataSource = ModeloMgr.Instancia.DefDominioMgr.GetDominio(Dominios.D_COD_PROBLEMA_GEN);
+            
+
         }
 
         public InformeFalla InfFalla
@@ -86,6 +88,7 @@ namespace SISFALLA
             VisualizarRegFalla();
             VisualizarInfFallaActual();
             _pnlComandos.Acomodar();
+            
         }
 
         private void VisualizarRegFalla()
@@ -179,6 +182,23 @@ namespace SISFALLA
             Guardar(true);
         }
 
+        private void _btnFechaHoraFallaUpdate_Click(object sender, EventArgs e)
+        {
+            FormUpdateFecha formUF = new FormUpdateFecha(_regFalla.FecInicio, _regFalla.CodFalla);
+            formUF.ShowDialog();
+            _txtFecHoraFalla.Text = formUF.getFecha().ToString(Sesion.FORMATO_FECHA);
+        }
+
+        private void _btnElaboradoPorUpdate_Click(object sender, EventArgs e)
+        {
+            
+            int tipoInforme = (int)_tipoInforme;
+            FormUpdateElaborado fUpdateElaboracion = new FormUpdateElaborado(_regFalla.CodFalla, tipoInforme, _regFalla.CodOrigen);
+            fUpdateElaboracion.ShowDialog();
+            if(fUpdateElaboracion.getNomPersona() != string.Empty)
+                this._txtElaboradoPor.Text = fUpdateElaboracion.getNomPersona();
+        }
+
         public bool Guardar(bool guardarTransac)
         {
             bool resultado = false;
@@ -211,6 +231,7 @@ namespace SISFALLA
                     _pnlComandos.Acomodar();
                     VisualizarInfFallaActual();
                     HabilitarControles();
+
                 }
 
                 if (guardarTransac)
@@ -328,6 +349,9 @@ namespace SISFALLA
             _infFalla = ModeloMgr.Instancia.InformeFallaMgr.GetInforme(_regFalla.CodFalla, _persona.PkCodPersona, (long)_tipoInforme);
             _regFalla.DeltaTiempoIngresoComponentes = ModeloMgr.Instancia.InformeFallaMgr.DeltaTiempoIngresoComponentesMinutos;
 
+            
+                
+
             _tieneOpcionAnalisis = Parametros.DiccionarioParametros.ContainsKey("ANALISIS") ? Parametros.DiccionarioParametros["ANALISIS"] == "SI" : false;
 
             Operacion opn = new Operacion();
@@ -356,11 +380,42 @@ namespace SISFALLA
             }
             else
             {
+                setEnableCambiarElaboradoYFechaFalla();
                 CargarPanelBotones();
                 ShowDialog();
             }
         }
 
+
+        private void setEnableCambiarElaboradoYFechaFalla()
+        {
+            bool rolCNDC = false;
+            foreach (Rol value in Sesion.Instancia.RolesActuales)
+            {
+                //Console.WriteLine(value.Jerarquia+"; "+value.NombreCorto+"; "+value.Num_Rol+"; "+value.CodEstado);
+                if (value.Num_Rol == 2)
+                    rolCNDC = true;
+            }            
+            
+            if (_infFalla.PkOrigenInforme == 7 && rolCNDC && (_infFalla.CodEstadoInf == (long)D_COD_ESTADO_INF.EN_ELABORACION))
+            {
+                _btnFechaHoraFallaUpdate.Enabled = true;
+                _btnElaboradoPorUpdate.Enabled = true;
+            }
+            else
+            {
+                if (_infFalla.PkOrigenInforme == 7)
+                {
+                    _btnFechaHoraFallaUpdate.Enabled = false;
+                    _btnElaboradoPorUpdate.Enabled = false;
+                }
+                else
+                {
+                    _btnFechaHoraFallaUpdate.Visible = false;
+                    _btnElaboradoPorUpdate.Visible = false;
+                }
+            }
+        }
         private void CargarPanelBotones()
         {
             _cmdEditar = new CmdEditar(this);
@@ -447,6 +502,8 @@ namespace SISFALLA
             _tbtnGuardar.Enabled = !banderaEdicion;
             _tbtnCancelar.Enabled = !banderaEdicion;
             AsegurarBotonDocAnalisis();
+
+            
 
             ctrlAlimentadores1.SoloLectura = banderaEdicion;
             ctrlComponentesComprometidos1.SoloLectura = banderaEdicion;

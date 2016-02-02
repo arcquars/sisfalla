@@ -215,6 +215,49 @@ namespace SISFALLA
             return resultadoEnvioNotificacion;
         }
 
+        public ResultadoEnvioEmail EnviarEmailBorrarRegFalla(string otrosDestinatarios)
+        {
+            _otrosDestinatarios = otrosDestinatarios;
+            resultadoEnvioNotificacion = ResultadoEnvioEmail.NoEnviado;
+            agentesNotificar = _agentesInvolucrados;
+            BindingList<Persona> notificados = _regFalla.GetAgentesNotificados();
+            BindingList<Persona> sinNotificar = _regFalla.GetAgentesSinNotificar();
+            FormAgentesNotificar frmAgentesNotificar = new FormAgentesNotificar();
+            agentesNotificar = frmAgentesNotificar.Visualizar(notificados, sinNotificar);
+            if (agentesNotificar == null)
+            {
+                return ResultadoEnvioEmail.EnvioCanceladoPorUs;
+            }
+
+            FormEnvioNotif fEnvioNotif = new FormEnvioNotif();
+            P_GF_Correos encabezado = ModeloMgr.Instancia.P_GF_CorreosMgr.Get(1, D_COD_SECC_CORREO.ENCABEZADO_BORRAR_FALLA);
+            P_GF_Correos cuerpo = ModeloMgr.Instancia.P_GF_CorreosMgr.Get(1, D_COD_SECC_CORREO.CUERPO_BORRAR_FALLA);
+            _encabezado = encabezado.Texto.Replace("#NN_FALLA#", RegFalla.FormatearCodFalla(_regFalla.CodFalla.ToString()));
+            _cuerpo = cuerpo.Texto.Replace("#NN_FALLA#", RegFalla.FormatearCodFalla(_regFalla.CodFalla.ToString()));
+
+            if (fEnvioNotif.Visualizar(_encabezado, _cuerpo) == DialogResult.OK)
+            {
+                PistaMgr.Instance.Info("Sisfalla  ", "Envio ");
+                _encabezado = fEnvioNotif.Asunto;
+                _cuerpo = fEnvioNotif.Cuerpo;
+                FormTareaAsincrona f = new FormTareaAsincrona();
+                PistaMgr.Instance.Info("Envío Notificación de Falla", "Enviando Notificación...");
+                f.Visualizar("Envío Notificación de Falla", "Enviando Notificación...", EnviarNotificacion);
+
+                if (resultadoEnvioNotificacion != ResultadoEnvioEmail.NoEnviado)
+                {
+                    //GuardarNotificaciones(D_COD_ESTADO_NOTIFICACION.ENVIADO);
+                    //RegistrarOperaciones(agentesNotificar);
+                }
+            }
+            else
+            {
+                resultadoEnvioNotificacion = ResultadoEnvioEmail.EnvioCanceladoPorUs;
+            }
+
+            return resultadoEnvioNotificacion;
+        }
+
         private void RegistrarOperaciones(BindingList<Persona> agentesNotificar)
         {
             Operacion opn = new Operacion();

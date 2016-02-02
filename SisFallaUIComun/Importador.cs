@@ -43,6 +43,10 @@ namespace SISFALLA
                       
                     }
                     Importar(ds, contenido);
+                    if (System.IO.File.Exists(@archivo))
+                    {
+                        System.IO.File.Delete(@archivo);
+                    }
                 }
             }
             catch (Exception ex)
@@ -55,14 +59,24 @@ namespace SISFALLA
         {
             string resultado = string.Empty;
             OpenFileDialog dialogoAbrirArch = new OpenFileDialog();
-
-            dialogoAbrirArch.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string path = CNDC.BLL.Sesion.Instancia.ConfigConexion.PathDefault;
+            if (path != "")
+            {
+                dialogoAbrirArch.InitialDirectory = path;
+            }
+            else
+            {
+                dialogoAbrirArch.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            }
             dialogoAbrirArch.Title = "Importar Registro desde archivo Comprimido";
             dialogoAbrirArch.Filter = "Archivos GZ|*.gz|Todos Archivos|*.*";
             dialogoAbrirArch.FileName = string.Empty;
             if (dialogoAbrirArch.ShowDialog() == DialogResult.OK)
             {
                 resultado = dialogoAbrirArch.FileName;
+                System.IO.FileInfo fInfo = new System.IO.FileInfo(dialogoAbrirArch.FileName);
+                CNDC.BLL.Sesion.Instancia.ConfigConexion.PathDefault = fInfo.DirectoryName;
+
             }
             return resultado;
         }

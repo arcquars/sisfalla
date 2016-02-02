@@ -66,6 +66,7 @@ namespace SISFALLA
             this._bgWorker = new System.ComponentModel.BackgroundWorker();
             this._cmDescargarFalla = new System.Windows.Forms.ContextMenuStrip(this.components);
             this._tbsDescargarInformesDeFalla = new System.Windows.Forms.ToolStripMenuItem();
+            this._tbsBorrarInformesDeFalla = new System.Windows.Forms.ToolStripMenuItem();
             this.cachedplantillaReporte1 = new repSisfalla.CachedplantillaReporte();
             this.cachedplantillaReporte2 = new repSisfalla.CachedplantillaReporte();
             this.cachedplantillaReporte3 = new repSisfalla.CachedplantillaReporte();
@@ -186,7 +187,7 @@ namespace SISFALLA
             // 
             // _timerSinc
             // 
-            this._timerSinc.Interval = 10000;
+            this._timerSinc.Interval = 30000;
             this._timerSinc.Tick += new System.EventHandler(this._sincTimer_Tick);
             // 
             // _pnlPrincipal
@@ -369,7 +370,7 @@ namespace SISFALLA
             // _cmDescargarFalla
             // 
             this._cmDescargarFalla.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this._tbsDescargarInformesDeFalla});
+            this._tbsDescargarInformesDeFalla, this._tbsBorrarInformesDeFalla});
             this._cmDescargarFalla.Name = "_cmDescargarFalla";
             this._cmDescargarFalla.Size = new System.Drawing.Size(220, 26);
             // 
@@ -380,6 +381,13 @@ namespace SISFALLA
             this._tbsDescargarInformesDeFalla.Text = "Descargar Informes de Falla";
             this._tbsDescargarInformesDeFalla.Click += new System.EventHandler(this._tbsDescargarInformesDeFalla_Click);
             // 
+            // _tbsBorrarInformesDeFalla
+            // 
+            this._tbsBorrarInformesDeFalla.Name = "_tbsBorrarInformesDeFalla";
+            this._tbsBorrarInformesDeFalla.Size = new System.Drawing.Size(219, 22);
+            this._tbsBorrarInformesDeFalla.Text = "Borrar Informe de Falla";
+            this._tbsBorrarInformesDeFalla.Click += new System.EventHandler(this._tbsBorrarInformesDeFalla_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -387,6 +395,10 @@ namespace SISFALLA
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 4;
+            //
+            // mensajeConexion
+            //
+            this.mensajeConexion = string.Empty;
             // 
             // panel1
             // 
@@ -425,9 +437,12 @@ namespace SISFALLA
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
+            
         }
 
         #endregion
+
+        
 
         private System.Windows.Forms.BindingSource _bscFailures;
         private System.Windows.Forms.BindingSource _bscUsers;
@@ -459,12 +474,16 @@ namespace SISFALLA
         private Controles.CNDCTextBox _txtFiltroNumeroFalla;
         private System.Windows.Forms.ContextMenuStrip _cmDescargarFalla;
         private System.Windows.Forms.ToolStripMenuItem _tbsDescargarInformesDeFalla;
+        private System.Windows.Forms.ToolStripMenuItem _tbsBorrarInformesDeFalla;
         private repSisfalla.CachedplantillaReporte cachedplantillaReporte1;
         private repSisfalla.CachedplantillaReporte cachedplantillaReporte2;
         private repSisfalla.CachedplantillaReporte cachedplantillaReporte3;
         private System.ComponentModel.BackgroundWorker bgwSincronizadorFallas;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+
+        private string mensajeConexion;
+
 
     }
 }

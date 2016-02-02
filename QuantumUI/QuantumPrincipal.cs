@@ -98,14 +98,10 @@ namespace QuantumUI
             }
             else
             {
-                bool offline = CNDC.BLL.Sesion.Instancia.ConfigConexion.IsConnection;
-                if (offline)
+                
+                if (SincronizadorCliente.Instancia.PingHost())
                 {
-                    if (SincronizadorCliente.Instancia.PingHost())
-                    {
-                        Sesion.Instancia.FechaHoraServidor = CNDC.Sincronizacion.SincronizadorCliente.Instancia.MgrServidor.GetFechaHoraServ();
-                    }
-                    
+                    Sesion.Instancia.FechaHoraServidor = CNDC.Sincronizacion.SincronizadorCliente.Instancia.MgrServidor.GetFechaHoraServ();
                 }
                 if (Sesion.Instancia.FechaHoraServidor == null)
                 {

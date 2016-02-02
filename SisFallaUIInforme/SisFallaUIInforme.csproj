@@ -132,6 +132,12 @@
     <Compile Include="CtrlTiempoDetalle.Designer.cs">
       <DependentUpon>CtrlTiempoDetalle.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormUpdateElaborado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdateElaborado.Designer.cs">
+      <DependentUpon>FormUpdateElaborado.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAlimentador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +225,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="FormUpdateFecha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdateFecha.Designer.cs">
+      <DependentUpon>FormUpdateFecha.cs</DependentUpon>
+    </Compile>
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
@@ -242,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CtrlTiempoDetalle.resx">
       <DependentUpon>CtrlTiempoDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdateElaborado.resx">
+      <DependentUpon>FormUpdateElaborado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAlimentador.resx">
       <DependentUpon>FormAlimentador.cs</DependentUpon>
@@ -288,6 +303,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdateFecha.resx">
+      <DependentUpon>FormUpdateFecha.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -350,6 +368,10 @@
     <ProjectReference Include="..\SisFalla\SisFallaEmailLib\SisFallaEmailLib.csproj">
       <Project>{C162C709-FB3C-4DFF-A0C3-91DCAB3468BF}</Project>
       <Name>SisFallaEmailLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SisFalla\WcfDalSisFalla\WcfDalSisFalla.csproj">
+      <Project>{c55f67bb-bcc0-4809-bba7-b379cd42f227}</Project>
+      <Name>WcfDalSisFalla</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

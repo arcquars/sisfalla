@@ -29,7 +29,7 @@
     </Grid>
   </Grids>
   <Conexiones>
-    <ConexionBD name = "Local">
+    <ConexionBD name = "Localx">
       <Cadena>USER ID={0};DATA SOURCE=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SID=xe)));PASSWORD="{1}";PERSIST SECURITY INFO=true;</Cadena>
     </ConexionBD>
    <ConexionBD name = "BaseDatos">

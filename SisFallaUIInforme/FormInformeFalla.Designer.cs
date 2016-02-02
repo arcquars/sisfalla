@@ -64,6 +64,8 @@
             this._lblProblemasGen = new Controles.CNDCLabel();
             this._lblFecHoraInforme = new Controles.CNDCLabel();
             this._txtFecHoraFalla = new Controles.CNDCTextBox();
+            this._btnFechaHoraFallaUpdate = new System.Windows.Forms.Button();
+            this._btnElaboradoPorUpdate = new System.Windows.Forms.Button();
             this._lblFecHoraFalla = new Controles.CNDCLabel();
             this._gpxInfGeneral = new Controles.CNDCGroupBox();
             this._tStripInformeFalla = new Controles.CNDCToolStrip();
@@ -523,6 +525,24 @@
             this._txtFecHoraFalla.TabIndex = 10;
             this._txtFecHoraFalla.TablaCampoBD = null;
             // 
+            // _btnFechaHoraFallaUpdate
+            // 
+            this._btnFechaHoraFallaUpdate.Image = global::SisFallaUIInforme.Properties.Resources.save;
+            this._btnFechaHoraFallaUpdate.Location = new System.Drawing.Point(254, 91);
+            this._btnFechaHoraFallaUpdate.Name = "_btnFechaHoraFallaUpdate";
+            this._btnFechaHoraFallaUpdate.Size = new System.Drawing.Size(26, 20);
+            this._btnFechaHoraFallaUpdate.TabIndex = 27;
+            this._btnFechaHoraFallaUpdate.Click += new System.EventHandler(this._btnFechaHoraFallaUpdate_Click);
+            // 
+            // _btnElaboradoPorUpdate
+            // 
+            this._btnElaboradoPorUpdate.Image = global::SisFallaUIInforme.Properties.Resources.save;
+            this._btnElaboradoPorUpdate.Location = new System.Drawing.Point(950, 134);
+            this._btnElaboradoPorUpdate.Name = "_btnElaboradoPorUpdate";
+            this._btnElaboradoPorUpdate.Size = new System.Drawing.Size(26, 20);
+            this._btnElaboradoPorUpdate.TabIndex = 28;
+            this._btnElaboradoPorUpdate.Click += new System.EventHandler(this._btnElaboradoPorUpdate_Click);
+            // 
             // _lblFecHoraFalla
             // 
             this._lblFecHoraFalla.AutoSize = true;
@@ -552,6 +572,8 @@
             this._gpxInfGeneral.Controls.Add(this._lblFecHoraFalla);
             this._gpxInfGeneral.Controls.Add(this._cbxTipoDesconex);
             this._gpxInfGeneral.Controls.Add(this._txtFecHoraFalla);
+            this._gpxInfGeneral.Controls.Add(this._btnFechaHoraFallaUpdate);
+            this._gpxInfGeneral.Controls.Add(this._btnElaboradoPorUpdate);
             this._gpxInfGeneral.Controls.Add(this._lblCausa);
             this._gpxInfGeneral.Controls.Add(this._lblFecHoraInforme);
             this._gpxInfGeneral.Controls.Add(this._lblElaboradoPor);
@@ -651,7 +673,7 @@
             this._txtElaboradoPor.ForeColor = System.Drawing.Color.Black;
             this._txtElaboradoPor.Location = new System.Drawing.Point(826, 134);
             this._txtElaboradoPor.Name = "_txtElaboradoPor";
-            this._txtElaboradoPor.Size = new System.Drawing.Size(142, 20);
+            this._txtElaboradoPor.Size = new System.Drawing.Size(122, 20);
             this._txtElaboradoPor.TabIndex = 20;
             this._txtElaboradoPor.TablaCampoBD = "F_GF_INFORMEFALLA.ELABORADO_POR";
             // 
@@ -825,6 +847,11 @@
         private Controles.CNDCLabel _lblProblemasGen;
         private Controles.CNDCLabel _lblFecHoraInforme;
         private Controles.CNDCTextBox _txtFecHoraFalla;
+
+        // upd add button
+        private System.Windows.Forms.Button _btnFechaHoraFallaUpdate;
+        private System.Windows.Forms.Button _btnElaboradoPorUpdate;
+
         private Controles.CNDCLabel _lblFecHoraFalla;
         private Controles.CNDCGroupBox _gpxInfGeneral;
         private Controles.CNDCGroupBox cndcGroupBox2;

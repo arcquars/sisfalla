@@ -12,6 +12,8 @@ namespace CNDC.DAL
 
         private bool _isConnection;
 
+        private string _pathDefault;
+
         public ConfigConexionMgr()
         {
             LeerConfiguracion();
@@ -44,8 +46,12 @@ namespace CNDC.DAL
 
         private void GuardarConnectionEnRegistro()
         {
-            Console.WriteLine("ppppppppppppppppppppppppppp GuardarConnectionEnRegistro:: " + _isConnection);
             UtilesComunes.LlaveDeRegistro.EscribirValorDeRegistro(Microsoft.Win32.Registry.LocalMachine, "SOFTWARE\\SisFallaV2", "Connection", _isConnection.ToString());
+        }
+
+        private void GuardarPathDefaultEnRegistro()
+        {
+            UtilesComunes.LlaveDeRegistro.EscribirValorDeRegistro(Microsoft.Win32.Registry.LocalMachine, "SOFTWARE\\SisFallaV2", "PathDefault", _pathDefault);
         }
 
         private void LeerTipoAutenticacionDeRegistro()
@@ -72,6 +78,20 @@ namespace CNDC.DAL
             else
             {
                 _isConnection = Convert.ToBoolean(valorLlave);
+            }
+        }
+
+        private void LeerPathDefaultDeRegistro()
+        {
+            string valorLlave = UtilesComunes.LlaveDeRegistro.LeerValorDeRegistro(Microsoft.Win32.Registry.LocalMachine, "SOFTWARE\\SisFallaV2", "PathDefault");
+            if (string.IsNullOrEmpty(valorLlave))
+            {
+                UtilesComunes.LlaveDeRegistro.EscribirValorDeRegistro(Microsoft.Win32.Registry.LocalMachine, "SOFTWARE\\SisFallaV2", "PathDefault", "1");
+                _pathDefault = "";
+            }
+            else
+            {
+                _pathDefault = valorLlave;
             }
         }
 
@@ -102,6 +122,16 @@ namespace CNDC.DAL
             {
                 _isConnection = value;
                 GuardarConnectionEnRegistro();
+            }
+        }
+
+        public string PathDefault
+        {
+            get { return _pathDefault; }
+            set
+            {
+                _pathDefault = value;
+                GuardarPathDefaultEnRegistro();
             }
         }
 

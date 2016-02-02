@@ -428,6 +428,11 @@ namespace WcfServicioSISFALLA
         {
             return true;
         }
+
+        public bool UpdateRegFallaFecInicio(string token, long codRegFalla, DateTime fecInicio)
+        {
+            return true;
+        }
     }
 
     public class MgrConexiones : IDisposable

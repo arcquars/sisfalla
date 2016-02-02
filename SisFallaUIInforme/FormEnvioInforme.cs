@@ -88,7 +88,7 @@ namespace SISFALLA
             this._btnEnviar.Image = global::SisFallaUIInforme.Properties.Resources.email_go;
             this._btnEnviar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this._btnEnviar.Name = "_btnEnviar";
-            this._btnEnviar.Size = new System.Drawing.Size(57, 22);
+            this._btnEnviar.Size = new System.Drawing.Size(59, 22);
             this._btnEnviar.Text = "Enviar";
             this._btnEnviar.Click += new System.EventHandler(this._btnEnviar_Click);
             // 
@@ -97,7 +97,7 @@ namespace SISFALLA
             this._btnCancelar.Image = global::SisFallaUIInforme.Properties.Resources.Delete;
             this._btnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this._btnCancelar.Name = "_btnCancelar";
-            this._btnCancelar.Size = new System.Drawing.Size(69, 22);
+            this._btnCancelar.Size = new System.Drawing.Size(73, 22);
             this._btnCancelar.Text = "Cancelar";
             this._btnCancelar.Click += new System.EventHandler(this._btnCancelar_Click);
             // 
@@ -205,6 +205,7 @@ namespace SISFALLA
             this.Controls.Add(this.cndcToolStrip1);
             this.Name = "FormEnvioInforme";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Load += new System.EventHandler(this.FormEnvioInforme_Load);
             this.cndcToolStrip1.ResumeLayout(false);
             this.cndcToolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
@@ -350,6 +351,11 @@ namespace SISFALLA
                     _resultadoEnvio = ResultadoEnvioEmail.EnviadoConError;
                 }
             }
+        }
+
+        private void FormEnvioInforme_Load(object sender, EventArgs e)
+        {
+
         }
     }
 

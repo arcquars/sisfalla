@@ -58,5 +58,8 @@ namespace WcfServicioSISFALLA
         [OperationContract]
         bool TestConexion();
 
+        [OperationContract]
+        bool UpdateRegFallaFecInicio(string token, long codRegFalla, DateTime fecInicio);
+
     }
 }

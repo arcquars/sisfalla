@@ -13,7 +13,7 @@ namespace WcfDalSisFalla
     {
         public void Guardar(RegFalla regFalla)
         {
-            
+
         }
 
         public DataTable GetTabla()
@@ -107,7 +107,23 @@ namespace WcfDalSisFalla
             throw new NotImplementedException();
         }
         public void IncrementarSincVer(int pkCodFalla)
-        { throw new NotImplementedException(); 
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateFecInicio(long regFallaId, DateTime nuevaFecIni)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool isDelete(int pkCodFalla)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DeleteRegFallaById(int pkCodFalla)
+        {
+            throw new NotImplementedException();
         }
     }
 }
