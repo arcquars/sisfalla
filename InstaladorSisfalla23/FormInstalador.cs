@@ -67,7 +67,7 @@ namespace InstaladorSisfalla
             Dictionary <string ,string > d = new Dictionary<string,string> ();
             if (!(Instalado.Installed(out d, "ORACLE DATABASE 11G EXPRESS")))
             {
-            pbBd.Image = Resources.si;    
+                pbBd.Image = Resources.si;    
             }
             
 
@@ -262,9 +262,7 @@ namespace InstaladorSisfalla
                 foreach (string dirPath in Directory.GetDirectories(rutaOrigen, "*",
                     SearchOption.AllDirectories))
                 {
-                    Directory.CreateDirectory(dirPath.Replace(rutaOrigen,rutaDestino));
-
-                     
+                    Directory.CreateDirectory(dirPath.Replace(rutaOrigen,rutaDestino));    
                 }
 
                 //Copy all the files & Replaces any files with the same name

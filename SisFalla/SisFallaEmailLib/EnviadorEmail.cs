@@ -75,16 +75,17 @@ namespace SisFallaEmailLib
 
 
                 string destinos = UtilesString.ToString(destinatarios, ";");
-                PistaMgr.Instance.Info("SisFallaEmailLib.Enviar ", string.Format("Destino: {0} ", destinos));
+                PistaMgr.Instance.Info("SisFallaEmailLib.Enviar ", string.Format("Destino: {0}; {1}; {2} ", destinos, ConfiguracionCliente["NOM_CUENTA"].ToString(), fromPassword));
                  OutlookMail outlook = new OutlookMail();
                 if (outlook.IniciarSesion(ConfiguracionCliente["NOM_CUENTA"].ToString(), fromPassword))
+                //if (outlook.IniciarSesion("arc.quars@hotmail.com", "654321pedro"))
                 {
                     outlook.addToOutBox(destinos, asunto, cuerpo, archivosAdjuntos);
                 }
                 else
                 {
                     destinatariosNoEnviados = destinatarios;
-                    mensaje = "Al parecer Outlook no ha sido iniciado.";
+                    mensaje = "Al parecer Outlook no ha sido iniciado...";
                 }
             }
             else

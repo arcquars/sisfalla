@@ -234,7 +234,6 @@ namespace SISFALLA
 
                             continuaImportando = true;
                             resultado = imp.Importar(ds, ContenidoArchivo.Informe, true);
-
                         }
 
                     }

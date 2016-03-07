@@ -122,6 +122,7 @@ namespace SISFALLA
 
         public bool Importar(DataSet dts, ContenidoArchivo contenido, bool silencioso)
         {
+            Console.WriteLine("wwwwwwww aqui 1");
             bool actualizar = true;
             bool mensaje = !silencioso;
             List<IMgrLocal> managersLocal = new List<IMgrLocal>();
@@ -226,6 +227,7 @@ namespace SISFALLA
             }
             catch (Exception ex)
             {
+                Console.WriteLine("wwwwwwww aqui 2");
                 PistaMgr.Instance.Error("ImportarXML()", ex);
             }
             return actualizar;

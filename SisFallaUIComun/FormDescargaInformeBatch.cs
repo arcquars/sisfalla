@@ -104,12 +104,12 @@ namespace SISFALLA
                     {
                         long estadoInforme =(long) dtInforme.Rows[0]["D_COD_ESTADO_INF"];
                         long _pkCodPersona = (long )dtInforme.Rows[0]["PK_ORIGEN_INFORME"];
+                        string ppp = dtInforme.Rows[0]["PK_COD_FALLA"].ToString();
+                        Console.WriteLine(ppp);
                         // si es informe revertido del mismo agente se debe descargar
-
                         if ((estadoInforme == (int)D_COD_ESTADO_INF.ENVIADO)  ||
                             ((CNDC.BLL.Sesion.Instancia.EmpresaActual.PkCodPersona == _pkCodPersona) && (estadoInforme == (int)D_COD_ESTADO_INF.EN_ELABORACION)))
                         {
-
                             continuaImportando = true; 
                             resultado = imp.Importar(ds, ContenidoArchivo.Informe, true);
                             

@@ -201,5 +201,15 @@ namespace ModeloSisFalla
 
         bool DeleteRegFallaById(int pkCodFalla);
 
-	}
+        void UpdateRegFalla(int pkCodFalla);
+
+        void InsertfQntSync(int pkCodFalla);
+
+        bool DeleteRegFallaByIdSinc(int pkCodFalla);
+
+        int GetMaxIdfQntSync();
+
+        void ejectFqntSinc();
+
+    }
 }

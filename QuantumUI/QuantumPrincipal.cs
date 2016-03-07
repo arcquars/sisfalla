@@ -101,6 +101,7 @@ namespace QuantumUI
                 
                 if (SincronizadorCliente.Instancia.PingHost())
                 {
+                    Console.WriteLine("WcfClienteSinc ccc 7a:: ");
                     Sesion.Instancia.FechaHoraServidor = CNDC.Sincronizacion.SincronizadorCliente.Instancia.MgrServidor.GetFechaHoraServ();
                 }
                 if (Sesion.Instancia.FechaHoraServidor == null)

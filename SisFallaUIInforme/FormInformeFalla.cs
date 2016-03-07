@@ -363,6 +363,8 @@ namespace SISFALLA
                 {
                     if (opn.OperacionValida(tipoOpnElab, _regFalla.CodFalla, Sesion.Instancia.EmpresaActual.PkCodPersona))
                     {
+                        _btnFechaHoraFallaUpdate.Visible = false;
+                        _btnElaboradoPorUpdate.Visible = false;
                         AsegurarInfFalla();
                         CargarPanelBotones();
                         ShowDialog();
@@ -389,15 +391,17 @@ namespace SISFALLA
 
         private void setEnableCambiarElaboradoYFechaFalla()
         {
-            bool rolCNDC = false;
+            bool rolCNDC = false;            
             foreach (Rol value in Sesion.Instancia.RolesActuales)
             {
-                //Console.WriteLine(value.Jerarquia+"; "+value.NombreCorto+"; "+value.Num_Rol+"; "+value.CodEstado);
+                Console.WriteLine("datos val:: "+value.Jerarquia+"; "+value.NombreCorto+"; "+value.Num_Rol+"; "+value.CodEstado+"; "+ _infFalla.PkOrigenInforme+"; "+ _infFalla.CodEstadoInf);
                 if (value.Num_Rol == 2)
                     rolCNDC = true;
-            }            
-            
-            if (_infFalla.PkOrigenInforme == 7 && rolCNDC && (_infFalla.CodEstadoInf == (long)D_COD_ESTADO_INF.EN_ELABORACION))
+            }
+            InformeFalla _aux_infFalla = ModeloMgr.Instancia.InformeFallaMgr.GetInforme(_regFalla.CodFalla, _persona.PkCodPersona, (long)PK_D_COD_TIPOINFORME.FINAL);
+            if (
+                _aux_infFalla == null && 
+                _infFalla.PkOrigenInforme == 7 && rolCNDC)
             {
                 _btnFechaHoraFallaUpdate.Enabled = true;
                 _btnElaboradoPorUpdate.Enabled = true;

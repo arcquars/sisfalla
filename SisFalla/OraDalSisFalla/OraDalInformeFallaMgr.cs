@@ -112,7 +112,7 @@ namespace OraDalSisFalla
             cmd.Parameters.Add(InformeFalla.C_FEC_REGISTRO, OracleDbType.Date, GetValor(i.FecRegistro), ParameterDirection.Input);
             cmd.Parameters.Add(InformeFalla.C_ELABORADO_POR, OracleDbType.Varchar2, i.ElaboradoPor, ParameterDirection.Input);
             cmd.BindByName = true;
-
+            
             if (Actualizar(cmd))
             {
                 i.EsNuevo = false;
@@ -664,7 +664,7 @@ namespace OraDalSisFalla
 
                 sql = @"UPDATE {0} SET " +
                 "{4}=:{4}, {5}=:{5} " +
-                "WHERE {1}=:{1} AND {2}=:{2} AND {3}=:{3}";
+                "WHERE {1}=:{1} AND {2}=:{2} AND {3}=:{3} AND {6}=7";
 
                 sql = string.Format(sql,
                     NombreTabla,
@@ -672,7 +672,8 @@ namespace OraDalSisFalla
                     InformeFalla.C_PK_D_COD_TIPOINFORME,
                     InformeFalla.C_D_COD_ORIGEN,
                     InformeFalla.C_COD_PERSONA,
-                    InformeFalla.C_ELABORADO_POR
+                    InformeFalla.C_ELABORADO_POR,
+                    InformeFalla.C_PK_ORIGEN_INFORME
                     );
 
                 cmd = CrearCommand();

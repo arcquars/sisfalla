@@ -41,6 +41,10 @@ namespace QuantumUI
                         _cmbConectarDesde.SelectedIndex = 1;
                         break;
                 }
+
+                cndcComboConexion.Visible = false;
+                cndcLabelConexion.Visible = false;
+
             }
             else
             {

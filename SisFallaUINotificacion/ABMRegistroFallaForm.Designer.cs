@@ -53,9 +53,9 @@
             this._pnlBotonesRadio = new Controles.CNDCPanelControl();
             this._cmbProblemasGen = new Controles.CNDCComboBox();
             this._lblProbGen = new Controles.CNDCLabel();
-            this._txtNumeroFalla = new SISFALLA.TxtNumeroFalla();
             this._ctrlComponenteComprometido = new SISFALLA.CtrlComponente();
             this._ctrlAgentesInvolucrados = new SISFALLA.CtrlAgentesInvolucrados();
+            this._txtNumeroFalla = new SISFALLA.TxtNumeroFalla();
             ((System.ComponentModel.ISupportInitialize)(this._errorProvider)).BeginInit();
             this._pnlBotonesRadio.SuspendLayout();
             this.SuspendLayout();
@@ -360,16 +360,6 @@
             this._lblProbGen.Text = "Problemas de Generación:";
             this._lblProbGen.Visible = false;
             // 
-            // _txtNumeroFalla
-            // 
-            this._txtNumeroFalla.EnterComoTab = true;
-            this._txtNumeroFalla.Location = new System.Drawing.Point(153, 54);
-            this._txtNumeroFalla.Mask = "0000-00";
-            this._txtNumeroFalla.Name = "_txtNumeroFalla";
-            this._txtNumeroFalla.Size = new System.Drawing.Size(64, 20);
-            this._txtNumeroFalla.TabIndex = 2;
-            this._txtNumeroFalla.TablaCampoBD = null;
-            // 
             // _ctrlComponenteComprometido
             // 
             this._ctrlComponenteComprometido.AnchoBoton = 145;
@@ -391,6 +381,16 @@
             this._ctrlAgentesInvolucrados.Name = "_ctrlAgentesInvolucrados";
             this._ctrlAgentesInvolucrados.Size = new System.Drawing.Size(800, 209);
             this._ctrlAgentesInvolucrados.TabIndex = 29;
+            // 
+            // _txtNumeroFalla
+            // 
+            this._txtNumeroFalla.EnterComoTab = true;
+            this._txtNumeroFalla.Location = new System.Drawing.Point(153, 54);
+            this._txtNumeroFalla.Mask = "0000-00";
+            this._txtNumeroFalla.Name = "_txtNumeroFalla";
+            this._txtNumeroFalla.Size = new System.Drawing.Size(64, 20);
+            this._txtNumeroFalla.TabIndex = 2;
+            this._txtNumeroFalla.TablaCampoBD = null;
             // 
             // ABMRegistroFallaForm
             // 
@@ -423,11 +423,12 @@
             this.Controls.Add(this.cndcLabelControl3);
             this.Controls.Add(this.cndcLabelControl2);
             this.Controls.Add(this.cndcLabelControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ABMRegistroFallaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de falla";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ABMRegistroFallaForm_FormClosing);
+            this.Controls.SetChildIndex(this.btnAceptar, 0);
+            this.Controls.SetChildIndex(this.BtnCancelar, 0);
             this.Controls.SetChildIndex(this.cndcLabelControl1, 0);
             this.Controls.SetChildIndex(this.cndcLabelControl2, 0);
             this.Controls.SetChildIndex(this.cndcLabelControl3, 0);

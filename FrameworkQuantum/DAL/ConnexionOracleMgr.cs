@@ -375,6 +375,7 @@ namespace CNDC.DAL
             {
                 resultado = false;
                 PistaMgr.Instance.Error("CNDC.DAL", ex);
+                PistaMgr.Instance.Error("CNDC.DAL1", ex.ToString());
                 PistaMgr.Instance.Error("CNDC.DAL", cmd.CommandText);
             }
             finally

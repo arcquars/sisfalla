@@ -676,9 +676,21 @@ namespace OraDalSisFalla
                 return true;
         }
 
+        public bool DeleteRegFallaByIdSinc(int pkCodFalla)
+        {
+            bool delete = false;
+            UpdateRegFalla(pkCodFalla);
+            InsertfQntSync(pkCodFalla);
+
+            return delete;
+        }
+
         public bool DeleteRegFallaById(int pkCodFalla)
         {
             bool delete = false;
+
+            InsertfQntSync(pkCodFalla);
+
             OracleCommand cmdDeleteOper = CrearCommand();
             cmdDeleteOper.CommandText =
             @"DELETE
@@ -690,6 +702,98 @@ namespace OraDalSisFalla
             Actualizar(cmdDeleteOper);
 
             return delete;
+        }
+
+        public void UpdateRegFalla(int pkCodFalla)
+        {
+            OracleCommand cmdDeleteOper = CrearCommand();
+            cmdDeleteOper.CommandText =
+            @"UPDATE
+                F_GF_REGFALLA
+                SET SINC_VER=500, SEC_LOG=50
+                WHERE PK_COD_FALLA = :PK_COD_FALLA";
+            cmdDeleteOper.Parameters.Add("PK_COD_FALLA", OracleDbType.Int32, pkCodFalla, System.Data.ParameterDirection.Input);
+            cmdDeleteOper.BindByName = true;
+
+            Actualizar(cmdDeleteOper);
+        }
+
+        public void InsertfQntSync(int pkCodFalla)
+        {
+            DataTable table = GetRegistros(pkCodFalla.ToString());
+
+            string sqlEject = "DELETE " +
+            "FROM F_GF_REGFALLA "+
+                "WHERE PK_COD_FALLA = {0} " +
+            "AND SEC_LOG={1} AND SINC_VER={2} ";
+
+            sqlEject = string.Format(sqlEject,
+                pkCodFalla,
+                table.Rows[0]["SEC_LOG"],
+                table.Rows[0]["SINC_VER"]
+                );
+
+            OracleCommand cmdDeleteOper = CrearCommand();
+            cmdDeleteOper.CommandText =
+            @"Insert into
+                F_QNT_SYNC
+                (PK_COD_SYNC, COMANDO_SINCRO, FECHA_PUBLICACION_SINCRO, FECHA_EJECUCION, ESTADO, SINC_VER)
+                VALUES
+                (:PK_COD_SYNC, :COMANDO_SINCRO, SYSDATE, NULL, 0, :PK_COD_SYNC)";
+            cmdDeleteOper.Parameters.Add("PK_COD_SYNC", OracleDbType.Int32, GetMaxIdfQntSync(), System.Data.ParameterDirection.Input);
+            cmdDeleteOper.Parameters.Add("COMANDO_SINCRO", OracleDbType.Varchar2, sqlEject, System.Data.ParameterDirection.Input);
+
+            cmdDeleteOper.BindByName = true;
+
+            Actualizar(cmdDeleteOper);
+        }
+
+        public int GetMaxIdfQntSync()
+        {
+            int resultado = 0;
+            string sql =
+            @"select max(f_qnt_sync.pk_cod_sync)
+              from f_qnt_sync";
+            DataTable tabla = EjecutarSql(sql);
+
+            try
+            {
+                if (tabla.Rows.Count > 0)
+                {
+                    resultado = (int)((decimal)tabla.Rows[0][0] + 1);
+                }
+            }
+            catch
+            {
+            }
+
+            if (resultado == 0)
+            {
+                resultado = 110001;
+            }
+
+            return resultado;
+        }
+
+        public void ejectFqntSinc()
+        {
+            CNDC.DAL.ConnexionOracleMgr conexion = new CNDC.DAL.ConnexionOracleMgr("USER ID=quantum;DATA SOURCE=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SID=xe)));PASSWORD=quantum;PERSIST SECURITY INFO=true;");
+            OracleCommand cmd = conexion.CrearCommand();
+            cmd.CommandText = "ejecutar_f_qnt_sync";
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                PistaMgr.Instance.Error("Sincronizador_F_QNT_SYNC", ex);
+                //resultado = false;
+            }
+            finally
+            {
+                conexion.DisposeCommand(cmd);
+            }
         }
     }
 }

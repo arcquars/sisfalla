@@ -48,6 +48,8 @@ namespace SISFALLA
             this._bscUsers = new System.Windows.Forms.BindingSource(this.components);
             this._pnlPrincipal = new Controles.CNDCPanelControl();
             this._pnlAgentesInvolucrados = new Controles.CNDCPanelControl();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this._ctrlSincronizacion = new SISFALLA.CtrlSincronizacion();
             this._pnlVerInformes = new Controles.CNDCPanelControl();
             this.cndcToolStrip1 = new Controles.CNDCToolStrip();
@@ -60,9 +62,7 @@ namespace SISFALLA
             this._cmbVista = new Controles.CNDCComboBox();
             this.cndcLabel1 = new Controles.CNDCLabel();
             this._btnPublicar = new Controles.CNDCButton();
-
             this._btnSincronizar = new Controles.CNDCButton();
-
             this._bgWorker = new System.ComponentModel.BackgroundWorker();
             this._cmDescargarFalla = new System.Windows.Forms.ContextMenuStrip(this.components);
             this._tbsDescargarInformesDeFalla = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,19 +71,17 @@ namespace SISFALLA
             this.cachedplantillaReporte2 = new repSisfalla.CachedplantillaReporte();
             this.cachedplantillaReporte3 = new repSisfalla.CachedplantillaReporte();
             this.bgwSincronizadorFallas = new System.ComponentModel.BackgroundWorker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this._dgvFallas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._dgvUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._bscFailures)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._bscUsers)).BeginInit();
             this._pnlPrincipal.SuspendLayout();
             this._pnlAgentesInvolucrados.SuspendLayout();
+            this.panel1.SuspendLayout();
             this._pnlVerInformes.SuspendLayout();
             this.cndcToolStrip1.SuspendLayout();
             this._pnlBotones.SuspendLayout();
             this._cmDescargarFalla.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cndcToolTip1
@@ -187,7 +185,7 @@ namespace SISFALLA
             // 
             // _timerSinc
             // 
-            this._timerSinc.Interval = 30000;
+            this._timerSinc.Interval = 20000;
             this._timerSinc.Tick += new System.EventHandler(this._sincTimer_Tick);
             // 
             // _pnlPrincipal
@@ -215,6 +213,23 @@ namespace SISFALLA
             this._pnlAgentesInvolucrados.Size = new System.Drawing.Size(272, 191);
             this._pnlAgentesInvolucrados.TabIndex = 2;
             this._pnlAgentesInvolucrados.TablaCampoBD = null;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 150);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(272, 18);
+            this.panel1.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 1);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.TabIndex = 4;
             // 
             // _ctrlSincronizacion
             // 
@@ -282,7 +297,6 @@ namespace SISFALLA
             this._pnlBotones.Controls.Add(this.cndcLabel1);
             this._pnlBotones.Controls.Add(this._btnPublicar);
             this._pnlBotones.Controls.Add(this._btnSincronizar);
-
             this._pnlBotones.Dock = System.Windows.Forms.DockStyle.Top;
             this._pnlBotones.Location = new System.Drawing.Point(0, 0);
             this._pnlBotones.Name = "_pnlBotones";
@@ -350,7 +364,7 @@ namespace SISFALLA
             // 
             // _btnSincronizar
             // 
-            this._btnSincronizar.Location = new System.Drawing.Point(672, 5);
+            this._btnSincronizar.Location = new System.Drawing.Point(543, 5);
             this._btnSincronizar.Name = "_btnSincronizar";
             this._btnSincronizar.Size = new System.Drawing.Size(117, 23);
             this._btnSincronizar.TabIndex = 3;
@@ -361,18 +375,17 @@ namespace SISFALLA
             // 
             // _bgWorker
             // 
-            
-                this._bgWorker.WorkerReportsProgress = true;
-                this._bgWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this._bgWorker_DoWork);
-                this._bgWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this._bgWorker_RunWorkerCompleted);
-            
+            this._bgWorker.WorkerReportsProgress = true;
+            this._bgWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this._bgWorker_DoWork);
+            this._bgWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this._bgWorker_RunWorkerCompleted);
             // 
             // _cmDescargarFalla
             // 
             this._cmDescargarFalla.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this._tbsDescargarInformesDeFalla, this._tbsBorrarInformesDeFalla});
+            this._tbsDescargarInformesDeFalla,
+            this._tbsBorrarInformesDeFalla});
             this._cmDescargarFalla.Name = "_cmDescargarFalla";
-            this._cmDescargarFalla.Size = new System.Drawing.Size(220, 26);
+            this._cmDescargarFalla.Size = new System.Drawing.Size(220, 48);
             // 
             // _tbsDescargarInformesDeFalla
             // 
@@ -387,27 +400,6 @@ namespace SISFALLA
             this._tbsBorrarInformesDeFalla.Size = new System.Drawing.Size(219, 22);
             this._tbsBorrarInformesDeFalla.Text = "Borrar Informe de Falla";
             this._tbsBorrarInformesDeFalla.Click += new System.EventHandler(this._tbsBorrarInformesDeFalla_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 1);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 13);
-            this.label1.TabIndex = 4;
-            //
-            // mensajeConexion
-            //
-            this.mensajeConexion = string.Empty;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 150);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(272, 18);
-            this.panel1.TabIndex = 5;
             // 
             // SisFallaPrincipal
             // 
@@ -426,6 +418,8 @@ namespace SISFALLA
             ((System.ComponentModel.ISupportInitialize)(this._bscUsers)).EndInit();
             this._pnlPrincipal.ResumeLayout(false);
             this._pnlAgentesInvolucrados.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this._pnlVerInformes.ResumeLayout(false);
             this._pnlVerInformes.PerformLayout();
             this.cndcToolStrip1.ResumeLayout(false);
@@ -433,11 +427,8 @@ namespace SISFALLA
             this._pnlBotones.ResumeLayout(false);
             this._pnlBotones.PerformLayout();
             this._cmDescargarFalla.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
-            
         }
 
         #endregion

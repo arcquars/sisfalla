@@ -125,5 +125,30 @@ namespace WcfDalSisFalla
         {
             throw new NotImplementedException();
         }
+
+        public void UpdateRegFalla(int pkCodFalla)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void InsertfQntSync(int pkCodFalla)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DeleteRegFallaByIdSinc(int pkCodFalla)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetMaxIdfQntSync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ejectFqntSinc()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

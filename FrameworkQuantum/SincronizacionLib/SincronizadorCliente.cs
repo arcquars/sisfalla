@@ -95,7 +95,6 @@ namespace CNDC.Sincronizacion
         private int count = 0;
         public bool SincronizarDatos()
         {
-            //ConfigurationManager.AppSettings["OffLine"] = "ss";
             Console.WriteLine("3 sssssssssssss:::::::::::::::::::::::::::::::::::::::: ");
             bool resultado = false;
             
@@ -148,7 +147,7 @@ namespace CNDC.Sincronizacion
                 Console.WriteLine("0eeeeeeeeeeee:: ");
                 Dictionary<string, decimal> sincVersionesServidor = MgrServidor.GetMaxSincVer();
                 Console.WriteLine("1eeeeeeeeeeee:: ");
-                Console.WriteLine("2eeeeeeeeeeee:: "+sincVersionesLocal.Count);
+                Console.WriteLine("2eeeeeeeeeeee:: "+sincVersionesLocal.Count+"; servidor: "+ sincVersionesServidor.Count);
                 PistaMgr.Instance.EscribirEnLocal("Sincronizador", "Iniciando Sincronizacion: PASO3 " + DateTime.Now.ToString("HH:mm:ss"));
                 int contadorTablasSincronizadas = 0;
                 Dictionary<IProveedorConfirmacionSinc, DataTable> dicProveedoresConfirmacion = new Dictionary<IProveedorConfirmacionSinc, DataTable>();
@@ -265,6 +264,8 @@ namespace CNDC.Sincronizacion
                 DataTable sincLocal = ayudante.GetSincronizacionInformesFalla();
                 DataTable sincServer = MgrServidor.GetSincronizacionInformesFalla();
 
+                Console.WriteLine("sincronizarInformesFalla :::::::::::::::::::::::::::::::::::::::: local: "+sincLocal.Rows.Count+"; server: "+sincServer.Rows.Count);
+
                 PistaMgr.Instance.EscribirLog("SincronizacionInformesDeFalla", "SincronizadorRegistroFallas.GetLista(sincLocal) ", TipoPista.Debug);
                 List<SincronizadorRegistroFallas> listaLocal = SincronizadorRegistroFallas.GetLista(sincLocal);
                 PistaMgr.Instance.EscribirLog("SincronizacionInformesDeFalla", " SincronizadorRegistroFallas.GetLista(sincServer); " , TipoPista.Debug);
@@ -292,7 +293,6 @@ namespace CNDC.Sincronizacion
             }
             catch (Exception ex )
             {
-
                 PistaMgr.Instance.Error("Sincronizador", ex);
             }
 
@@ -306,7 +306,7 @@ namespace CNDC.Sincronizacion
             Ping pinger = new Ping();
             try
             {
-                PingReply reply = pinger.Send("192.168.217.128");
+                PingReply reply = pinger.Send("10.0.0.10");
                 pingable = reply.Status == IPStatus.Success;
             }
             catch(PingException e)
@@ -319,10 +319,12 @@ namespace CNDC.Sincronizacion
 
         public void OnSincronizando(int c, int t, string tx)
         {
+
             Console.WriteLine("6 sssssssssssss:::::::::::::::::::::::::::::::::::::::: ");
             if (Sincronizando != null)
             {
                 Sincronizando(this, new SincEventArgs(c, t,tx));
+                Console.WriteLine("6 sssssssssssss:::::::::::::::::::::::::::::::::::::::: 1");
             }
         }
 

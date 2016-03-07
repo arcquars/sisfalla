@@ -223,7 +223,7 @@ namespace SISFALLA
             BindingList<Persona> notificados = _regFalla.GetAgentesNotificados();
             BindingList<Persona> sinNotificar = _regFalla.GetAgentesSinNotificar();
             FormAgentesNotificar frmAgentesNotificar = new FormAgentesNotificar();
-            agentesNotificar = frmAgentesNotificar.Visualizar(notificados, sinNotificar);
+            agentesNotificar = frmAgentesNotificar.VisualizarNoti(notificados, sinNotificar);
             if (agentesNotificar == null)
             {
                 return ResultadoEnvioEmail.EnvioCanceladoPorUs;

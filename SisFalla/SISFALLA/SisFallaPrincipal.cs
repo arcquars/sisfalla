@@ -41,6 +41,7 @@ namespace SISFALLA
         public SisFallaPrincipal()
         {
             InitializeComponent();
+
             _dgvFallas.MultiSelect = false;
             _txtFiltroNumeroFalla.LostFocus +=new EventHandler(FiltroNumeroFalla_LostFocus);
             _txtFiltroNumeroFalla.KeyPress += new KeyPressEventHandler(FiltroNumeroFalla_KeyPress);
@@ -52,6 +53,8 @@ namespace SISFALLA
             bgwSincronizadorFallas.ProgressChanged += bgwSincronizadorFallas_ProgressChanged;
 
             refreshSisFalla = false;
+
+
         }
 
         void bgwSincronizadorFallas_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -69,25 +72,25 @@ namespace SISFALLA
 
         void bgwSincronizadorFallas_DoWork(object sender, DoWorkEventArgs e)
         {
+            Console.WriteLine("false para UPB...........................");
+            bool offline = CNDC.BLL.Sesion.Instancia.ConfigConexion.IsConnection;
+            Console.WriteLine("false para UPB...........................valor offline: " + offline);
             if (SincronizadorCliente.Instancia.PingHost())
             {
                 CNDC.Pistas.PistaMgr.Instance.EscribirLog("Sincronizacion", "ActualizarFallas " + DateTime.Now.ToString(), TipoPista.Debug);
-                
-                    if (SincronizadorCliente.Instancia.SincronizarInformesFalla())
-                    {
-                        ActualizarFallas();
-                    }
-                    else
-                    {
-                        
-                    }
-                    CNDC.Pistas.PistaMgr.Instance.EscribirLog("Sincronizacion", "ActualizarFallas Terminado " + DateTime.Now.ToString(), TipoPista.Debug);
-                
+
+                if (SincronizadorCliente.Instancia.SincronizarInformesFalla())
+                {
+                    ActualizarFallas();
+                }
+                CNDC.Pistas.PistaMgr.Instance.EscribirLog("Sincronizacion", "ActualizarFallas Terminado " + DateTime.Now.ToString(), TipoPista.Debug);
+
             }
-            else
+            if (!offline)
             {
-                
+                _timerSinc.Enabled = false;
             }
+            
         }
 
         void _dgvFallas_MouseUp(object sender, MouseEventArgs e)
@@ -216,14 +219,13 @@ namespace SISFALLA
             _splash = splash;
             Sesion.Instancia.Conexion.ConexionPerdida += new EventHandler(Conexion_ConexionPerdida);
             Application.DoEvents();
-
-           
             try
             {
                 Inicializador.Inicializar();
                 PistaMgr.Instance.Debug("CargarDatosInicio", string.Format("TipoBD:{0}", Sesion.Instancia.ConfigConexion.TipoBD));
                 if (Sesion.Instancia.ConfigConexion.TipoBD == CNDC.DAL.TipoBaseDatos.Local)
                 {
+                    
                     PistaMgr.Instance.Debug("CargarDatosInicio", "Iniciando Sincronizacion");
                     SincronizadorCliente.Instancia.Sincronizando += new EventHandler<SincEventArgs>(Sincronizador_Sincronizando);
                     bool offline = CNDC.BLL.Sesion.Instancia.ConfigConexion.IsConnection;
@@ -249,6 +251,7 @@ namespace SISFALLA
                     {
                         Console.WriteLine("Trabajo fuera de linea..");
                     }
+                    
                 }
 
             }
@@ -275,9 +278,9 @@ namespace SISFALLA
 
         private void ActualizarFallas()
         {
+            
             try
             {
-                _timerSinc.Enabled = false;
                 int i = 0;
                 int LastCodfalla = 0;
 
@@ -298,10 +301,11 @@ namespace SISFALLA
                             PistaMgr.Instance.EscribirLog("ActualizarFallas", "Tamaño : " + informe.Length.ToString(), TipoPista.Debug);
                             FormDescargaInformeBatch.ImportarInforme(informe, out dummy);
                             SincronizadorCliente.Instancia.OnSincronizando(i, l, "Sincronizando Fallas");
+
                             if (i % 10 == 0)
                             {
                                 int p = (100 * i) / l;
-                                //bgwSincronizadorFallas.ReportProgress(p, item.PkCodFalla);
+                                bgwSincronizadorFallas.ReportProgress(p, item.PkCodFalla);
                             }
                             LastCodfalla = item.PkCodFalla;
                         }
@@ -314,18 +318,33 @@ namespace SISFALLA
                     
                     SincronizadorCliente.Instancia.Actualizar.Clear();
                     //bgwSincronizadorFallas.ReportProgress(100, LastCodfalla);
-                    _timerSinc.Enabled = true;
+                    bool offline = CNDC.BLL.Sesion.Instancia.ConfigConexion.IsConnection;
+                    if (!offline)
+                    {
+                        _timerSinc.Enabled = false;
+                    }
+                    else
+                    {
+                        _timerSinc.Enabled = true;
+                    }
                 }
                 else
                 {
-                    PistaMgr.Instance.EscribirLog("ActualizarFallas", "Error: no se definió : SincronizadorCliente.Instancia.Actualizar.Count ", TipoPista.Error);
+                    PistaMgr.Instance.EscribirLog("Actualiza    rFallas", "Error: no se definió : SincronizadorCliente.Instancia.Actualizar.Count ", TipoPista.Error);
                 }
+
+                // aqui
+                Console.WriteLine("lllllllllllllllllllll1");
+                ModeloSisFalla.ModeloMgr.Instancia.RegFallaMgr.ejectFqntSinc();
+                Console.WriteLine("lllllllllllllllllllll2");
             }
             catch (Exception ex )
             {
-                PistaMgr.Instance.EscribirLog("ActualizarFallas", ex, TipoPista.Error);
+                PistaMgr.Instance.EscribirLog("ActualizarFallas ee", ex, TipoPista.Error);
+                Console.WriteLine(ex.Message);
                 throw;
             }
+            
       
         }
         private void CargarImagenFondo()
@@ -390,6 +409,7 @@ namespace SISFALLA
 
         public void Recargar()
         {
+            Console.WriteLine("entro a recargar upb:: ");
             
             RegFalla fallaTemp = Sesion.Instancia.GetObjetoGlobal<RegFalla>("Principal.FallaActual");
             long usuarioTmp = _idUsuarioSeleccionado;
@@ -801,24 +821,44 @@ namespace SISFALLA
 
         private void _btnSincronizar_Click(object sender, EventArgs e)
         {
-            CNDC.Pistas.PistaMgr.Instance.EscribirLog("Sincronizacion", "ActualizarFallas Desde boton actualizar " + DateTime.Now.ToString(), TipoPista.Debug);
-            if (SincronizadorCliente.Instancia.PingHost())
-            {
-                Console.WriteLine("Hiso ping al ping virtual");
-                if (SincronizadorCliente.Instancia.SincronizarInformesFalla())
+                try
                 {
-                    ActualizarFallas();
-                    Recargar();
-                    _dgvFallas.Refresh();
-                    Console.WriteLine("Se hiso la actualizacion de fallas");
+                    //Inicializador.Inicializar();
+                    PistaMgr.Instance.Debug("CargarDatosInicio", string.Format("TipoBD:{0}", Sesion.Instancia.ConfigConexion.TipoBD));
+                    if (Sesion.Instancia.ConfigConexion.TipoBD == CNDC.DAL.TipoBaseDatos.Local)
+                    {
+
+                        PistaMgr.Instance.Debug("CargarDatosInicio", "Iniciando Sincronizacion");
+                        SincronizadorCliente.Instancia.Sincronizando += new EventHandler<SincEventArgs>(Sincronizador_Sincronizando);
+                        if (SincronizadorCliente.Instancia.PingHost())
+                        {
+                            if (SincronizadorCliente.Instancia.SincronizarDatos())
+                            {
+                                List<MensajeEmergente> mensajes = new List<MensajeEmergente>();
+                                mensajes = MensajeEmergenteMgr.Intancia.GetMensajes();
+                                _ctrlSincronizacion.Finalizar(mensajes);
+                            }
+                            ActualizarFallas();
+                            Recargar();
+                            _dgvFallas.Refresh();
+                            PistaMgr.Instance.Debug("CargarDatosInicio", "Fin Sincronizacion");
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("Vpn desconectado");
+                        }
+                    }else
+                    {
+                        Console.WriteLine("dddddddddddddddddddddd");
+                        Recargar();
+                    }
                 }
-                CNDC.Pistas.PistaMgr.Instance.EscribirLog("Sincronizacion", "ActualizarFallas Terminado Desde boton actualizar" + DateTime.Now.ToString(), TipoPista.Debug);
-            }
-            else
-            {
-                MessageBox.Show("No hay conexion con la vpn.", "", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-            }
-            
+                catch (Exception exc)
+                {
+
+                    PistaMgr.Instance.EscribirLog("ActualizarFallas", exc, TipoPista.Error);
+                }
         }
 
         private void messageNotConectionVpn()
@@ -830,6 +870,7 @@ namespace SISFALLA
         RegFalla _fallaSeleccionadaTemp;
         private void _sincTimer_Tick(object sender, EventArgs e)
         {
+            Console.WriteLine("WcfClienteSinc sisfalla a:: ");
             if (Sesion.Instancia.ConfigConexion.TipoBD == CNDC.DAL.TipoBaseDatos.Local)
             {
                 //PistaMgr.Instance.Debug("_sincTimer_Tick", "Iniciando Sincronizacion");
@@ -875,7 +916,8 @@ namespace SISFALLA
         bool _huboCambiosEnSincronizacion = false;
         private void _bgWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            if (SincronizadorCliente.Instancia.PingHost())
+            bool dd = SincronizadorCliente.Instancia.PingHost();
+            if (dd)
             {
                 this.mensajeConexion = string.Empty;
                 _huboCambiosEnSincronizacion = CNDC.Sincronizacion.SincronizadorCliente.Instancia.SincronizarDatos();

@@ -44,6 +44,30 @@ namespace SISFALLA
             }
         }
 
+        public BindingList<Persona> VisualizarNoti(BindingList<Persona> notificados, BindingList<Persona> sinNotificar)
+        {
+            _btnAdicionar.Enabled = false;
+            _btnQuitar.Enabled = false;
+            _dgvAgentesDisponibles.DataSource = new BindingList<Persona>();
+            BaseForm.VisualizarColumnas(_dgvAgentesDisponibles, GetConfColAgentes());
+            _dgvAgentesANotificar.DataSource = notificados;
+            BaseForm.VisualizarColumnas(_dgvAgentesANotificar, GetConfColAgentes());
+            _idxSinNotificar = notificados.Count;
+            _agentesSinNotificar = notificados;
+            _agentesNotificados = sinNotificar;
+
+            _lblAgentesYaNotificados.Text = MessageMgr.Instance.GetMessage("AGENTES_YA_NOTIFICADOS");
+            _lblAgentesPorNotificar.Text = MessageMgr.Instance.GetMessage("AGENTES_POR_NOTIFICAR");
+            if (ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                return _agentesSinNotificar;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         private Dictionary<string, int> GetConfColAgentes()
         {
             Dictionary<string, int> resultado = new Dictionary<string, int>();
